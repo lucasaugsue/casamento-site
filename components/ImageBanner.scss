@@ -1,0 +1,41 @@
+body {
+  overflow-x: hidden;
+}
+section.header {
+  background-color: #05407c;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+  position: relative;
+  color: #eee5d8;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0;
+  margin: 0 0 0 0;
+  .nav{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  .carousel {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  img{
+    object-fit: cover;
+  }
+}
+}
+@import "~react-image-gallery/styles/scss/image-gallery.scss";
+
+@media screen and (max-width: 1025px) {
+  section.header {
+    padding: 0 0 0 0;
+  }
+}
