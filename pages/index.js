@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Header from '../src/components/Header';
+import ImagemDoCasal from '../src/components/ImagemDoCasal';
 // import "./index.scss";
 
 export default function Home() {
@@ -11,6 +12,7 @@ export default function Home() {
       </Head>
       
       <Header/>
+      <ImagemDoCasal/>
     </div>
   )
 }
