@@ -11,13 +11,16 @@ const useStyles = makeStyles((theme) => ({
     },
     imageCasal: {
         float: "left",
+        width: "100%",
         position: "absolute"
     },
     textoImage: {
-        padding: "15px 15px 15px 15px",
-        fontSize: "68px",
-        fontWeight: 500,
-        color:'white'
+        textAlign: "center",
+        padding: "15px 20px 15px 20px",
+        fontSize: "8rem",
+        fontWeight: 800,
+        color:'#C99971',
+        textStroke: "1px #5A4432",
     }
 }));
 
@@ -25,11 +28,11 @@ export default function ImagemDoCasal(){
     const classes = useStyles();
 
     return <div>
-        <img className={classes.imageCasal} alt="" src="/fotodocasal.jpeg" />
+        <img className={classes.imageCasal} alt="" src="/casaleapedra.jpeg" />
         
         <div className={classes.gridContainer}>
             <div className={classes.gridItem}></div>
-            <div className={classes.gridItem}>
+            <div style={{marginLeft: "8.75rem"}} className={classes.gridItem}>
                 <div className={classes.textoImage}>Lucas</div>
             </div>
             <div className={classes.gridItem}>
