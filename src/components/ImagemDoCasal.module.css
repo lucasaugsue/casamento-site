@@ -1,0 +1,25 @@
+
+.gridContainer {
+    display: grid;
+    position: relative;
+    grid-template-columns: 1fr auto auto auto 1fr;
+}
+
+.gridItem {
+    text-align: center;
+}
+
+.imageCasal {
+    float: left;
+    width: 100%;
+    position: absolute;
+}
+
+.textoImage {
+    text-align: center;
+    padding: 15px 20px 15px 20px;
+    font-size: 8rem;
+    font-weight: 800;
+    color: #C99971;
+    -webkit-text-stroke: 1px #5A4432;
+}

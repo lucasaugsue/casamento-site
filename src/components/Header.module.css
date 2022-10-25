@@ -1,0 +1,31 @@
+.boxHeader {
+    background-color: black;
+}
+
+.gridContainerLogo {
+    display: grid;
+    grid-template-columns: 1fr auto auto auto 1fr;
+}
+
+.gridContainerText {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr auto auto auto auto auto 1fr;
+}
+
+.gridItem {
+    text-align: center;
+}
+
+.headerText {
+    font-size: 19px;
+    padding: 15px 20px 20px 20px;
+    color: white
+}
+
+.logo {
+    padding: 15px 10px 0px 10px;
+    font-size: 34px;
+    font-weight: 500;
+    color: white;
+}
