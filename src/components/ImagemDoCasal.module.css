@@ -13,12 +13,23 @@
     float: left;
     width: 100%;
     position: absolute;
+    background-image: url(/casaleapedra.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: scroll;
+    height: calc(100vh);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    z-index: 0;
 }
 
 .textoImage {
     text-align: center;
-    padding: 15px 20px 15px 20px;
-    font-size: 8rem;
+    padding: 15vh 20px 15px 20px;
+    font-size: 6rem;
     font-weight: 800;
     color: #C99971;
     -webkit-text-stroke: 1px #5A4432;

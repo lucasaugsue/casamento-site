@@ -1,5 +1,22 @@
-.boxHeader {
-    background-color: black;
+.basicHeader{
+    box-shadow: unset;
+    width: 100%;
+    z-index: 200;
+    padding: 0 2vw;
+    position: fixed;
+    min-height: 10vh;
+    transition: 0.8s all;
+    background-color: #d69e7d;
+}
+
+.basicHeaderTransparent{
+    width: 100%;
+    z-index: 200;
+    padding: 0 2vw;
+    position: fixed;
+    min-height: 10vh;
+    transition: 0.8s all;
+    background-color: #e6a8529d;
 }
 
 .gridContainerLogo {
