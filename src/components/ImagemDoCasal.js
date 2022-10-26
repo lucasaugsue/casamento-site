@@ -4,15 +4,11 @@ import styles from './ImagemDoCasal.module.css'
 
 export default function ImagemDoCasal(){
 
-    return <div>
-        <div className={styles.imageCasal}/>
+    return <div className={styles.container}>
+        <div className={styles.image}/>
         
-        <div className={styles.gridContainer}>
-            <div className={styles.gridItem}></div>
-            <div style={{marginLeft: "8.75rem"}} className={styles.gridItem}>
-                <div className={styles.textoImage}>Lucas & Victória</div>
-            </div>
-            <div className={styles.gridItem}></div>
+        <div className={styles.divText}>
+            <div className={styles.text}>Lucas & Victória</div>
         </div>
     </div> 
 }

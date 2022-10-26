@@ -1,36 +1,44 @@
-
-.gridContainer {
-    display: grid;
-    position: relative;
-    grid-template-columns: 1fr auto auto auto 1fr;
-}
-
-.gridItem {
-    text-align: center;
-}
-
-.imageCasal {
-    float: left;
+.container {
+    min-height: 100vh;
     width: 100%;
-    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 10;
+    color: #FFFFFF;
+}
+
+.divText {
+    top: 0;
+    position: fixed; 
+    /* background-color: rgba(0, 255, 255, 0.219); */
+}
+
+.text {
+    text-align: center;
+    color: #C99971;
+    font-size: 8.5vh;
+    font-weight: 800;
+    padding: 15vh 20px 15px 20px;
+    -webkit-text-stroke: 1px #5A4432;
+    /* border-bottom: 5px solid #5A4432; */
+    /* the border will curve into a 'D' */
+    /* border-radius: 10px 10px 10px 10px; */
+}
+
+.image {
+    position: fixed; 
+    z-index: -99;
+    padding: 0; 
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
     background-image: url(/casaleapedra.jpeg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
     background-attachment: scroll;
-    height: calc(100vh);
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    z-index: 0;
-}
-
-.textoImage {
-    text-align: center;
-    padding: 15vh 20px 15px 20px;
-    font-size: 6rem;
-    font-weight: 800;
-    color: #C99971;
-    -webkit-text-stroke: 1px #5A4432;
 }
