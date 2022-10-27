@@ -26,6 +26,7 @@
   .containerRotate div {
     display: inline-block;
     font-size: 10vh;
+    transition: 0.9s all;
     /* font: 900 1.5em Monaco, Monospace; */
     color: rgb(255, 255, 255);
     -webkit-text-stroke: 1px #33325a;
@@ -40,11 +41,7 @@
 
 .text {
     text-align: center;
-    /* color: #C99971; */
-    /* font-size: 3vh; */
-    /* font-weight: 400; */
     padding: 15vh 20px 15px 20px;
-    /* -webkit-text-stroke: 1px #5A4432; */
 }
 
 .image {
@@ -78,7 +75,6 @@
     .divText {
         top: 0;
         position: fixed; 
-        /* background-color: rgba(0, 255, 255, 0.219); */
     }
     
     .containerRotate {
@@ -93,6 +89,7 @@
       .containerRotate div {
         display: inline-block;
         font-size: 5vh;
+        transition: 0.9s all;
         /* font: 900 1.5em Monaco, Monospace; */
         color: rgb(255, 255, 255);
         -webkit-text-stroke: 0.4px #33325a;
