@@ -27,9 +27,8 @@
     display: inline-block;
     font-size: 10vh;
     transition: 0.9s all;
-    /* font: 900 1.5em Monaco, Monospace; */
     color: rgb(255, 255, 255);
-    -webkit-text-stroke: 1px #33325a;
+    -webkit-text-stroke: 0.8px #33325a;
     height: 100%;
     width: 100%;
     position: absolute;
@@ -59,24 +58,8 @@
     background-attachment: scroll;
 }
 
-/* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+/* If the screen size is 900px wide or less, set the font-size of <div> to 30px */
 @media screen and (max-width: 900px) {
-    .container {
-        min-height: 100vh;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-        z-index: 10;
-    }
-    
-    .divText {
-        top: 0;
-        position: fixed; 
-    }
-    
     .containerRotate {
         margin: auto;
         position: relative;
@@ -92,7 +75,7 @@
         transition: 0.9s all;
         /* font: 900 1.5em Monaco, Monospace; */
         color: rgb(255, 255, 255);
-        -webkit-text-stroke: 0.4px #33325a;
+        -webkit-text-stroke: 0.3px #33325a;
         height: 100%;
         width: 100%;
         position: absolute;
@@ -104,21 +87,6 @@
     
     .text {
         text-align: center;
-        padding: 25vh 5vw 5vh 15vw;
-    }
-    
-    .image {
-        position: fixed; 
-        z-index: -99;
-        padding: 0; 
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background-image: url(/casaleapedra.jpeg);
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center center;
-        background-attachment: scroll;
+        padding: 25vh 5vw 5vh 12vw;
     }
 }

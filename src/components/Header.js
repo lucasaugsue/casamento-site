@@ -18,9 +18,9 @@ export default function Header({transparent : transparentProps = true}){
         return () => window.removeEventListener('scroll', handleScroll)
     }, [])
 
-    React.useEffect(() => {
-        console.log("transparent",transparent)
-    }, [transparent])
+    // React.useEffect(() => {
+    //     console.log("transparent",transparent)
+    // }, [transparent])
 
     return <div>
         <div className={
