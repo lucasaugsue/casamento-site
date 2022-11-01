@@ -1,8 +1,7 @@
 .basicHeader{
     box-shadow: unset;
-    width: 100%;
-    z-index: 200;
-    padding: 0 2vw;
+    width: 100vw;
+    z-index: 11;
     position: fixed;
     min-height: 10vh;
     transition: 0.8s all;
@@ -10,9 +9,8 @@
 }
 
 .basicHeaderTransparent{
-    width: 100%;
-    z-index: 200;
-    padding: 0 2vw;
+    width: 100vw;
+    z-index: 11;
     position: fixed;
     min-height: 10vh;
     transition: 0.8s all;
@@ -25,7 +23,7 @@
 }
 
 .gridContainerText {
-    width: 100%;
+    width: 100vw;
     display: grid;
     grid-template-columns: 1fr auto auto auto auto auto 1fr;
 }

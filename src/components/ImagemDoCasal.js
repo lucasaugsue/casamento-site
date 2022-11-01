@@ -13,6 +13,7 @@ export default function ImagemDoCasal(){
                     deg = 10 * (index + 1)
 
                     return <div 
+                        key={`${letra};;${index}`}
                         style={{
                             transform: 'rotate(' + deg + 'deg)'
                         }}

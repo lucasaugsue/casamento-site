@@ -14,10 +14,10 @@ export default function SobreOCasal(){
                     <div className={styles.textTitle}>Vamos nos casar!</div>
                     <div className={styles.rightIcon}> <FavoriteIcon className={styles.icons}/></div>
                 </div>
-                <div className={styles.subTitle}>Estamos nas núvens e queremos <br/>compartilhar todo nosso amor.</div>
+                <div className={styles.subTitle}>Estamos nas núvens e queremos compartilhar todo nosso amor.</div>
                 <div className={styles.text}>
-                    Por isso criamos este site com um monte de coisa legais! Uma coisa importante,<br/> 
-                    na parte Confirmação de Presença você poderá se vai ou não ao casamento.<br/>
+                    Por isso criamos este site com um monte de coisa legais! Uma coisa importante, 
+                    na parte Confirmação de Presença você poderá confirmar se vai ou não ao casamento.
                     Confirme sua presença para facilitar nosso planejamento, ficando mais previśivel! 
                 </div>
             </div>
