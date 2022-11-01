@@ -1,8 +1,23 @@
 import React from 'react';
+import moment from "moment-timezone";
 import styles from './SobreOCasal.module.css';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 
 export default function SobreOCasal(){
+
+    const extractToTime = (seconds) => {
+        const days = `${moment("2024-08-17T00:00:00-03:00").diff(moment(), "days")}`
+        const hour = `${(parseInt((seconds / 60) / 60) % 24)}`
+        const min = `0${parseInt((seconds / 60) % 60)}`.slice(-2)
+        const sec = `0${parseInt(seconds % 60)}`.slice(-2)
+
+        return {days, hour, min, sec} 
+    }
+
+    const time = extractToTime(
+        moment("2024-08-17T00:00:00-03:00")
+        .diff(moment(), "seconds")
+    )
 
     return <section className={styles.container}>
         <div className={styles.whiteBox}>
@@ -24,15 +39,15 @@ export default function SobreOCasal(){
 
             <div className={styles.containerTempo}>
                 <div className={styles.timeItem}>
-                    <span>{`550`}</span>
+                    <span>{time.days}</span>
                     <div>Dias</div>
                 </div>
                 <div className={styles.timeItem}>
-                    <span>{` 15`}</span>
+                    <span>{time.hour}</span>
                     <div>Horas</div>
                 </div>
                 <div className={styles.timeItem}>
-                    <span>{` 43`}</span>
+                    <span>{time.min}</span>
                     <div>Minutos</div>
                 </div>
             </div>

@@ -17,6 +17,7 @@
     "axios": "^1.1.3",
     "babel-preset-next": "^1.4.0",
     "moment": "^2.29.4",
+    "moment-timezone": "^0.5.38",
     "next": "latest",
     "qs": "^6.11.0",
     "react": "18.2.0",
