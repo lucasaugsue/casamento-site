@@ -3,12 +3,32 @@ import styles from './ImagemDoCasal.module.css'
 
 
 export default function ImagemDoCasal(){
+    const [scrollPosition, setScrollPosition] = React.useState(0);
+    const [scroll, setScroll] = React.useState(false);
+
+    const handleScroll = e => {
+        setScrollPosition(document.documentElement.scrollTop)
+    }
+
+    React.useEffect(() => {
+        setScroll(scrollPosition <= 100)
+    }, [scrollPosition])
+
+    React.useEffect(() => {
+        window.addEventListener('scroll', handleScroll)
+        return () => window.removeEventListener('scroll', handleScroll)
+    }, [])
+
     const textRotate = () => {
         let deg = 6;
         let frase = "Lucas & Victória"
 
         return (
-            <div className={styles.containerRotate}>
+            <div className={
+                scroll
+                ? styles.containerRotate
+                : styles.containerRotateScroling
+            }>
                 {frase.split("").map((letra, index) => {
                     deg = 10 * (index + 1)
 
