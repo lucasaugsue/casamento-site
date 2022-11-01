@@ -1,22 +1,39 @@
 import React from 'react';
 import styles from './SobreOCasal.module.css';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 
 export default function SobreOCasal(){
 
     return <section className={styles.container}>
         <div className={styles.whiteBox}>
-            <div className={styles.gridItem}>
-                <div className={styles.imagem}/>
+            <div className={styles.imagem}/>
+
+            <div className={styles.containerText}>
+                <div className={styles.gridVamosNosCasar}>
+                    <div className={styles.leftIcon}><FavoriteIcon className={styles.icons}/></div>
+                    <div className={styles.textTitle}>Vamos nos casar!</div>
+                    <div className={styles.rightIcon}> <FavoriteIcon className={styles.icons}/></div>
+                </div>
+                <div className={styles.subTitle}>Estamos nas núvens e queremos <br/>compartilhar todo nosso amor.</div>
+                <div className={styles.text}>
+                    Por isso criamos este site com um monte de coisa legais! Uma coisa importante,<br/> 
+                    na parte Confirmação de Presença você poderá se vai ou não ao casamento.<br/>
+                    Confirme sua presença para facilitar nosso planejamento, ficando mais previśivel!
+                </div>
             </div>
 
-            <div className={styles.gridItem}>
-                <div className={styles.containerText}>
-                    <div className={styles.text}>Um pouco sobre nós</div>
-                    <div className={styles.text}>Um pouco sobre nós</div>
-                    {/* <div className={styles.text}>
-                        Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos.
-                        Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. Se popularizou na década de 60, quando a Letraset lançou decalques contendo passagens de Lorem Ipsum, e mais recentemente quando passou a ser integrado a softwares de editoração eletrônica como Aldus PageMaker.
-                    </div> */}
+            <div className={styles.containerTempo}>
+                <div className={styles.timeItem}>
+                    <span>{`550`}</span>
+                    <div>Dias</div>
+                </div>
+                <div className={styles.timeItem}>
+                    <span>{` 15`}</span>
+                    <div>Horas</div>
+                </div>
+                <div className={styles.timeItem}>
+                    <span>{` 43`}</span>
+                    <div>Minutos</div>
                 </div>
             </div>
         </div>

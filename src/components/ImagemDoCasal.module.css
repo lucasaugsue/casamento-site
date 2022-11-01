@@ -11,7 +11,7 @@
 
 .divText {
     top: 0;
-    position: fixed; 
+    position: absolute; 
 }
 
 .containerRotate {
@@ -44,7 +44,7 @@
 }
 
 .image {
-    position: fixed; 
+    position: absolute; 
     z-index: -99;
     padding: 0; 
     top: 0;
