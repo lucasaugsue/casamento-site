@@ -18,7 +18,7 @@ export default function SobreOCasal(){
                 <div className={styles.text}>
                     Por isso criamos este site com um monte de coisa legais! Uma coisa importante,<br/> 
                     na parte Confirmação de Presença você poderá se vai ou não ao casamento.<br/>
-                    Confirme sua presença para facilitar nosso planejamento, ficando mais previśivel!
+                    Confirme sua presença para facilitar nosso planejamento, ficando mais previśivel! 
                 </div>
             </div>
 
