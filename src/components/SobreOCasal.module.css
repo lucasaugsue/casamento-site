@@ -161,6 +161,20 @@ section.container {
         justify-content: center;
         align-items: center;
     }
+
+    .imagem {
+        width: 25vh;
+        height: 25vh;
+        border-radius: 50%;
+        border-style: solid;
+        margin: 5vh 5vw 3vh 5vw;
+        border-color: #ac9079c0;
+        background-image: url(/fotodocasal.jpeg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+        background-attachment: scroll;
+    }
     
     .textTitle {
         font-size: 4.5vh;
@@ -201,7 +215,7 @@ section.container {
         text-align: center;
     
         margin: 0vh 1.5vh 3vh 1.5vh;
-        padding: 3.5vh 3.5vh 3.5vh 3.5vh;
+        padding: 3vh 3vh 3vh 3vh;
         
         border-radius: 10%;
         border-style: solid;
