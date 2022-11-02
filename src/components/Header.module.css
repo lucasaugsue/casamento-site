@@ -1,9 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Antonio:wght@300&display=swap');
+
 .basicHeader{
     box-shadow: unset;
     width: 100vw;
     z-index: 11;
     position: fixed;
-    min-height: 10vh;
+    min-height: 9vh;
     transition: 0.8s all;
     background-color: #d69e7d;
 }
@@ -12,35 +14,54 @@
     width: 100vw;
     z-index: 11;
     position: fixed;
-    min-height: 10vh;
+    min-height: 9vh;
     transition: 0.8s all;
-    background-color: #e6a8529d;
+    background-color: #c28a3b9d;
 }
 
 .gridContainerLogo {
     display: grid;
-    grid-template-columns: 1fr auto auto auto 1fr;
+    flex-direction: row;
+    align-items: center;
+    grid-template-columns: auto auto auto;
 }
 
-.gridContainerText {
-    width: 100vw;
-    display: grid;
-    grid-template-columns: 1fr auto auto auto auto auto 1fr;
+.itemLogo {
+    padding: 2vh 6vh 2vh 6vh;
+    text-align: left;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-items: center;
 }
 
-.gridItem {
-    text-align: center;
-}
-
-.headerText {
-    font-size: 19px;
-    padding: 15px 20px 20px 20px;
-    color: white
-}
 
 .logo {
-    padding: 15px 10px 0px 10px;
-    font-size: 34px;
+    padding: 0vh 1.5vh 0vh 1.5vh;
+    font-size: 4vh;
     font-weight: 500;
     color: white;
+}
+
+.itemIcon {
+    padding: 2vh 6vh 2vh 6vh;
+    justify-self: flex-end;
+}
+
+.icon {
+    color: #ffffff;
+    font-size: 3.5vh;
+}
+
+.list {
+    width: 100vw;
+    color: #ffffff;
+    font-size: 3.5vh;
+    padding: 0vh 0vh 0vh 3vh;
+}
+
+.collapse {
+    border-style: outset;
+    border-color: #4928062a;
+    background-color: #dbdad918;
 }
