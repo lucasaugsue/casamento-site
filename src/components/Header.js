@@ -59,8 +59,11 @@ export default function Header({transparent : transparentProps = true}){
                     disablePadding
                     className={styles.list} 
                 >
-                    {listItens.map((i) => 
-                    <ListItemButton sx={{ pl: 1 }}>
+                    {listItens.map((i, index) => 
+                    <ListItemButton 
+                        sx={{ pl: 3 }}
+                        key={`${i.id};;${index}`}
+                    >
                         <ListItemText primary={i.title} />
                     </ListItemButton>)}
                 </List>

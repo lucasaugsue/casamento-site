@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Header from '../src/components/Header';
 import ImagemDoCasal from '../src/components/ImagemDoCasal';
 import SobreOCasal from '../src/components/SobreOCasal';
+import ConfirmarPresenca from '../src/components/ConfirmarPresenca'
 // import "./index.scss";
 
 export default function Home() {
@@ -15,6 +16,7 @@ export default function Home() {
       <Header/>
       <ImagemDoCasal/>
       <SobreOCasal/>
+      <ConfirmarPresenca/>
     </div>
   )
 }
