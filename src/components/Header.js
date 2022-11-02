@@ -11,7 +11,7 @@ export default function Header({transparent : transparentProps = true}){
     const listItens = [
         {id: 1, title: "Vamos nos casar"},
         {id: 2, title: "Confirme sua presença"},
-        {id: 3, title: "Entrar em contato"},
+        {id: 3, title: "Localização"},
         {id: 4, title: "Livro de visitas"},
     ]
 

@@ -3,7 +3,7 @@ import Header from '../src/components/Header';
 import ImagemDoCasal from '../src/components/ImagemDoCasal';
 import SobreOCasal from '../src/components/SobreOCasal';
 import ConfirmarPresenca from '../src/components/ConfirmarPresenca'
-// import "./index.scss";
+import Local from '../src/components/Local'
 
 export default function Home() {
   return (
@@ -17,6 +17,7 @@ export default function Home() {
       <ImagemDoCasal/>
       <SobreOCasal/>
       <ConfirmarPresenca/>
+      <Local/>
     </div>
   )
 }
