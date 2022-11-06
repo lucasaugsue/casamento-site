@@ -1,9 +1,13 @@
 import "./_global.scss";
 import React from 'react';
+import { NotificationsProvider } from "@mantine/notifications";
+
 
 function MyApp({ Component, pageProps }) {
   return (
-    <Component {...pageProps}/>
+    <NotificationsProvider>
+      <Component {...pageProps}/>
+    </NotificationsProvider>
   )
 }
 

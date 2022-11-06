@@ -4,6 +4,7 @@ import ImagemDoCasal from '../src/components/ImagemDoCasal';
 import SobreOCasal from '../src/components/SobreOCasal';
 import ConfirmarPresenca from '../src/components/ConfirmarPresenca'
 import Local from '../src/components/Local'
+import EscreverRecado from '../src/components/EscreverRecado'
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
       <SobreOCasal/>
       <ConfirmarPresenca/>
       <Local/>
+      <EscreverRecado/>
     </div>
   )
 }
