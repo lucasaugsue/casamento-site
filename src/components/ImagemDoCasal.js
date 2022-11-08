@@ -43,7 +43,7 @@ export default function ImagemDoCasal(){
         )
     }
 
-    return <div className={styles.container}>
+    return <section className={styles.container} id="inicio">
         <div className={styles.image}/>
         
         <div className={styles.divText}>
@@ -51,5 +51,5 @@ export default function ImagemDoCasal(){
                 {textRotate()}
             </div>
         </div>
-    </div> 
+    </section> 
 }

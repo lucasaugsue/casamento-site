@@ -22,7 +22,7 @@ export default function Local(){
         keyApi: "AIzaSyAW6IG6xka94lTuzPw10aiR8sb0tFzzo0Y"
     };
 
-    return <section className={styles.container}>
+    return <section className={styles.container} id="local">
         <div className={styles.whiteBox}>
             <div className={styles.containerText}>
                 <div className={styles.textTitle}>Cerimônia & Festa!</div>

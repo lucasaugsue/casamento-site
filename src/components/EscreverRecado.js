@@ -28,7 +28,7 @@ export default function EscreverRecado(){
         }
     }
 
-    return <section className={styles.container}>
+    return <section className={styles.container} id="recado">
         <div className={styles.whiteBox}>
             <div className={styles.containerText}>
                 <div className={styles.gridRecado}>
@@ -38,12 +38,12 @@ export default function EscreverRecado(){
                 </div>
                 <div className={styles.subTitle}>Esse espaço é reservado para você que deseja escrever um recado para os noivos.</div>
                 <div className={styles.text}>
-                    Todo texto será enviado para o nosso e-mail, apenas coloque seu e-mail e o recado que deseja passar para nós  
+                    Todo texto será enviado para o nosso e-mail, apenas coloque seu e-mail e o recado que deseja passar para nós.
                 </div>
             </div>
             <div className={styles.containerInput}>
                 <Input
-                    size="lg"
+                    size="md"
                     radius="lg"
                     name="email"
                     icon={<IconAt />}
@@ -54,7 +54,7 @@ export default function EscreverRecado(){
                 />
 
                 <Textarea
-                    size="lg"
+                    size="md"
                     radius="lg"
                     autosize
                     minRows={6}

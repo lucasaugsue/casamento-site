@@ -4,7 +4,7 @@ import styles from './ConfirmarPresenca.module.css';
 
 export default function ConfirmarPresenca(){
 
-    return <section className={styles.container}>
+    return <section className={styles.container} id="confirmar-presenca">
         <div className={styles.whiteBox}>
             <div className={styles.containerText}>
                 <div className={styles.textTitle}>Confirme sua presença!</div>

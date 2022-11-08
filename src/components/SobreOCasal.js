@@ -19,7 +19,7 @@ export default function SobreOCasal(){
         .diff(moment(), "seconds")
     )
 
-    return <section className={styles.container}>
+    return <section className={styles.container} id="vamos-casar">
         <div className={styles.whiteBox}>
             <div className={styles.imagem}/>
 
