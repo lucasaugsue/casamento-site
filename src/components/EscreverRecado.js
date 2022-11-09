@@ -1,7 +1,6 @@
 import { Button, Input, Textarea } from '@mantine/core';
 import { showNotification } from '@mantine/notifications';
 import Email from '@mui/icons-material/Email';
-import { InputAdornment, TextField } from '@mui/material';
 import { IconAt } from '@tabler/icons';
 import React from 'react';
 import styles from './EscreverRecado.module.css';
@@ -43,30 +42,25 @@ export default function EscreverRecado(){
                 </div>
             </div>
             <div className={styles.containerInput}>
-                <TextField 
+                <Input
+                    size="md"
+                    radius="lg"
                     name="email"
-                    label="Email" 
-                    variant="outlined" 
+                    icon={<IconAt />}
                     placeholder="Seu email"
                     className={styles.input}
                     value={{...data}.email || ""}
                     onChange={(e) => handleChange(e)}
-                    // InputProps={{
-                    //     startAdornment: (
-                    //       <InputAdornment position="start">
-                    //         <IconAt />
-                    //       </InputAdornment>
-                    //     ),
-                    // }}
                 />
 
-                <TextField 
-                    multiline
+                <Textarea
+                    size="md"
+                    radius="lg"
+                    autosize
                     minRows={6}
                     maxRows={6}
                     name="body"
-                    label="Escreva o recado aqui" 
-                    variant="outlined" 
+                    // icon={<IconBrandMessenger />}
                     placeholder="Escreva o recado"
                     className={styles.input}
                     value={{...data}.body || ""}
