@@ -36,7 +36,7 @@ export default function Local(){
                     className={styles.direcao}
                     href="https://www.google.com/maps/place/Parque+Pedra+da+Cebola/@-20.2769946,-40.2980994,18z/data=!4m15!1m8!3m7!1s0xb81804ad481d6f:0x71875203a67637ac!2sParque+Pedra+da+Cebola!8m2!3d-20.2765669!4d-40.2977346!10e1!16s%2Fg%2F11b7005129!3m5!1s0xb81804ad481d6f:0x71875203a67637ac!8m2!3d-20.2765669!4d-40.2977346!16s%2Fg%2F11b7005129" 
                 >
-                    Ver direção
+                    Abrir localização (Google maps)
                 </a>
             </div>
 
