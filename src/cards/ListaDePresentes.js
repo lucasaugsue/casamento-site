@@ -1,0 +1,68 @@
+import { Button, Input, Textarea } from '@mantine/core';
+import { showNotification } from '@mantine/notifications';
+import CardGiftcardIcon from '@mui/icons-material/CardGiftcard';
+import React from 'react';
+import styles from './ListaDePresentes.module.css';
+import ClientContext from '../contexts/ClientContext';
+import { Suspense } from 'react';
+import CardReview from '../components/CardReview'
+
+export default function ListaDePresentes(){
+    const { apiRequest } = React.useContext(ClientContext);
+
+    // get presentes
+    const [presentes, setPresentes] = React.useState([]);
+    const [loading, setLoading] = React.useState(false);
+
+
+    const getPresentes = () => {
+        setLoading(true)
+        apiRequest("GET", "/presentes/list")
+        .then((res) => {
+            setPresentes(res)
+            setLoading(false)
+        })
+        .catch((err) => {
+            setLoading(false)
+            showNotification({message: err.message, color: 'red', autoClose: true})
+        });
+    }
+
+    React.useEffect(() => {
+        getPresentes()
+    }, []);
+
+    // React.useEffect(() => {
+    //     console.log("presentes", presentes)
+    // }, [presentes]);
+
+    return <section className={styles.container} id="recado">
+        <div className={styles.whiteBox}>
+            <div className={styles.containerText}>
+                <div className={styles.gridRecado}>
+                    <div className={styles.leftIcon}><CardGiftcardIcon className={styles.icons}/></div>
+                    <div className={styles.textTitle}>Lista de presentes!</div>
+                    <div className={styles.rightIcon}> <CardGiftcardIcon className={styles.icons}/></div>
+                </div>
+                <div className={styles.subTitle}>Esses são os presentes que queremos para nossa futura casa.</div>
+                <div className={styles.text}>
+                    Todo presente será bem vindo, vamos começar a nossa vida a dois agora e toda ajuda é bem vinda.
+                </div>
+            </div>
+                {<Suspense fallback={<div>Loading...</div>}>
+                    {!loading ?
+                        <div className={styles.containerPresentes}>
+                            {
+                                ([...presentes]).map((item, index) => <div className={styles.itemPresente}>
+                                    <CardReview 
+                                        key={index} 
+                                        params={{...item, color_id: index}} 
+                                    />
+                                </div>)
+                            }
+                        </div>
+                    : <div>lista...</div>}
+                </Suspense>}
+        </div>
+    </section> 
+}
