@@ -1,0 +1,12 @@
+.marginHeader {
+    padding: 10vh 0 0 0;
+}
+
+.cardContainer {
+    /* margin: 6vh 2vw 0 2vw; */
+    display: grid;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    grid-template-columns: 2fr 3fr 1fr;
+}

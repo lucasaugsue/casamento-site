@@ -67,8 +67,12 @@ export default function ListaDePresentes(){
                                     .slice((page - 1) * presentPerPage, page * presentPerPage)
                                     .map((item, index) => <div className={styles.itemPresente}>
                                         <CardReview 
-                                            key={index} 
-                                            params={{...item, color_id: index}} 
+                                            key={index}
+                                            params={{
+                                                ...item, 
+                                                color_id: index,
+                                                moneyOnClick: () => window.location.href = `/info/${item.id}`
+                                            }} 
                                         />
                                     </div>)
                                 }

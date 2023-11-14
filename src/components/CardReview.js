@@ -72,11 +72,11 @@ export default function CardReview({params}) {
       <CardActions disableSpacing>
         <Tooltip title="Favorito dos noivos">
           <IconButton>
-            <FavoriteIcon />
+            <FavoriteIcon sx={params.favorito ? { color: red[500] } : {} } />
           </IconButton>
         </Tooltip>
         <Tooltip title="Comprar presente">
-          <IconButton>
+          <IconButton onClick={() => {params.moneyOnClick()}}>
             <AttachMoneyIcon />
           </IconButton>
         </Tooltip>
