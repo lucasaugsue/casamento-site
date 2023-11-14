@@ -14,6 +14,8 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
+import Tooltip from '@mui/material/Tooltip';
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import moment from 'moment'
 import 'moment/locale/pt-br';
 
@@ -48,11 +50,11 @@ export default function CardReview({params}) {
             {params.nome ? params.nome[0].toUpperCase() : ""}
           </Avatar>
         }
-        action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
-        }
+        // action={
+        //   <IconButton aria-label="settings">
+        //     <MoreVertIcon />
+        //   </IconButton>
+        // }
         title={params.nome || ""}
         subheader={params.created_at ? moment(params.created_at).format('MMMM Do YYYY, h:mm') : ""}
       />
@@ -68,17 +70,25 @@ export default function CardReview({params}) {
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
-        </IconButton>
-        <IconButton aria-label="share">
-          <ShareIcon />
-        </IconButton>
+        <Tooltip title="Favorito dos noivos">
+          <IconButton>
+            <FavoriteIcon />
+          </IconButton>
+        </Tooltip>
+        <Tooltip title="Comprar presente">
+          <IconButton>
+            <AttachMoneyIcon />
+          </IconButton>
+        </Tooltip>
+        <Tooltip title="Copiar link">
+          <IconButton>
+            <ShareIcon />
+          </IconButton>
+        </Tooltip>
         <ExpandMore
           expand={expanded}
           onClick={handleExpandClick}
           aria-expanded={expanded}
-          aria-label="show more"
         >
           <ExpandMoreIcon />
         </ExpandMore>
@@ -98,17 +108,6 @@ export default function CardReview({params}) {
             pimentón, bay leaves, garlic, tomatoes, onion, salt and pepper, and cook,
             stirring often until thickened and fragrant, about 10 minutes. Add
             saffron broth and remaining 4 1/2 cups chicken broth; bring to a boil.
-          </Typography>
-          <Typography paragraph>
-            Add rice and stir very gently to distribute. Top with artichokes and
-            peppers, and cook without stirring, until most of the liquid is absorbed,
-            15 to 18 minutes. Reduce heat to medium-low, add reserved shrimp and
-            mussels, tucking them down into the rice, and cook again without
-            stirring, until mussels have opened and rice is just tender, 5 to 7
-            minutes more. (Discard any mussels that don&apos;t open.)
-          </Typography>
-          <Typography>
-            Set aside off of the heat to let rest for 10 minutes, and then serve.
           </Typography>
         </CardContent>
       </Collapse>

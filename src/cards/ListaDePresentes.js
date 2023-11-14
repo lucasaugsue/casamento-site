@@ -6,6 +6,7 @@ import styles from './ListaDePresentes.module.css';
 import ClientContext from '../contexts/ClientContext';
 import { Suspense } from 'react';
 import CardReview from '../components/CardReview'
+import BasicPagination from '../components/BasicPagination';
 
 export default function ListaDePresentes(){
     const { apiRequest } = React.useContext(ClientContext);
@@ -14,6 +15,14 @@ export default function ListaDePresentes(){
     const [presentes, setPresentes] = React.useState([]);
     const [loading, setLoading] = React.useState(false);
 
+    const [page, setPage] = React.useState(1);
+
+    const presentPerPage = 3
+    const count = parseInt([...presentes].length/presentPerPage)
+
+    const handleChangePagination = (event, value) => {
+        setPage(value);
+    };
 
     const getPresentes = () => {
         setLoading(true)
@@ -33,7 +42,7 @@ export default function ListaDePresentes(){
     }, []);
 
     // React.useEffect(() => {
-    //     console.log("presentes", presentes)
+    //     console.log("count", count)
     // }, [presentes]);
 
     return <section className={styles.container} id="recado">
@@ -51,15 +60,28 @@ export default function ListaDePresentes(){
             </div>
                 {<Suspense fallback={<div>Loading...</div>}>
                     {!loading ?
-                        <div className={styles.containerPresentes}>
-                            {
-                                ([...presentes]).map((item, index) => <div className={styles.itemPresente}>
-                                    <CardReview 
-                                        key={index} 
-                                        params={{...item, color_id: index}} 
-                                    />
-                                </div>)
-                            }
+                        <div>
+                            <div className={styles.containerPresentes}>
+                                {
+                                    ([...presentes])
+                                    .slice((page - 1) * presentPerPage, page * presentPerPage)
+                                    .map((item, index) => <div className={styles.itemPresente}>
+                                        <CardReview 
+                                            key={index} 
+                                            params={{...item, color_id: index}} 
+                                        />
+                                    </div>)
+                                }
+                            </div>
+                            <div className={styles.containerPagination}>
+                                <div/>
+                                <BasicPagination 
+                                    page={page} 
+                                    count={(count + 1) || 10}
+                                    handleChange={handleChangePagination}
+                                />
+                                <div/>
+                            </div>
                         </div>
                     : <div>lista...</div>}
                 </Suspense>}
