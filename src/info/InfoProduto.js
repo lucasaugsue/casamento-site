@@ -1,18 +1,28 @@
+import { Button } from '@mantine/core';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import { Tooltip } from '@mui/material';
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
+import React from 'react';
+import InformationDialog from '../components/InformationDialog';
 import styles from './InfoProduto.module.css';
-import { formatReais } from '../util/Util'
-import { Button } from '@mantine/core';
+
+
+const formatReais = (value) => {
+    return `R$ ${parseFloat(value ? value : 0).toFixed(2).replace(/(\d)(?=(\d{3})+(?:\.\d+)?$)/g, "$1,")}`
+}
 
 
 export default function InfoProduto({params}){
 
     console.log("params", params)
+
+    const [openInfo, setOpenInfo] = React.useState(false);
+
+    const handleOpen = () => setOpenInfo(true);
+    const handleClose = () =>  setOpenInfo(false);
 
     return <div className={styles.container}>
         <div className={styles.whiteBox}>
@@ -54,15 +64,17 @@ export default function InfoProduto({params}){
                             <Typography sx={{ mb: 1.5 }} color="text.secondary">
                                 no pix
                             </Typography>
-                            <div className={styles.maisInformacoes}>
-                                sobre o pagamento
-                            </div>
+                            <div
+                                onClick={() => handleOpen()}
+                                className={styles.maisInformacoes}
+                            > sobre o pagamento </div>
                         </CardContent>
                     </Card>
                     <Button
                         color="red"
                         radius="xs"
                         variant="filled"
+                        // onClick={() => handleOpen()}
                     >
                         Pagamento
                     </Button>
@@ -74,5 +86,14 @@ export default function InfoProduto({params}){
             </div>
 
         </div>
+
+        <InformationDialog
+            open={openInfo}
+            handleClose={() => handleClose()}
+            title={"Sobre o pagamento"} 
+            textContent={"O valor depositado no pix será usado para comprar alguns itens que ainda faltam na casa dos noivos, o dinheiro depositado será bem vindo para o começo da vida a dois."} 
+            textButton={"Entendi"}
+        />
+
     </div>
 }

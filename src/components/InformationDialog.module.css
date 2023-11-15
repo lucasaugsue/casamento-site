@@ -1,0 +1,16 @@
+.gridContainer {
+    margin: 1vh;
+}
+
+.dialogTitle {
+    font-size: 3vh;
+}
+
+.dialogContent {
+    max-width: 40vw;
+    font-size: 2vh;
+}
+
+.textButton {
+    color: white;
+}
