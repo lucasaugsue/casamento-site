@@ -62,7 +62,9 @@ export default function CardReview({params}) {
         component="img"
         height="194"
         image={params.url || ""}
-        alt="Paella dish"
+        alt={params.nome || ""}
+        sx={{ cursor: 'pointer' }}
+        onClick={() => {params.handleChange()}}
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
@@ -76,7 +78,7 @@ export default function CardReview({params}) {
           </IconButton>
         </Tooltip>
         <Tooltip title="Comprar presente">
-          <IconButton onClick={() => {params.moneyOnClick()}}>
+          <IconButton onClick={() => {params.handleChange()}}>
             <AttachMoneyIcon />
           </IconButton>
         </Tooltip>

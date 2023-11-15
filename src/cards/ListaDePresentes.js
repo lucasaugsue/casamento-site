@@ -19,6 +19,7 @@ export default function ListaDePresentes(){
 
     const presentPerPage = 3
     const count = parseInt([...presentes].length/presentPerPage)
+    const sobra = parseInt([...presentes].length%presentPerPage)
 
     const handleChangePagination = (event, value) => {
         setPage(value);
@@ -71,7 +72,7 @@ export default function ListaDePresentes(){
                                             params={{
                                                 ...item, 
                                                 color_id: index,
-                                                moneyOnClick: () => window.location.href = `/info/${item.id}`
+                                                handleChange: () => window.location.href = `/info/${item.id}`
                                             }} 
                                         />
                                     </div>)
@@ -81,7 +82,7 @@ export default function ListaDePresentes(){
                                 <div/>
                                 <BasicPagination 
                                     page={page} 
-                                    count={(count + 1) || 10}
+                                    count={sobra === 0 ? count : count + 1 || 10}
                                     handleChange={handleChangePagination}
                                 />
                                 <div/>

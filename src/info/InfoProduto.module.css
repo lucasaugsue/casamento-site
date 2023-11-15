@@ -1,12 +1,135 @@
-.marginHeader {
-    padding: 10vh 0 0 0;
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Antonio:wght@300&display=swap');
+
+.container {
+    z-index: 10;
+    width: auto;
+    height: auto;
+    min-height: 90vh;
+    box-shadow: unset;
+    position: relative;
+    padding: 8vh 16vw;
+    background-image: linear-gradient(0deg, #d8b79ac2, #ac9079c0);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.whiteBox {
+    padding: 4vh 2vw;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 30px;
+    background-color: rgba(255, 255, 255, 0.65);
 }
 
 .cardContainer {
-    /* margin: 6vh 2vw 0 2vw; */
     display: grid;
     align-items: center;
     flex-direction: row;
     justify-content: center;
-    grid-template-columns: 2fr 3fr 1fr;
+    grid-template-columns: 2fr 3fr 2fr;
+}
+
+.containerImage {
+    margin: 0 1vw 0 0;
+    height: auto;
+    min-height: 100%;
+    width: auto;
+}
+
+.iconsContainer {
+    display: grid;
+    align-items: center;
+    flex-direction: row;
+    justify-content: flex-star;
+    grid-template-columns: 2fr 2fr 1fr;
+}
+
+.textIcon {
+    text-decoration: underline;
+}
+
+.boxCursor {
+    margin: 0 0 1.7vh 0.3vw;
+    cursor: pointer;
+    display: grid;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    grid-template-columns: 1fr 3fr;
+}
+
+.boxCursor:hover{
+    margin: 0 0 1.7vh 0.3vw;
+    cursor: pointer;
+    color: red;
+    display: grid;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    grid-template-columns: 1fr 3fr;
+}
+
+.imagem {
+    height: 100%;
+    width: 100%;
+    border-radius: 15px;
+}
+
+.containerText {
+    margin: 0 1vw;
+    height: auto;
+    min-height: 100%;
+    width: auto;
+    /* display: grid; */
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-start;
+    /* grid-template-rows: auto auto 1fr; */
+}
+
+.title {
+    margin: 0 0 1.7vh 0;
+    font-size: larger;
+}
+
+.descricao {
+    margin: 0 0 2vh 0;
+}
+
+.maisInformacoes {
+    color: black;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.maisInformacoes:hover {
+    color: red;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.containerPreco {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    display: grid;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    grid-template-rows: 2fr auto 1fr 1fr;
+}
+
+.cardPreco {
+    /* height: 100%; */
+    width: 100%;
+    min-width: 15vw;
+}
+
+.preco {
+    font-size: 4vh;
+    font-weight: 500;
 }
