@@ -1,14 +1,14 @@
 import { Button } from '@mantine/core';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
-import { Tooltip } from '@mui/material';
+import { Slide, Tooltip } from '@mui/material';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import React from 'react';
 import InformationDialog from '../components/InformationDialog';
+import PixDialog from '../components/PixDialog';
 import styles from './InfoProduto.module.css';
-
 
 const formatReais = (value) => {
     return `R$ ${parseFloat(value ? value : 0).toFixed(2).replace(/(\d)(?=(\d{3})+(?:\.\d+)?$)/g, "$1,")}`
@@ -16,13 +16,14 @@ const formatReais = (value) => {
 
 
 export default function InfoProduto({params}){
-
-    console.log("params", params)
-
+    const [openPayment, setOpenPayment] = React.useState(false);
     const [openInfo, setOpenInfo] = React.useState(false);
 
-    const handleOpen = () => setOpenInfo(true);
-    const handleClose = () =>  setOpenInfo(false);
+    const handleOpenInfo = () => setOpenInfo(true);
+    const handleCloseInfo = () =>  setOpenInfo(false);
+
+    const handleOpenPayment = () => setOpenPayment(true);
+    const handleClosePayment = () =>  setOpenPayment(false);
 
     return <div className={styles.container}>
         <div className={styles.whiteBox}>
@@ -65,7 +66,7 @@ export default function InfoProduto({params}){
                                 no pix
                             </Typography>
                             <div
-                                onClick={() => handleOpen()}
+                                onClick={() => handleOpenInfo()}
                                 className={styles.maisInformacoes}
                             > sobre o pagamento </div>
                         </CardContent>
@@ -74,7 +75,7 @@ export default function InfoProduto({params}){
                         color="red"
                         radius="xs"
                         variant="filled"
-                        // onClick={() => handleOpen()}
+                        onClick={() => handleOpenPayment()}
                     >
                         Pagamento
                     </Button>
@@ -87,9 +88,14 @@ export default function InfoProduto({params}){
 
         </div>
 
+        <PixDialog
+            open={openPayment}
+            handleClose={() => handleClosePayment()}
+        />
+
         <InformationDialog
             open={openInfo}
-            handleClose={() => handleClose()}
+            handleClose={() => handleCloseInfo()}
             title={"Sobre o pagamento"} 
             textContent={"O valor depositado no pix será usado para comprar alguns itens que ainda faltam na casa dos noivos, o dinheiro depositado será bem vindo para o começo da vida a dois."} 
             textButton={"Entendi"}

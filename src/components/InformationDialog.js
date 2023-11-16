@@ -34,7 +34,7 @@ export default function InformationDialog({open, handleClose, title, textContent
                     <Grid item xs={12} md={4}>
                         <Button 
                             fullWidth
-                            color="gray"
+                            color="red"
                             variant="filled"
                             onClick={() => handleClose()} 
                         > <div className={styles.textButton}> {textButton} </div> </Button>
