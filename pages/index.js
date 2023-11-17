@@ -17,11 +17,11 @@ export default function Home() {
       
       <Header/>
       <ImagemDoCasal/>
-      <SobreOCasal/>
-      <ConfirmarPresenca/>
+      {/* <SobreOCasal/> */}
+      {/* <ConfirmarPresenca/> */}
       {/* <Local/> */}
-      <EscreverRecado/>
-      <ListaDePresentes/>
+      {/* <EscreverRecado/> */}
+     {/*  <ListaDePresentes/> */}
     </div>
   )
 }
