@@ -42,11 +42,7 @@ export default function ListaDePresentes(){
         getPresentes()
     }, []);
 
-    // React.useEffect(() => {
-    //     console.log("count", count)
-    // }, [presentes]);
-
-    return <section className={styles.container} id="recado">
+    return <section className={styles.container} id="presentes">
         <div className={styles.whiteBox}>
             <div className={styles.containerText}>
                 <div className={styles.gridRecado}>
@@ -66,9 +62,12 @@ export default function ListaDePresentes(){
                                 {
                                     ([...presentes])
                                     .slice((page - 1) * presentPerPage, page * presentPerPage)
-                                    .map((item, index) => <div className={styles.itemPresente}>
+                                    .map((item, index) => <div
+                                        key={`${index};;${item.id}`} 
+                                        className={styles.itemPresente}
+                                    >
                                         <CardReview 
-                                            key={index}
+                                            key={`cr${index};;${item.id}`}
                                             params={{
                                                 ...item, 
                                                 color_id: index,

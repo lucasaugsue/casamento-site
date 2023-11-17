@@ -1,7 +1,6 @@
 import { Button } from '@mantine/core';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
-import { Slide, Tooltip } from '@mui/material';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
@@ -31,14 +30,14 @@ export default function InfoProduto({params}){
             <div className={styles.cardContainer}>
                 <div className={styles.containerImage}>
                     <div className={styles.iconsContainer}>
-                        <Tooltip className={styles.boxCursor} title="Favorito dos noivos">
+                        <div className={styles.boxCursor} title="Favorito dos noivos">
                             <FavoriteIcon/>
                             <div className={styles.textIcon}> favorito </div>
-                        </Tooltip>
-                        <Tooltip className={styles.boxCursor} title="Copiar link">
+                        </div>
+                        <div className={styles.boxCursor} title="Copiar link">
                             <ShareIcon/>
                             <div className={styles.textIcon}> compartilhar </div>
-                        </Tooltip>
+                        </div>
                     </div>
                     <img
                         className={styles.imagem}

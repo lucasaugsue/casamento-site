@@ -95,6 +95,7 @@ section.container {
 
 .containerPresentes {
     margin: 0 0 2.5vh 0;
+    padding: 0 4vw;
     display: grid;
     align-items: center;
     flex-direction: row;
@@ -132,11 +133,7 @@ section.container {
     }
 
     .whiteBox {
-        flex-direction: column;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
+        height: auto;
         min-width: 90vw;
     
         border-radius: 60px;
@@ -169,5 +166,30 @@ section.container {
         text-align: center;
         max-width: 80vw;
         width: auto;
+    }
+
+    .containerPresentes {
+        margin: 0 0 2.5vh 0;
+        height: auto;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        /* grid-template-columns: 1fr 1fr 1fr; */
+    }
+
+    .itemPresente {
+        margin: 1vh 1.5vw 4vh;
+        max-width: 70vw;
+        max-height: 100vh;
+    }
+
+    .containerPagination {
+        margin: -2vh 0 3vh 0;
+        display: grid;
+        align-items: center;
+        flex-direction: row;
+        justify-content: center;
+        grid-template-columns: 1fr auto 1fr;
     }
 }

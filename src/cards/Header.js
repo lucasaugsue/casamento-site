@@ -12,8 +12,9 @@ export default function Header({transparent : transparentProps = true}){
         {id: 1, title: "Início", section: "#inicio"},
         {id: 2, title: "Vamos nos casar", section: "#vamos-casar"},
         {id: 3, title: "Confirme sua presença", section: "#confirmar-presenca"},
-        {id: 4, title: "Localização", section: "#local"},
-        {id: 5, title: "Escreva um recado", section: "#recado"},
+        {id: 4, title: "Escreva um recado", section: "#recado"},
+        {id: 5, title: "Lista de presentes", section: "#presentes"},
+        // {id: 6, title: "Localização", section: "#local"},
     ]
 
     const handleScroll = e => {
@@ -43,7 +44,7 @@ export default function Header({transparent : transparentProps = true}){
                         key={`${letra};;${index}`}
                         onClick={() => {
                             setOpen(false)
-                            window.location.href=`#inicio`
+                            window.location.href=`/`
                         }} 
                     >
                         {letra}
@@ -74,7 +75,7 @@ export default function Header({transparent : transparentProps = true}){
                         key={`${i.id};;${index}`}
                         onClick={() => {
                             setOpen(false)
-                            window.location.href=`${i.section}`
+                            window.location.href=`/${i.section}`
                         }}
                     >
                         <ListItemText primary={i.title} />

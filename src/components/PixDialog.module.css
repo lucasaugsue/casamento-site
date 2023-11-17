@@ -1,6 +1,6 @@
 .dialogContent {
     padding: 3vh 1vw 4vh;
-    min-width: 45vw;
+    min-width: 30vw;
     display: grid;
     align-items: center;
     flex-direction: column;
@@ -59,4 +59,17 @@
 .nome {
     margin-top: 1vh;
     font-size: 3vh;
+}
+
+/* If the screen size is 900px wide or less, set the font-size of <div> to 30px */
+@media screen and (max-width: 900px) {
+    .dialogContent {
+        padding: 3vh 0vw 4vh;
+        min-width: 82.5vw;
+        display: grid;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        background: radial-gradient(circle at bottom,  #a32e13 45%, #c89e54 5%, #c89e54 50%);
+    }
 }

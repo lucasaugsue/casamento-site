@@ -3,14 +3,33 @@
 }
 
 .dialogTitle {
+    font-weight: 600;
     font-size: 3vh;
 }
 
 .dialogContent {
     max-width: 40vw;
-    font-size: 2vh;
+    font-size: 2.5vh;
 }
 
 .textButton {
     color: white;
+}
+
+/* If the screen size is 900px wide or less, set the font-size of <div> to 30px */
+@media screen and (max-width: 900px) {
+    .gridContainer {
+        padding: 1vh 1.5vw 0;
+        margin: 1vh;
+    }
+
+    .dialogContent {
+        max-width: 80vw;
+        font-size: 3vh;
+    }
+
+    .dialogTitle {
+        font-weight: 600;
+        font-size: 4vh;
+    }
 }

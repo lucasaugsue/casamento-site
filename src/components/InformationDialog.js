@@ -17,8 +17,8 @@ export default function InformationDialog({open, handleClose, title, textContent
             onClose={handleClose}
             TransitionComponent={Transition}
         >
-            <DialogTitle className={styles.dialogTitle}>
-                {title}
+            <DialogTitle>
+                <div className={styles.dialogTitle}> {title} </div>
             </DialogTitle>
             <DialogContent className={styles.dialogContent}>
                 {textContent}

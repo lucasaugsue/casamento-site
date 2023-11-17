@@ -1,23 +1,22 @@
-import * as React from 'react';
-import { styled } from '@mui/material/styles';
-import Card from '@mui/material/Card';
-import CardHeader from '@mui/material/CardHeader';
-import CardMedia from '@mui/material/CardMedia';
-import CardContent from '@mui/material/CardContent';
-import CardActions from '@mui/material/CardActions';
-import Collapse from '@mui/material/Collapse';
-import Avatar from '@mui/material/Avatar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import { red } from '@mui/material/colors';
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
+import Avatar from '@mui/material/Avatar';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardHeader from '@mui/material/CardHeader';
+import CardMedia from '@mui/material/CardMedia';
+import Collapse from '@mui/material/Collapse';
+import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
-import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
-import moment from 'moment'
+import Typography from '@mui/material/Typography';
+import { red } from '@mui/material/colors';
+import { styled } from '@mui/material/styles';
+import moment from 'moment';
 import 'moment/locale/pt-br';
+import * as React from 'react';
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -50,11 +49,6 @@ export default function CardReview({params}) {
             {params.nome ? params.nome[0].toUpperCase() : ""}
           </Avatar>
         }
-        // action={
-        //   <IconButton aria-label="settings">
-        //     <MoreVertIcon />
-        //   </IconButton>
-        // }
         title={params.nome || ""}
         subheader={params.created_at ? moment(params.created_at).format('MMMM Do YYYY, h:mm') : ""}
       />
@@ -87,13 +81,13 @@ export default function CardReview({params}) {
             <ShareIcon />
           </IconButton>
         </Tooltip>
-        <ExpandMore
+        {/* <ExpandMore
           expand={expanded}
           onClick={handleExpandClick}
           aria-expanded={expanded}
         >
           <ExpandMoreIcon />
-        </ExpandMore>
+        </ExpandMore> */}
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
