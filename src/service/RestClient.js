@@ -26,7 +26,8 @@ const serverRequest = ({method, url, params, user, downloadFile, contentType, co
 			let requestInfo = {
 				method: method,
 				url: url,
-				baseURL: "http://localhost:8181",
+				// baseURL: "http://localhost:8181",
+				baseURL: "https://drab-cyan-cockatoo-wrap.cyclic.app",
 				headers: {
 					"Content-Type": 'application/json',
 					Language: "pt",
