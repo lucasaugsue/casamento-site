@@ -26,13 +26,15 @@ const serverRequest = ({method, url, params, user, downloadFile, contentType, co
 			let requestInfo = {
 				method: method,
 				url: url,
-				// baseURL: "http://localhost:8181",
-				baseURL: "https://drab-cyan-cockatoo-wrap.cyclic.app",
+				baseURL: process.env.NEXT_PUBLIC_API_URL || "http://localhost:8181",
 				headers: {
+					'Accept': '*',
+					'Language': "pt",
 					"Content-Type": 'application/json',
-					Language: "pt",
-					CompanyProfileId: companyProfileId ? companyProfileId : null,
-					Authorization: "Bearer " + (user && (user.oauth || user.oauth_token))
+					"Access-Control-Expose-Headers": "*",
+					"Access-Control-Allow-Headers": "*",
+					// CompanyProfileId: companyProfileId ? companyProfileId : null,
+					// Authorization: "Bearer " + (user && (user.oauth || user.oauth_token)),
 				}
 			}
 
