@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react';
 import ClientContext from '../../src/contexts/ClientContext';
 import InfoProduto from '../../src/info/InfoProduto'
-import Header from '../../src/cards/Header';
+import Header from '../../src/screens/Header';
 
 export default function InfosScreen({label}) {
     const { apiRequest } = React.useContext(ClientContext);

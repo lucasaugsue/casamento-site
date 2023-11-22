@@ -1,6 +1,6 @@
 import React from 'react';
-import Header from '../../src/cards/Header';
-import TabelaAdmin from '../../src/cards/TabelaAdmin';
+import Header from '../../src/screens/Header';
+import TabelaAdmin from '../../src/screens/TabelaAdmin';
 
 export default function Admin() {
 
