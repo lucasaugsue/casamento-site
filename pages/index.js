@@ -1,11 +1,11 @@
 import Head from 'next/head';
-import Header from '../src/cards/Header';
-import ImagemDoCasal from '../src/cards/ImagemDoCasal';
-import SobreOCasal from '../src/cards/SobreOCasal';
-import ConfirmarPresenca from '../src/cards/ConfirmarPresenca'
-// import Local from '../src/components/Local'
-import EscreverRecado from '../src/cards/EscreverRecado'
-import ListaDePresentes from '../src/cards/ListaDePresentes'
+import Header from '../src/screens/Header';
+import ImagemDoCasal from '../src/screens/ImagemDoCasal';
+import SobreOCasal from '../src/screens/SobreOCasal';
+import ConfirmarPresenca from '../src/screens/ConfirmarPresenca'
+// import Local from '../src/screens/Local'
+import EscreverRecado from '../src/screens/EscreverRecado'
+import ListaDePresentes from '../src/screens/ListaDePresentes'
 
 export default function Home() {
   return (
