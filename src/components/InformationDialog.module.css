@@ -12,10 +12,6 @@
     font-size: 2.5vh;
 }
 
-.textButton {
-    color: white;
-}
-
 /* If the screen size is 900px wide or less, set the font-size of <div> to 30px */
 @media screen and (max-width: 900px) {
     .gridContainer {

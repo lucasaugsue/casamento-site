@@ -62,7 +62,11 @@ export default function CardReview({params}) {
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-          {params.descricao || ""}
+          {
+            (params.descricao && params.descricao.length > 150)
+            ?`${params.descricao.slice(0, 146)}...`
+            :params.descricao || ""
+          }
         </Typography>
       </CardContent>
       <CardActions disableSpacing>

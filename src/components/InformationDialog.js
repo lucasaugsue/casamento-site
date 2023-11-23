@@ -8,7 +8,16 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 	return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function InformationDialog({open, handleClose, title, textContent, textButton}){
+export default function InformationDialog({
+    open, 
+    handleClose, 
+    title, 
+    textContent, 
+    textButton,
+    loading,
+    handleFunction,
+    textFunction
+}){
 
     return <div>
         <Dialog
@@ -29,16 +38,28 @@ export default function InformationDialog({open, handleClose, title, textContent
                     spacing={1}
                     className={styles.gridContainer}
                 >
-                    <Grid item xs={12} md={8}>
-                    </Grid>
+                    {textFunction 
+                        ? <Grid item xs={12} md={4}></Grid>
+                        : <Grid item xs={12} md={8}></Grid>
+                    }
                     <Grid item xs={12} md={4}>
                         <Button 
                             fullWidth
                             color="red"
-                            variant="filled"
+                            variant={textFunction ? "outline" : "filled"}
                             onClick={() => handleClose()} 
                         > <div className={styles.textButton}> {textButton} </div> </Button>
                     </Grid>
+                    {textFunction ? <Grid item xs={12} md={4}>
+                        <Button 
+                            fullWidth
+                            radius="sm"
+                            loading={loading}
+                            variant="gradient"
+                            gradient={{ from: '#f16352', to: '#ec8c69', deg: 35 }}
+                            onClick={() => handleFunction()} 
+                        > <div className={styles.textButton}> {textFunction} </div> </Button>
+                    </Grid> : <div></div>}
                 </Grid>
             </DialogActions>
         </Dialog>

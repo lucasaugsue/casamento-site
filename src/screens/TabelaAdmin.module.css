@@ -1,10 +1,9 @@
 section.container {
-    z-index: 10;
     width: auto;
-    height: auto;
+    height: 100vh;
     box-shadow: unset;
     position: relative;
-    padding: 8vh 4vw 8vh 4vw;
+    padding: 0 4vw;
     background-image: linear-gradient(135deg, #373945, #bea181);
 
     display: flex;
@@ -13,19 +12,27 @@ section.container {
 }
 
 .whiteBox {
-    margin-top: 10vh;
+    width: 100%;
     padding: 2vh 2vw;
+
     flex-direction: column;
     display: flex;
     justify-content: center;
     align-items: center;
 
-    border-radius: 60px;
+    border-radius: 10px;
     background-color: rgba(255, 255, 255, 0.65);
 }
 
 .buttontr {
+    height: 6vh;
     padding: 1.5vh;
+}
+
+.imagem {
+    width: 12vh;
+    height: 12vh;
+    object-fit: 'contain';
 }
 
 
