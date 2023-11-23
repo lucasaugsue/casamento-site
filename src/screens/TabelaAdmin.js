@@ -199,6 +199,37 @@ export default function TabelaAdmin() {
         getPresentes()
     }, []);
 
+    const getRowsFiltered = () => {
+        //filtro por título
+        var rowsFilteredByName = text.length > 1
+        ? rows.filter((i) =>
+            i.nome.toLowerCase().includes(text.toLowerCase())
+        )
+        : rows;
+
+        //filtro por tipo
+        // var rowsFilteredByType = selectValueType !== "Todos"
+        // ? rowsFilteredByTitle.filter((i) => i.tipo === selectValueType)
+        // : rowsFilteredByTitle;
+
+        //filtro por categoria
+        // var rowsFilteredByCategory = selectValueCategory !== "Todos"
+        // ? rowsFilteredByType.filter((i) => i.categoria === selectValueCategory)
+        // : rowsFilteredByType;
+
+        // getFinancialData(rowsFilteredByCategory)
+
+        setRowsFiltered([
+            ...rowsFilteredByName.sort((a,b) => a.created < b.created ? 1 : -1)
+            // ...rowsFilteredByCategory.sort((a,b) => a.data < b.data ? 1 : -1)
+        ])
+    }
+
+    React.useEffect(() => {
+        getRowsFiltered()
+        // eslint-disable-next-line
+    }, [rows, text])
+
     return <section className={styles.container} id="tabela">
         <Grid style={{marginTop:'3vh'}} container spacing={2}>
             {/* <Grid item md={4} xs={12}>
@@ -230,17 +261,22 @@ export default function TabelaAdmin() {
             </Grid> */}
             <Grid item xs={12}></Grid>
             <div className={styles.whiteBox}>
-                <Grid style={{marginTop:'1vh'}} container spacing={2}>
+                <Grid 
+                    container 
+                    spacing={2}
+                    className={styles.containerActions}
+                >
+
                     <Grid item md={4} xs={12}>
-                        {/* <TextField
+                        <TextField
                             fullWidth
                             type="text"
                             value={text}
                             name="titulo"
                             // variant="standard"
-                            label="Busca por título"
+                            label="Busca por nome"
                             onChange={(e) => setText(e.target.value)}
-                        /> */}
+                        />
                     </Grid>
 
                     <Grid item md={3} xs={12}>
@@ -308,7 +344,10 @@ export default function TabelaAdmin() {
                 </Grid>
 
 
-                <TableContainer style={{margin: "3vh", minHeight: '50vh'}} component={Paper}>
+                <TableContainer 
+                    className={styles.containerTable}
+                    component={Paper}
+                >
                     {
                         loading 
                         ? <Table style={{width: "100%"}} aria-label="custom pagination table">

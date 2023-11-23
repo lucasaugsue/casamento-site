@@ -1,6 +1,6 @@
 section.container {
     width: auto;
-    height: 100vh;
+    height: 100%;
     box-shadow: unset;
     position: relative;
     padding: 0 4vw;
@@ -13,7 +13,9 @@ section.container {
 }
 
 .whiteBox {
+    margin: 10vh 0 5vh 0;
     width: 100%;
+    height: 100%;
     padding: 2vh 2vw;
 
     flex-direction: column;
@@ -23,6 +25,19 @@ section.container {
 
     border-radius: 10px;
     background-color: rgba(255, 255, 255, 0.65);
+}
+
+.containerActions {
+    padding: 2vh 0 1vh;
+    height: 100%;
+    width: 100%;
+}
+
+.containerTable {
+    margin: 3vh 2vw 3vh;
+    height: 100%;
+    width: 100%;
+    min-height: 60vh;
 }
 
 .buttontr {
