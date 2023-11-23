@@ -4,7 +4,8 @@ section.container {
     box-shadow: unset;
     position: relative;
     padding: 0 4vw;
-    background-image: linear-gradient(135deg, #373945, #bea181);
+    background-image: linear-gradient(0deg, #ac9079c0, #d8b79ac2);
+
 
     display: flex;
     justify-content: center;

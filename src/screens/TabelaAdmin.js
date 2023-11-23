@@ -16,7 +16,7 @@ import styles from './TabelaAdmin.module.css';
 
 const StyledTableCellHead = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
-        backgroundColor: '#a09e9e',
+        backgroundColor: '#a9a39e',
         // background: 'linear-gradient(180deg, #525775, #bea181)',
         color: theme.palette.common.white,
     },
