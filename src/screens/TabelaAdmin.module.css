@@ -33,6 +33,10 @@ section.container {
     width: 100%;
 }
 
+.input {
+    width: 100%;
+}
+
 .containerTable {
     margin: 3vh 2vw 3vh;
     height: 100%;
@@ -41,8 +45,7 @@ section.container {
 }
 
 .buttontr {
-    height: 6vh;
-    padding: 1.5vh;
+    height: 5vh;
 }
 
 .imagem {
@@ -76,6 +79,6 @@ section.container {
     }
 
     .buttontr {
-        padding: 0.5vh;
+        margin-top: 3vh;
     }
 }

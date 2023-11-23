@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { showNotification } from '@mantine/notifications';
 import { styled } from '@mui/material/styles';
 import { Delete, Edit } from '@mui/icons-material';
-import { Button } from '@mantine/core';
+import { Button, Input } from '@mantine/core';
 import { Skeleton, Dialog, DialogTitle, DialogContent, DialogActions, FormControl, Grid, IconButton, InputLabel, MenuItem, Select, tableCellClasses, TableBody, TableCell, TableContainer, TableFooter, TableHead, TablePagination, TableRow, TextField, Tooltip } from '@mui/material';
 import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
@@ -202,10 +202,10 @@ export default function TabelaAdmin() {
     const getRowsFiltered = () => {
         //filtro por título
         var rowsFilteredByName = text.length > 1
-        ? rows.filter((i) =>
+        ? presentes.filter((i) =>
             i.nome.toLowerCase().includes(text.toLowerCase())
         )
-        : rows;
+        : presentes;
 
         //filtro por tipo
         // var rowsFilteredByType = selectValueType !== "Todos"
@@ -263,42 +263,22 @@ export default function TabelaAdmin() {
             <div className={styles.whiteBox}>
                 <Grid 
                     container 
-                    spacing={2}
+                    alignContent="center"
+                    flexDirection="row"
+                    alignItems="center"
                     className={styles.containerActions}
                 >
-
-                    <Grid item md={4} xs={12}>
-                        <TextField
-                            fullWidth
-                            type="text"
+                    <Grid item md={6} xs={12}>
+                        <Input
+                            size="md"
+                            radius="lg"
                             value={text}
-                            name="titulo"
-                            // variant="standard"
-                            label="Busca por nome"
+                            name="text"
+                            // icon={<IconAt />}
+                            className={styles.input}
+                            placeholder="Buscar por nome"
                             onChange={(e) => setText(e.target.value)}
                         />
-                    </Grid>
-
-                    <Grid item md={3} xs={12}>
-                        {/* <FormControl
-                            fullWidth
-                            // variant="outlined"
-                        >
-                            <InputLabel>Categoria</InputLabel>
-                            <Select
-                                fullWidth
-                                label="Categoria"
-                                value={selectValueCategory}
-                                onChange={(e) => setSelectValueCategory(e.target.value)}
-                            >
-                                {listCategory.map((item, index) => 
-                                    <MenuItem 
-                                        key={`${item.id};;${index}`}
-                                        value={item.nome}
-                                    > {item.nome} </MenuItem> 
-                                )}
-                            </Select>
-                        </FormControl> */}
                     </Grid>
 
                     <Grid item md={3} xs={12}>
@@ -327,7 +307,7 @@ export default function TabelaAdmin() {
                         </FormControl> */}
                     </Grid>
 
-                    <Grid item md={2} xs={12}>
+                    <Grid item md={3} xs={12}>
                         <Button
                             fullWidth
                             radius="sm"
@@ -369,10 +349,10 @@ export default function TabelaAdmin() {
                             <TableBody>
                                 {
                                     (rowsPerPage > 0
-                                        // ? rowsFiltered.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                                        // : rowsFiltered
-                                        ? [...presentes].slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                                        : [...presentes]
+                                        ? [...rowsFiltered].slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                                        : [...rowsFiltered]
+                                        // ? [...presentes].slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                                        // : [...presentes]
                                     || [] ).map((row) => (
                                     <StyledTableRow
                                         key={row.key}
@@ -428,7 +408,7 @@ export default function TabelaAdmin() {
                                     </StyledTableRow>
                                 ))}
                                 {emptyRows > 0 && (
-                                    <StyledTableRow style={{ height: 73 * emptyRows }}>
+                                    <StyledTableRow style={{ height: `${12 * emptyRows}vh` }}>
                                         <StyledTableCell colSpan={6} />
                                     </StyledTableRow>
                                 )}
