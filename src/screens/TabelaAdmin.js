@@ -169,7 +169,7 @@ export default function TabelaAdmin() {
 
     const editPresente = () => {
         setLoadingButton(true)
-        apiRequest("PATCH", `/presentes/edit/${data.key}`, {...data})
+        apiRequest("PATCH", `/presentes/edit/${data.id}`, {...data})
         .then((res) => {
             getPresentes()
             setLoadingButton(false)
@@ -183,7 +183,7 @@ export default function TabelaAdmin() {
 
     const deletePresente = () => {
         setLoadingButton(true)
-        apiRequest("DELETE", `/presentes/delete/${data.key}`, {...data})
+        apiRequest("DELETE", `/presentes/delete/${data.id}`, {...data})
         .then((res) => {
             getPresentes()
             setLoadingButton(false)
@@ -336,7 +336,7 @@ export default function TabelaAdmin() {
                         : <Table style={{width: "100%"}} aria-label="custom pagination table">
                             <TableHead>
                                 <TableRow>
-                                    <StyledTableCellHead align="center">Key</StyledTableCellHead>
+                                    <StyledTableCellHead align="center">ID</StyledTableCellHead>
                                     <StyledTableCellHead align="center">Nome</StyledTableCellHead>
                                     <StyledTableCellHead align="center">Preço</StyledTableCellHead>
                                     <StyledTableCellHead align="center">Descrição</StyledTableCellHead>
@@ -355,10 +355,10 @@ export default function TabelaAdmin() {
                                         // : [...presentes]
                                     || [] ).map((row) => (
                                     <StyledTableRow
-                                        key={row.key}
+                                        key={row.id}
                                         sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                                     >
-                                    <StyledTableCell align="center"> {row.key} </StyledTableCell>
+                                    <StyledTableCell align="center"> {row.id} </StyledTableCell>
                                     <StyledTableCell align="center"> {row.nome} </StyledTableCell>
                                     <StyledTableCell align="center"> {formatReais(parseFloat(row.preco))} </StyledTableCell>
                                     <StyledTableCell align="center">
