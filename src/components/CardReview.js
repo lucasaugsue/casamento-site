@@ -81,7 +81,7 @@ export default function CardReview({params}) {
           </IconButton>
         </Tooltip>
         <Tooltip title="Copiar link">
-          <IconButton>
+          <IconButton onClick={() => {params.compartilhar()}}>
             <ShareIcon />
           </IconButton>
         </Tooltip>

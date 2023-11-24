@@ -62,15 +62,16 @@ const loadingTable = () => {
             <Skeleton 
                 style={{margin: "2vh 1vw"}}
                 variant="rectangular" 
-                height={"4vh"} 
+                height={"8vh"} 
                 width={"auto"} 
                 animation="wave"
             />
             {[1,2,3,4,5].map((item, index) => {
                 return <Skeleton 
+                    key={`${item};;${index}`}
                     style={{margin: "2vh 1vw"}}
                     variant="rectangular" 
-                    height={"6vh"} 
+                    height={"12vh"} 
                     width={"auto"} 
                     animation="wave"
                 />
@@ -200,7 +201,7 @@ export default function TabelaAdmin() {
     }, []);
 
     const getRowsFiltered = () => {
-        //filtro por título
+        //filtro por nome
         var rowsFilteredByName = text.length > 1
         ? presentes.filter((i) =>
             i.nome.toLowerCase().includes(text.toLowerCase())
@@ -228,7 +229,7 @@ export default function TabelaAdmin() {
     React.useEffect(() => {
         getRowsFiltered()
         // eslint-disable-next-line
-    }, [rows, text])
+    }, [presentes, text])
 
     return <section className={styles.container} id="tabela">
         <Grid style={{marginTop:'3vh'}} container spacing={2}>
@@ -330,10 +331,11 @@ export default function TabelaAdmin() {
                 >
                     {
                         loading 
-                        ? <Table style={{width: "100%"}} aria-label="custom pagination table">
-                            {loadingTable()}
-                        </Table> 
-                        : <Table style={{width: "100%"}} aria-label="custom pagination table">
+                        ? loadingTable()
+                        : <Table 
+                            style={{width: "100%"}} 
+                            aria-label="custom pagination table"
+                        >
                             <TableHead>
                                 <TableRow>
                                     <StyledTableCellHead align="center">ID</StyledTableCellHead>
@@ -351,79 +353,82 @@ export default function TabelaAdmin() {
                                     (rowsPerPage > 0
                                         ? [...rowsFiltered].slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                                         : [...rowsFiltered]
-                                        // ? [...presentes].slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                                        // : [...presentes]
                                     || [] ).map((row) => (
                                     <StyledTableRow
                                         key={row.id}
                                         sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                                     >
-                                    <StyledTableCell align="center"> {row.id} </StyledTableCell>
-                                    <StyledTableCell align="center"> {row.nome} </StyledTableCell>
-                                    <StyledTableCell align="center"> {formatReais(parseFloat(row.preco))} </StyledTableCell>
-                                    <StyledTableCell align="center">
-                                        {
-                                            (row.descricao && row.descricao.length > 30)
-                                            ?`${row.descricao.slice(0, 24)}...`
-                                            :row.descricao
-                                        }
-                                    </StyledTableCell>
-                                    <StyledTableCell align="center">
-                                        <img
-                                            src={row.url}
-                                            alt={`imagem ${row.nome}`}
-                                            className={styles.imagem}
-                                        />
-                                    </StyledTableCell>
-                                    <StyledTableCell align="center">
-                                        <a
-                                            target="_blank"
-                                            href={row.mais_informacoes}
-                                        >
-                                            Link das informações
-                                        </a>
-                                    </StyledTableCell>
-                                    <StyledTableCell align="center">
-                                        <Tooltip title="Editar">
-                                            <IconButton onClick={() => {
-                                                    setEdit(true) 
-                                                    setData({...row})
-                                                    handleClickOpen()
-                                                }}
+                                        <StyledTableCell align="center"> {row.id} </StyledTableCell>
+                                        <StyledTableCell align="center"> {row.nome} </StyledTableCell>
+                                        <StyledTableCell align="center"> {formatReais(parseFloat(row.preco))} </StyledTableCell>
+                                        <StyledTableCell align="center">
+                                            {
+                                                (row.descricao && row.descricao.length > 30)
+                                                ?`${row.descricao.slice(0, 24)}...`
+                                                :row.descricao
+                                            }
+                                        </StyledTableCell>
+                                        <StyledTableCell align="center">
+                                            <img
+                                                src={row.url}
+                                                alt={`imagem ${row.nome}`}
+                                                className={styles.imagem}
+                                            />
+                                        </StyledTableCell>
+                                        <StyledTableCell align="center">
+                                            <a
+                                                target="_blank"
+                                                href={row.mais_informacoes}
                                             >
-                                                <Edit fontSize="medium" />
-                                            </IconButton>
-                                        </Tooltip>
-                                    </StyledTableCell>
-                                    <StyledTableCell align="center">
-                                        <Tooltip title="Deletar">
-                                            <IconButton onClick={() => {
-                                                setData({...row})
-                                                handleOpenDelete()
-                                            }}>
-                                                <Delete fontSize="medium" />
-                                            </IconButton>
-                                        </Tooltip>
-                                    </StyledTableCell>
+                                                Link das informações
+                                            </a>
+                                        </StyledTableCell>
+                                        <StyledTableCell align="center">
+                                            <Tooltip title="Editar">
+                                                <IconButton onClick={() => {
+                                                        setEdit(true) 
+                                                        setData({...row})
+                                                        handleClickOpen()
+                                                    }}
+                                                >
+                                                    <Edit fontSize="medium" />
+                                                </IconButton>
+                                            </Tooltip>
+                                        </StyledTableCell>
+                                        <StyledTableCell align="center">
+                                            <Tooltip title="Deletar">
+                                                <IconButton onClick={() => {
+                                                    setData({...row})
+                                                    handleOpenDelete()
+                                                }}>
+                                                    <Delete fontSize="medium" />
+                                                </IconButton>
+                                            </Tooltip>
+                                        </StyledTableCell>
                                     </StyledTableRow>
                                 ))}
                                 {emptyRows > 0 && (
-                                    <StyledTableRow style={{ height: `${12 * emptyRows}vh` }}>
-                                        <StyledTableCell colSpan={6} />
+                                    <StyledTableRow 
+                                        style={{ 
+                                            width: '100%', 
+                                            height: `${16 * emptyRows}vh` 
+                                        }}
+                                    >
+                                        <StyledTableCell colSpan={10} />
                                     </StyledTableRow>
                                 )}
                             </TableBody>
                             <TableFooter>
                                 <TableRow>
                                     <TablePagination
-                                        rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
-                                        colSpan={7}
-                                        count={rowsFiltered.length}
-                                        rowsPerPage={rowsPerPage}
+                                        colSpan={10}
                                         page={page}
+                                        rowsPerPage={rowsPerPage}
+                                        count={rowsFiltered.length}
                                         onPageChange={handleChangePage}
-                                        onRowsPerPageChange={handleChangeRowsPerPage}
                                         ActionsComponent={TablePaginationActions}
+                                        onRowsPerPageChange={handleChangeRowsPerPage}
+                                        rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
                                     />
                                 </TableRow>
                             </TableFooter>

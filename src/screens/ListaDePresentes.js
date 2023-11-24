@@ -25,6 +25,10 @@ export default function ListaDePresentes(){
         setPage(value);
     };
 
+    const copiarTexto = () => {
+        console.log("console sog hehe")
+    }
+
     const getPresentes = () => {
         setLoading(true)
         apiRequest("GET", "/presentes/list")
@@ -71,7 +75,8 @@ export default function ListaDePresentes(){
                                             params={{
                                                 ...item, 
                                                 color_id: index,
-                                                handleChange: () => window.location.href = `/info/${item.id}`
+                                                handleChange: () => window.location.href = `/info/${item.id}`,
+                                                compartilhar: () => copiarTexto()
                                             }} 
                                         />
                                     </div>)
