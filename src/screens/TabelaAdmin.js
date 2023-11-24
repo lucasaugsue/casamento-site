@@ -1,17 +1,15 @@
 import React from 'react';
 import ClientContext from '../../src/contexts/ClientContext';
-
-import PropTypes from 'prop-types';
-import { showNotification } from '@mantine/notifications';
-import { styled } from '@mui/material/styles';
-import { Delete, Edit } from '@mui/icons-material';
 import { Button, Input } from '@mantine/core';
-import { Skeleton, Dialog, DialogTitle, DialogContent, DialogActions, FormControl, Grid, IconButton, InputLabel, MenuItem, Select, tableCellClasses, TableBody, TableCell, TableContainer, TableFooter, TableHead, TablePagination, TableRow, TextField, Tooltip } from '@mui/material';
+import { showNotification } from '@mantine/notifications';
+import { Delete, Edit } from '@mui/icons-material';
+import { Dialog, DialogActions, DialogContent, DialogTitle, FormControl, Grid, IconButton, InputLabel, MenuItem, Select, Skeleton, TableBody, TableCell, TableContainer, TableFooter, TableHead, TablePagination, TableRow, TextField, Tooltip, tableCellClasses } from '@mui/material';
 import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
-import TablePaginationActions from "../components/TablePaginationActionsComponent";
-import ReportsDashPaper from "../components/ReportsDashPaper";
+import { styled } from '@mui/material/styles';
+import PropTypes from 'prop-types';
 import InformationDialog from "../components/InformationDialog";
+import TablePaginationActions from "../components/TablePaginationActionsComponent";
 import styles from './TabelaAdmin.module.css';
 
 const StyledTableCellHead = styled(TableCell)(({ theme }) => ({
@@ -89,10 +87,7 @@ export default function TabelaAdmin() {
     const [openDelete, setOpenDelete] = React.useState(false);
     
     const [text, setText] = React.useState("")
-    const [selectValueType, setSelectValueType] = React.useState("Todos")
-    const [selectValueCategory, setSelectValueCategory] = React.useState("Todos")
-
-    const [rows, setRows] = React.useState([]);
+    const [selectTable, setSelectTable] = React.useState("Presentes")
     const [rowsFiltered, setRowsFiltered] = React.useState([]);
 
     //início relacionado ao passar página
@@ -196,74 +191,366 @@ export default function TabelaAdmin() {
         });
     }
 
+    // get recados 
+    const [recados, setRecados] = React.useState([]);
+
+    const getRecados = () => {
+        setLoading(true)
+        apiRequest("GET", "/recados/list")
+        .then((res) => {
+            setRecados(res)
+            setLoading(false)
+        })
+        .catch((err) => {
+            setLoading(false)
+            showNotification({message: err.message, color: 'red', autoClose: true})
+        });
+    }
+
+    const createRecado = () => {
+        setLoadingButton(true)
+        apiRequest("POST", "/recados/create", {...data})
+        .then((res) => {
+            getRecados()
+            setLoadingButton(false)
+            handleClose()
+        })
+        .catch((err) => {
+            setLoadingButton(false)
+            showNotification({message: err.message, color: 'red', autoClose: true})
+        });
+    }
+
+    const editRecado = () => {
+        setLoadingButton(true)
+        apiRequest("PATCH", `/recados/edit/${data.id}`, {...data})
+        .then((res) => {
+            getRecados()
+            setLoadingButton(false)
+            handleClose()
+        })
+        .catch((err) => {
+            setLoadingButton(false)
+            showNotification({message: err.message, color: 'red', autoClose: true})
+        });
+    }
+
+    const deleteRecado = () => {
+        setLoadingButton(true)
+        apiRequest("DELETE", `/recados/delete/${data.id}`, {...data})
+        .then((res) => {
+            getRecados()
+            setLoadingButton(false)
+            handleCloseDelete()
+        })
+        .catch((err) => {
+            setLoadingButton(false)
+            showNotification({message: err.message, color: 'red', autoClose: true})
+        });
+    }
+
+
     React.useEffect(() => {
+        getRecados()
         getPresentes()
     }, []);
 
+    // parte da lista que vai ser renderizada na tabela
+
     const getRowsFiltered = () => {
+        let list
+
+        if(selectTable === "Presentes") list = presentes
+        else if(selectTable === "Recados") list = recados
+
         //filtro por nome
         var rowsFilteredByName = text.length > 1
-        ? presentes.filter((i) =>
+        ? list.filter((i) =>
             i.nome.toLowerCase().includes(text.toLowerCase())
         )
-        : presentes;
-
-        //filtro por tipo
-        // var rowsFilteredByType = selectValueType !== "Todos"
-        // ? rowsFilteredByTitle.filter((i) => i.tipo === selectValueType)
-        // : rowsFilteredByTitle;
-
-        //filtro por categoria
-        // var rowsFilteredByCategory = selectValueCategory !== "Todos"
-        // ? rowsFilteredByType.filter((i) => i.categoria === selectValueCategory)
-        // : rowsFilteredByType;
-
-        // getFinancialData(rowsFilteredByCategory)
+        : list;
 
         setRowsFiltered([
             ...rowsFilteredByName.sort((a,b) => a.created < b.created ? 1 : -1)
-            // ...rowsFilteredByCategory.sort((a,b) => a.data < b.data ? 1 : -1)
         ])
     }
 
     React.useEffect(() => {
         getRowsFiltered()
         // eslint-disable-next-line
-    }, [presentes, text])
+    }, [selectTable, recados, presentes, text])
+
+    // parte do return DOM
+    
+    const renderTableHead = () => {
+        const listHeadPresentes = [
+            "ID", "Nome", "Preço", "Descrição", "Imagem", "Mais informações", "Editar", "Deletar"
+        ]
+    
+        const listHeadRecados = [
+            "ID", "Nome", "Email", "Recado", "Editar", "Deletar"
+        ]
+
+        let list
+
+        if(selectTable === "Presentes") list = listHeadPresentes
+        else if(selectTable === "Recados") list = listHeadRecados
+
+        return <TableRow>
+            {list.map((item, index) => (
+                <StyledTableCellHead 
+                    key={`${item};;${index}`} 
+                    align="center"
+                > {item} </StyledTableCellHead>
+            ))}
+        </TableRow>
+    }
+
+    const renderTableBody = (row) => {
+
+        const bodyPresentes = () =>  ( 
+            <StyledTableRow
+                key={row.id}
+                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+            >
+                <StyledTableCell align="center"> {row.id} </StyledTableCell>
+                <StyledTableCell align="center"> {row.nome} </StyledTableCell>
+                <StyledTableCell align="center"> {formatReais(parseFloat(row.preco))} </StyledTableCell>
+                <StyledTableCell align="center">
+                    {
+                        (row.descricao && row.descricao.length > 30)
+                        ?`${row.descricao.slice(0, 24)}...`
+                        :row.descricao
+                    }
+                </StyledTableCell>
+                <StyledTableCell align="center">
+                    <img
+                        src={row.url}
+                        alt={`imagem ${row.nome}`}
+                        className={styles.imagem}
+                    />
+                </StyledTableCell>
+                <StyledTableCell align="center">
+                    <a
+                        target="_blank"
+                        href={row.mais_informacoes}
+                    >
+                        Link das informações
+                    </a>
+                </StyledTableCell>
+                <StyledTableCell align="center">
+                    <Tooltip title="Editar">
+                        <IconButton onClick={() => {
+                                setEdit(true) 
+                                setData({...row})
+                                handleClickOpen()
+                            }}
+                        >
+                            <Edit fontSize="medium" />
+                        </IconButton>
+                    </Tooltip>
+                </StyledTableCell>
+                <StyledTableCell align="center">
+                    <Tooltip title="Deletar">
+                        <IconButton onClick={() => {
+                            setData({...row})
+                            handleOpenDelete()
+                        }}>
+                            <Delete fontSize="medium" />
+                        </IconButton>
+                    </Tooltip>
+                </StyledTableCell>
+            </StyledTableRow>
+        )
+
+        const bodyRecados = () => (
+            <StyledTableRow
+                key={row.id}
+                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+            >
+                <StyledTableCell align="center"> {row.id} </StyledTableCell>
+                <StyledTableCell align="center"> {row.nome} </StyledTableCell>
+                <StyledTableCell align="center"> {row.email} </StyledTableCell>
+                <StyledTableCell align="center">
+                    {
+                        (row.recado && row.recado.length > 30)
+                        ?`${row.recado.slice(0, 24)}...`
+                        :row.recado
+                    } 
+                </StyledTableCell>
+                <StyledTableCell align="center">
+                    <Tooltip title="Editar">
+                        <IconButton onClick={() => {
+                                setEdit(true) 
+                                setData({...row})
+                                handleClickOpen()
+                            }}
+                        >
+                            <Edit fontSize="medium" />
+                        </IconButton>
+                    </Tooltip>
+                </StyledTableCell>
+                <StyledTableCell align="center">
+                    <Tooltip title="Deletar">
+                        <IconButton onClick={() => {
+                            setData({...row})
+                            handleOpenDelete()
+                        }}>
+                            <Delete fontSize="medium" />
+                        </IconButton>
+                    </Tooltip>
+                </StyledTableCell>
+            </StyledTableRow>
+        )
+
+        if(selectTable === "Presentes") return bodyPresentes()
+        else if(selectTable === "Recados") return bodyRecados()
+    }
+
+    const handleTitle = () => {
+        let title
+
+        if(selectTable === "Presentes") {
+            if(edit) title = "Editar presente" 
+            else title = "Cadastro de presente"
+        
+        }  else if(selectTable === "Recados") {
+
+            if(edit) title = "Editar recado" 
+            else title = "Cadastro de recado"
+        }
+
+        return title
+    }
+
+    const renderDialogContent = () => {
+
+        const contentPresentes = () => (
+            <Grid 
+                container 
+                spacing={2}
+            >
+                <Grid item md={6} xs={12}>
+                    <TextField
+                        fullWidth
+                        type="text"
+                        name="nome"
+                        label="Nome"
+                        value={{...data}.nome ? {...data}.nome : ""}
+                        onChange={(e) => handleChange(e)}
+                    />
+                </Grid>
+                <Grid item md={6} xs={12}>
+                    <TextField
+                        fullWidth
+                        type="number"
+                        name="preco"
+                        label="Preço"
+                        value={{...data}.preco ? {...data}.preco : ""}
+                        onChange={(e) => handleChange(e)}
+                    />
+                </Grid>
+                <Grid item md={6} xs={12}>
+                    <TextField
+                        fullWidth
+                        type="text"
+                        name="url"
+                        label="Url da imagem"
+                        value={{...data}.url ? {...data}.url : ""}
+                        onChange={(e) => handleChange(e)}
+                    />
+                </Grid>
+                <Grid item md={6} xs={12}>
+                    <TextField
+                        fullWidth
+                        type="text"
+                        name="mais_informacoes"
+                        label="Mais informações"
+                        value={{...data}.mais_informacoes ? {...data}.mais_informacoes : ""}
+                        onChange={(e) => handleChange(e)}
+                    />
+                </Grid>
+                <Grid item md={12} xs={12}>
+                    <TextField
+                        fullWidth
+                        type="text"
+                        name="descricao"
+                        label="Descrição"
+                        value={{...data}.descricao ? {...data}.descricao : ""}
+                        onChange={(e) => handleChange(e)}
+                        multiline
+                        rows={4}
+                    />
+                </Grid>
+            </Grid>
+        )
+
+        const contentRecados = () => (
+            <Grid 
+                container 
+                spacing={2}
+            >
+                <Grid item md={6} xs={12}>
+                    <TextField
+                        fullWidth
+                        type="text"
+                        name="nome"
+                        label="Nome"
+                        value={{...data}.nome ? {...data}.nome : ""}
+                        onChange={(e) => handleChange(e)}
+                    />
+                </Grid>
+                <Grid item md={6} xs={12}>
+                    <TextField
+                        fullWidth
+                        type="text"
+                        name="email"
+                        label="Email"
+                        value={{...data}.email ? {...data}.email : ""}
+                        onChange={(e) => handleChange(e)}
+                    />
+                </Grid>
+                <Grid item md={12} xs={12}>
+                    <TextField
+                        fullWidth
+                        type="text"
+                        name="recado"
+                        label="Recado"
+                        value={{...data}.recado ? {...data}.recado : ""}
+                        onChange={(e) => handleChange(e)}
+                        multiline
+                        rows={4}
+                    />
+                </Grid>
+            </Grid>
+        )
+
+        if(selectTable === "Presentes") return contentPresentes()
+        else if(selectTable === "Recados") return contentRecados()
+    }
+
+    const handleFunction = () => {
+        if(selectTable === "Presentes") {
+            if(edit) editPresente() 
+            else createPresente()
+
+        }  else if(selectTable === "Recados") {
+            if(edit) editRecado() 
+            else createRecado()
+        }
+    }
+
+    const handleDelete = () => {
+        if(selectTable === "Presentes") deletePresente()
+        else if(selectTable === "Recados") deleteRecado()
+    }
 
     return <section className={styles.container} id="tabela">
         <Grid style={{marginTop:'3vh'}} container spacing={2}>
-            {/* <Grid item md={4} xs={12}>
-                <ReportsDashPaper 
-                    title={"Saldo"} 
-                    background={"#64b084"} 
-                    bodyTitle={"algum title"}
-                    // bodyTitle={formatCurrency(0)}
-                    bodySubtitle={"Total do saldo"} 
-                />
-            </Grid>
-            <Grid item md={4} xs={12}>
-                <ReportsDashPaper 
-                    title={"Gastos"} 
-                    background={"#eb5757"} 
-                    bodyTitle={"algum title"}
-                    // bodyTitle={formatCurrency(0)}
-                    bodySubtitle={"Total dos gastos"} 
-                />
-            </Grid>
-            <Grid item md={4} xs={12}>
-                <ReportsDashPaper 
-                    title={"Somatória"} 
-                    background={"#057dc1"}
-                    bodyTitle={"algum title"}
-                    // bodyTitle={formatCurrency(0)}
-                    bodySubtitle={"Total do saldo e gasto"} 
-                />
-            </Grid> */}
-            <Grid item xs={12}></Grid>
             <div className={styles.whiteBox}>
                 <Grid 
                     container 
+                    spacing={2}
                     alignContent="center"
                     flexDirection="row"
                     alignItems="center"
@@ -272,40 +559,18 @@ export default function TabelaAdmin() {
                     <Grid item md={6} xs={12}>
                         <Input
                             size="md"
-                            radius="lg"
+                            radius="sm"
                             value={text}
                             name="text"
-                            // icon={<IconAt />}
+                            disabled={
+                                (selectTable === "Presentes") ? false : true
+                                // será q vale a pena deixar disabled?
+                                // vou ter que melhorar esse if else caso tenhao mais de 2 variaveis
+                            }
                             className={styles.input}
                             placeholder="Buscar por nome"
                             onChange={(e) => setText(e.target.value)}
                         />
-                    </Grid>
-
-                    <Grid item md={3} xs={12}>
-                        {/* <FormControl
-                            fullWidth
-                            // variant="outlined"
-                        >
-                            <InputLabel>Tipo</InputLabel>
-                            <Select
-                                fullWidth
-                                label="Tipo"
-                                value={selectValueType}
-                                onChange={(e) => setSelectValueType(e.target.value)}
-                            >
-                                {[
-                                    {id: 1, nome: "Todos"},
-                                    {id: 2, nome: "Ganhos"},
-                                    {id: 3, nome: "Despesas"}
-                                ].map((item, index) => 
-                                    <MenuItem 
-                                        key={`${item.id};;${index}`}
-                                        value={item.nome}
-                                    > {item.nome} </MenuItem> 
-                                )}
-                            </Select>
-                        </FormControl> */}
                     </Grid>
 
                     <Grid item md={3} xs={12}>
@@ -322,8 +587,36 @@ export default function TabelaAdmin() {
                             Cadastrar
                         </Button>
                     </Grid>
+                    
+                    <Grid item md={3} xs={12}>
+                        <FormControl
+                            fullWidth
+                            variant="outlined"
+                        >
+                            <InputLabel>A tabela que deseja ver</InputLabel>
+                            <Select
+                                fullWidth
+                                value={selectTable}
+                                label="A tabela que deseja ver"
+                                onChange={(e) => {
+                                    setText("")
+                                    setSelectTable(e.target.value)
+                                }}
+                            >
+                                {[
+                                    {id: 1, nome: "Presentes"},
+                                    {id: 2, nome: "Recados"},
+                                    {id: 3, nome: "Lista de presença"}
+                                ].map((item, index) => 
+                                    <MenuItem 
+                                        key={`${item.id};;${index}`}
+                                        value={item.nome}
+                                    > {item.nome} </MenuItem> 
+                                )}
+                            </Select>
+                        </FormControl>
+                    </Grid>
                 </Grid>
-
 
                 <TableContainer 
                     className={styles.containerTable}
@@ -337,76 +630,15 @@ export default function TabelaAdmin() {
                             aria-label="custom pagination table"
                         >
                             <TableHead>
-                                <TableRow>
-                                    <StyledTableCellHead align="center">ID</StyledTableCellHead>
-                                    <StyledTableCellHead align="center">Nome</StyledTableCellHead>
-                                    <StyledTableCellHead align="center">Preço</StyledTableCellHead>
-                                    <StyledTableCellHead align="center">Descrição</StyledTableCellHead>
-                                    <StyledTableCellHead align="center">Imagem</StyledTableCellHead>
-                                    <StyledTableCellHead align="center">Mais informações</StyledTableCellHead>
-                                    <StyledTableCellHead align="center">Editar</StyledTableCellHead>
-                                    <StyledTableCellHead align="center">Deletar</StyledTableCellHead>
-                                </TableRow>
+                                {renderTableHead()}
                             </TableHead>
                             <TableBody>
                                 {
                                     (rowsPerPage > 0
                                         ? [...rowsFiltered].slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                                         : [...rowsFiltered]
-                                    || [] ).map((row) => (
-                                    <StyledTableRow
-                                        key={row.id}
-                                        sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                                    >
-                                        <StyledTableCell align="center"> {row.id} </StyledTableCell>
-                                        <StyledTableCell align="center"> {row.nome} </StyledTableCell>
-                                        <StyledTableCell align="center"> {formatReais(parseFloat(row.preco))} </StyledTableCell>
-                                        <StyledTableCell align="center">
-                                            {
-                                                (row.descricao && row.descricao.length > 30)
-                                                ?`${row.descricao.slice(0, 24)}...`
-                                                :row.descricao
-                                            }
-                                        </StyledTableCell>
-                                        <StyledTableCell align="center">
-                                            <img
-                                                src={row.url}
-                                                alt={`imagem ${row.nome}`}
-                                                className={styles.imagem}
-                                            />
-                                        </StyledTableCell>
-                                        <StyledTableCell align="center">
-                                            <a
-                                                target="_blank"
-                                                href={row.mais_informacoes}
-                                            >
-                                                Link das informações
-                                            </a>
-                                        </StyledTableCell>
-                                        <StyledTableCell align="center">
-                                            <Tooltip title="Editar">
-                                                <IconButton onClick={() => {
-                                                        setEdit(true) 
-                                                        setData({...row})
-                                                        handleClickOpen()
-                                                    }}
-                                                >
-                                                    <Edit fontSize="medium" />
-                                                </IconButton>
-                                            </Tooltip>
-                                        </StyledTableCell>
-                                        <StyledTableCell align="center">
-                                            <Tooltip title="Deletar">
-                                                <IconButton onClick={() => {
-                                                    setData({...row})
-                                                    handleOpenDelete()
-                                                }}>
-                                                    <Delete fontSize="medium" />
-                                                </IconButton>
-                                            </Tooltip>
-                                        </StyledTableCell>
-                                    </StyledTableRow>
-                                ))}
+                                    || [] ).map((row) => renderTableBody(row)
+                                )}
                                 {emptyRows > 0 && (
                                     <StyledTableRow 
                                         style={{ 
@@ -442,71 +674,8 @@ export default function TabelaAdmin() {
             open={open}
             onClose={handleClose}
         >
-            <DialogTitle>
-                {edit ? "Editar presente" : "Cadastro de presente"}
-            </DialogTitle>
-            <DialogContent>
-
-                <Grid 
-                    container 
-                    spacing={2}
-                >
-                    <Grid item md={6} xs={12}>
-                        <TextField
-                            fullWidth
-                            type="text"
-                            name="nome"
-                            label="Nome"
-                            value={{...data}.nome ? {...data}.nome : ""}
-                            onChange={(e) => handleChange(e)}
-                        />
-                    </Grid>
-                    <Grid item md={6} xs={12}>
-                        <TextField
-                            fullWidth
-                            type="number"
-                            name="preco"
-                            label="Preço"
-                            value={{...data}.preco ? {...data}.preco : ""}
-                            onChange={(e) => handleChange(e)}
-                        />
-                    </Grid>
-                    <Grid item md={6} xs={12}>
-                        <TextField
-                            fullWidth
-                            type="text"
-                            name="url"
-                            label="Url da imagem"
-                            value={{...data}.url ? {...data}.url : ""}
-                            onChange={(e) => handleChange(e)}
-                        />
-                    </Grid>
-                    <Grid item md={6} xs={12}>
-                        <TextField
-                            fullWidth
-                            type="text"
-                            name="mais_informacoes"
-                            label="Mais informações"
-                            value={{...data}.mais_informacoes ? {...data}.mais_informacoes : ""}
-                            onChange={(e) => handleChange(e)}
-                        />
-                    </Grid>
-                    <Grid item md={12} xs={12}>
-                        <TextField
-                            fullWidth
-                            type="text"
-                            name="descricao"
-                            label="Descrição"
-                            value={{...data}.descricao ? {...data}.descricao : ""}
-                            onChange={(e) => handleChange(e)}
-                            multiline
-                            rows={4}
-                        />
-                    </Grid>
-                </Grid>
-
-
-            </DialogContent>
+            <DialogTitle> {handleTitle()} </DialogTitle>
+            <DialogContent> {renderDialogContent()} </DialogContent>
             <DialogActions style={{
                 padding: "0.5vh 1.5vw 2vh 0"
             }}>
@@ -519,12 +688,8 @@ export default function TabelaAdmin() {
                     radius="sm"
                     variant="gradient"
                     loading={loadingButton}
+                    onClick={() => handleFunction()}
                     gradient={{ from: '#f16352', to: '#ec8c69', deg: 35 }}
-                    onClick={
-                        edit
-                        ? () => editPresente()
-                        : () => createPresente()
-                    }
                 >
                     {edit ? "Editar" : "Cadastrar"}
                 </Button>
@@ -534,11 +699,11 @@ export default function TabelaAdmin() {
         <InformationDialog
             open={openDelete} 
             handleClose={() => handleCloseDelete()} 
-            title={"Deletar presente"} 
-            textContent={"O produto sera permanentemente removido do banco de dados, você tem certeza que deseja excluir?"} 
+            title={"Deletar item"} 
+            textContent={"O item sera permanentemente removido do banco de dados, você tem certeza que deseja excluir?"} 
             textButton={"cancelar"} 
             loading={loadingButton}
-            handleFunction={() => deletePresente()}
+            handleFunction={() => handleDelete()}
             textFunction={"deletar"}
         />
     </section>
