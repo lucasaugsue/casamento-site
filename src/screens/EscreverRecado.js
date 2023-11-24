@@ -1,14 +1,18 @@
 import { Button, Input, Textarea } from '@mantine/core';
 import { showNotification } from '@mantine/notifications';
 import Email from '@mui/icons-material/Email';
-import { IconAt } from '@tabler/icons';
+import { IconAt, IconUser } from '@tabler/icons';
 import React from 'react';
 import styles from './EscreverRecado.module.css';
+import ClientContext from '../contexts/ClientContext';
 
 
 export default function EscreverRecado(){
+    const { apiRequest } = React.useContext(ClientContext);
+
+    const [loading, setLoading] = React.useState(false);
     const [data, setData] = React.useState({
-        email: "", body: ""
+        nome: "", email: "", recado: ""
     });
 
     const handleChange = (e) => {
@@ -19,9 +23,21 @@ export default function EscreverRecado(){
 
     const sendMessage = () => {
         try{
+            if(data.nome.length < 2) throw new Error("É necessário colocar o seu nome!")
             if(data.email.length < 10) throw new Error("É necessário colocar o seu email!")
-            if(data.body.length < 10) throw new Error("É necessário escrever alguma coisa no recado!")
-            throw new Error("Funcionalidade ainda não implementada!")
+            if(data.recado.length < 10) throw new Error("É necessário escrever alguma coisa no recado!")
+
+            setLoading(true)
+            apiRequest("POST", "/recados/create", {...data})
+            .then((res) => {
+                setLoading(false)
+                setData({nome: "", email: "", recado: ""})
+                showNotification({message: "Recado enviado com sucesso!", color: 'green', autoClose: true})
+            })
+            .catch((err) => {
+                setLoading(false)
+                showNotification({message: err.message, color: 'red', autoClose: true})
+            });
 
         }catch(err){
             showNotification({message: err.message, color: 'red', autoClose: true})
@@ -45,6 +61,17 @@ export default function EscreverRecado(){
                 <Input
                     size="md"
                     radius="lg"
+                    name="nome"
+                    icon={<IconUser />}
+                    placeholder="Seu nome"
+                    className={styles.input}
+                    value={{...data}.nome || ""}
+                    onChange={(e) => handleChange(e)}
+                />
+
+                <Input
+                    size="md"
+                    radius="lg"
                     name="email"
                     icon={<IconAt />}
                     placeholder="Seu email"
@@ -59,17 +86,17 @@ export default function EscreverRecado(){
                     autosize
                     minRows={6}
                     maxRows={6}
-                    name="body"
-                    // icon={<IconBrandMessenger />}
+                    name="recado"
                     placeholder="Escreva o recado"
                     className={styles.input}
-                    value={{...data}.body || ""}
+                    value={{...data}.recado || ""}
                     onChange={(e) => handleChange(e)}
                 />
 
                 <Button 
                     radius="lg"
                     variant="gradient"
+                    loading={loading}
                     className={styles.button} 
                     onClick={() => sendMessage()}
                     gradient={{ from: '#f16352', to: '#ec8c69', deg: 35 }}
