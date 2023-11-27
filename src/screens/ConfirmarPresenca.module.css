@@ -86,16 +86,6 @@ section.container {
     font-size: 2vh;
 }
 
-.dialogContent {
-    padding: 1vh 0.5vw;
-    min-width: 30vw;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    /* background: radial-gradient(circle at bottom,  #a32e13 45%, #c89e54 5%, #c89e54 50%); */
-}
-
 .addButton {
     height: 6vh;
 }

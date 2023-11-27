@@ -78,6 +78,159 @@ export default function ConfirmarPresenca(){
         });
     }
 
+    const contetnConfirmados = () => (
+        <Grid 
+            container
+            spacing={1}
+            alignContent="center"
+            flexDirection="column"
+            alignItems="center"
+            className={styles.dialogContent}
+        >
+            <Grid 
+                container 
+                spacing={2}
+            >
+                <Grid item md={12} xs={12}>
+                    <div className={styles.subTitle}>Como confirmar sua presença?</div>
+                </Grid>
+                <Grid item md={12} xs={12}>
+                    <div className={styles.bodyContent}>1) Vamos precisar do nome e o e-mail de uma das pessoas para conseguirmos identificar!</div>
+                </Grid>
+                <Grid item md={12} xs={12}>
+                    <div className={styles.bodyContent}>2) Esse bloco em baixo em branco com "Lista de confirmados:" é para saber quem já foi adicionado e vai com você para a festa de casamento!</div>
+                </Grid>
+                <Grid item md={12} xs={12}>
+                    <div className={styles.bodyContent}>3) Para adicionar as pessoas na lista basta escrever o nome e a sua idade respectiva e clicar no botão "adicionar" para colocar na lista de confirmados!</div>
+                </Grid>
+                <Grid item md={12} xs={12}>
+                    <Divider sx={{
+                        color: "#626262",
+                        margin: "2vh 0"
+                    }}/>
+                </Grid>
+                <Grid item md={6} xs={12}>
+                    <TextField
+                        fullWidth
+                        type="text"
+                        name="nome"
+                        label="Nome"
+                        value={{...data}.nome ? {...data}.nome : ""}
+                        onChange={(e) => handleChange(e)}
+                    />
+                </Grid>
+                <Grid item md={6} xs={12}>
+                    <TextField
+                        fullWidth
+                        type="text"
+                        name="email"
+                        label="Email"
+                        value={{...data}.email ? {...data}.email : ""}
+                        onChange={(e) => handleChange(e)}
+                    />
+                </Grid>
+                <Grid item md={3} xs={12}>
+                    <TextField
+                        fullWidth
+                        type="text"
+                        name="nome"
+                        label="Nome"
+                        value={{...contentForm}.nome ? {...contentForm}.nome : ""}
+                        onChange={(e) => handleChangeContent(e)}
+                    />
+                </Grid>
+                <Grid item md={3} xs={12}>
+                    <TextField
+                        fullWidth
+                        type="text"
+                        name="idade"
+                        label="Idade"
+                        value={{...contentForm}.idade ? {...contentForm}.idade : ""}
+                        onChange={(e) => handleChangeContent(e)}
+                    />
+                </Grid>
+                <Grid item md={3} xs={12}>
+                    <Button
+                        radius="sm"
+                        variant="gradient"
+                        className={styles.addButton}
+                        onClick={() => handleAdd()}
+                        gradient={{ from: '#f16352', to: '#ec8c69', deg: 35 }}
+                    >
+                        Adicionar
+                    </Button>
+                </Grid>
+                <Grid item md={3} xs={12}></Grid>
+                <Grid item md={12} xs={12}></Grid>
+                <Grid item md={12} xs={12}>
+                    <Card 
+                        variant="outlined"
+                        sx={{
+                            padding: "1vh 0.5vw",
+                            borderRadius: "8px",
+                            minHeight: "16vh",
+                            maxHeight: "16vh",
+
+                            borderColor: "#c4c4c4",
+                            borderStyle: "solid",
+
+                            position: "relative",
+                            overflow: "auto",
+                        }}
+                    >
+                        <Grid
+                            container
+                            spacing={1}
+                            direction="row"
+                        >
+                            <Grid item md={12} xs={12}>
+                                <div className={styles.bodyContent}> Lista dos confirmados: </div>
+                            </Grid>
+                            {(data.lista || [])
+                            .map((item, index) => (
+                                <Grid 
+                                    item
+                                    key={`${item};;${index}`}
+                                    xs={6} sm={6} md={4}
+                                >
+                                    <Card 
+                                        variant="elevation"
+                                        className={styles.cardItem}
+                                        >
+                                        <Grid 
+                                            container
+                                            spacing={1}
+                                            direction="row"
+                                        >
+                                            <Grid item>
+                                                <HighlightOffIcon
+                                                    className={styles.closeIcon}
+                                                    onClick={() => {
+                                                        setData({
+                                                            ...data,
+                                                            lista: data.lista.filter(i => i !== item) 
+                                                        })
+                                                    }}
+                                                />
+                                            </Grid>
+                                            <Grid item>
+                                                Nome: {item.nome}
+                                            </Grid>
+                                            <Grid item></Grid>
+                                            <Grid item>
+                                                Idade: {item.idade}
+                                            </Grid>
+                                        </Grid>
+                                    </Card>
+                                </Grid>)
+                            )}
+                        </Grid>
+                    </Card>
+                </Grid>
+            </Grid>
+        </Grid>
+    )
+
     return <section className={styles.container} id="confirmar-presenca">
         <div className={styles.whiteBox}>
             <div className={styles.containerText}>
@@ -120,158 +273,7 @@ export default function ConfirmarPresenca(){
             <DialogTitle>
                 <div className={styles.dialogTitle}> {"Confirmar preseça"} </div>
             </DialogTitle>
-            <DialogContent>
-                <Grid 
-                    container
-                    spacing={1}
-                    alignContent="center"
-                    flexDirection="column"
-                    alignItems="center"
-                    className={styles.dialogContent}
-                >
-                    <Grid 
-                        container 
-                        spacing={2}
-                    >
-                        <Grid item md={12} xs={12}>
-                            <div className={styles.subTitle}>Como confirmar sua presença?</div>
-                        </Grid>
-                        <Grid item md={12} xs={12}>
-                            <div className={styles.bodyContent}>1) Vamos precisar do nome e o e-mail de uma das pessoas para conseguirmos identificar!</div>
-                        </Grid>
-                        <Grid item md={12} xs={12}>
-                            <div className={styles.bodyContent}>2) Esse bloco em baixo em branco com "Lista de confirmados:" é para saber quem já foi adicionado e vai com você para a festa de casamento!</div>
-                        </Grid>
-                        <Grid item md={12} xs={12}>
-                            <div className={styles.bodyContent}>3) Para adicionar as pessoas na lista basta escrever o nome e a sua idade respectiva e clicar no botão "adicionar" para colocar na lista de confirmados!</div>
-                        </Grid>
-                        <Grid item md={12} xs={12}>
-                            <Divider sx={{
-                                color: "#626262",
-                                margin: "2vh 0"
-                            }}/>
-                        </Grid>
-                        <Grid item md={6} xs={12}>
-                            <TextField
-                                fullWidth
-                                type="text"
-                                name="nome"
-                                label="Nome"
-                                value={{...data}.nome ? {...data}.nome : ""}
-                                onChange={(e) => handleChange(e)}
-                            />
-                        </Grid>
-                        <Grid item md={6} xs={12}>
-                            <TextField
-                                fullWidth
-                                type="text"
-                                name="email"
-                                label="Email"
-                                value={{...data}.email ? {...data}.email : ""}
-                                onChange={(e) => handleChange(e)}
-                            />
-                        </Grid>
-                        <Grid item md={3} xs={12}>
-                            <TextField
-                                fullWidth
-                                type="text"
-                                name="nome"
-                                label="Nome"
-                                value={{...contentForm}.nome ? {...contentForm}.nome : ""}
-                                onChange={(e) => handleChangeContent(e)}
-                            />
-                        </Grid>
-                        <Grid item md={3} xs={12}>
-                            <TextField
-                                fullWidth
-                                type="text"
-                                name="idade"
-                                label="Idade"
-                                value={{...contentForm}.idade ? {...contentForm}.idade : ""}
-                                onChange={(e) => handleChangeContent(e)}
-                            />
-                        </Grid>
-                        <Grid item md={3} xs={12}>
-                            <Button
-                                radius="sm"
-                                variant="gradient"
-                                className={styles.addButton}
-                                onClick={() => handleAdd()}
-                                gradient={{ from: '#f16352', to: '#ec8c69', deg: 35 }}
-                            >
-                                Adicionar
-                            </Button>
-                        </Grid>
-                        <Grid item md={3} xs={12}></Grid>
-                        <Grid item md={12} xs={12}></Grid>
-                        <Grid item md={12} xs={12}>
-                            <Card 
-                                variant="outlined"
-                                sx={{
-                                    padding: "1vh 0.5vw",
-                                    borderRadius: "8px",
-                                    minHeight: "16vh",
-                                    maxHeight: "16vh",
-
-                                    borderColor: "#c4c4c4",
-                                    borderStyle: "solid",
-
-                                    position: "relative",
-                                    overflow: "auto",
-                                }}
-                            >
-                                <Grid
-                                    container
-                                    spacing={1}
-                                    direction="row"
-                                >
-                                    <Grid item md={12} xs={12}>
-                                        <div className={styles.bodyContent}> Lista dos confirmados: </div>
-                                    </Grid>
-                                    {(data.lista || [])
-                                    .map((item, index) => (
-                                        <Grid 
-                                            item
-                                            key={`${item};;${index}`}
-                                            xs={6} sm={6} md={4}
-                                        >
-                                            <Card 
-                                                variant="elevation"
-                                                className={styles.cardItem}
-                                                >
-                                                <Grid 
-                                                    container
-                                                    spacing={1}
-                                                    direction="row"
-                                                >
-                                                    <Grid item>
-                                                        <HighlightOffIcon
-                                                            className={styles.closeIcon}
-                                                            onClick={() => {
-                                                                setData({
-                                                                    ...data,
-                                                                    lista: data.lista.filter(i => i !== item) 
-                                                                })
-                                                            }}
-                                                        />
-                                                    </Grid>
-                                                    <Grid item>
-                                                        Nome: {item.nome}
-                                                    </Grid>
-                                                    <Grid item></Grid>
-                                                    <Grid item>
-                                                        Idade: {item.idade}
-                                                    </Grid>
-                                                </Grid>
-                                            </Card>
-                                        </Grid>)
-                                    )}
-                                </Grid>
-                            </Card>
-                        </Grid>
-                    </Grid>
-                </Grid>
-            </DialogContent>
+            <DialogContent> {contetnConfirmados()} </DialogContent>
             <DialogActions style={{
                 padding: "0.5vh 1.5vw 2vh 0"
             }}>

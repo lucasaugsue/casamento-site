@@ -54,6 +54,44 @@ section.container {
     object-fit: 'contain';
 }
 
+/* dialog */
+.dialogTitle {
+    font-weight: 600;
+    font-size: 3vh;
+}
+
+.subTitle {
+    padding: 0 0 0 0.5vw;
+    font-weight: 500;
+    font-size: 2.2vh;
+}
+
+.bodyContent {
+    padding: 0 0 0 1.5vw;
+    font-weight: 400;
+    font-size: 2vh;
+}
+
+.addButton {
+    height: 6vh;
+}
+
+.cardItem {
+    margin: 1vh;
+    padding: 1vh 1vw;
+
+    border-style: inset;
+    border-color: #b3a4a0;
+    border-radius: 15px;
+    background-color: #eeeeee;
+}
+
+.closeIcon {
+    cursor: pointer;
+    font-size: 20px;
+    color: #515A5A;
+}
+
 
 /* If the screen size is 1600px wide or less, set the font-size of <div> to 30px */
 @media screen and (max-width: 1600px) {

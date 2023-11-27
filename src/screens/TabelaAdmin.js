@@ -3,11 +3,12 @@ import ClientContext from '../../src/contexts/ClientContext';
 import { Button, Input } from '@mantine/core';
 import { showNotification } from '@mantine/notifications';
 import { Delete, Edit } from '@mui/icons-material';
-import { Dialog, DialogActions, DialogContent, DialogTitle, FormControl, Grid, IconButton, InputLabel, MenuItem, Select, Skeleton, TableBody, TableCell, TableContainer, TableFooter, TableHead, TablePagination, TableRow, TextField, Tooltip, tableCellClasses } from '@mui/material';
+import { Card, Divider, Dialog, DialogActions, DialogContent, DialogTitle, FormControl, Grid, IconButton, InputLabel, MenuItem, Select, Skeleton, TableBody, TableCell, TableContainer, TableFooter, TableHead, TablePagination, TableRow, TextField, Tooltip, tableCellClasses } from '@mui/material';
 import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
 import { styled } from '@mui/material/styles';
 import PropTypes from 'prop-types';
+import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import InformationDialog from "../components/InformationDialog";
 import TablePaginationActions from "../components/TablePaginationActionsComponent";
 import styles from './TabelaAdmin.module.css';
@@ -85,6 +86,7 @@ export default function TabelaAdmin() {
     const [open, setOpen] = React.useState(false);
     const [edit, setEdit] = React.useState(false);
     const [openDelete, setOpenDelete] = React.useState(false);
+    const [contentForm, setContentForm] = React.useState({});
     
     const [text, setText] = React.useState("")
     const [selectTable, setSelectTable] = React.useState("Presentes")
@@ -111,6 +113,10 @@ export default function TabelaAdmin() {
         ...params, [e.target.name]: e.target.value
     }))
 
+    const handleChangeContent = (e) => setContentForm(params => ({
+        ...params, [e.target.name]: e.target.value
+    }))
+
     const handleClickOpen = () => {
         setOpen(true)
     }
@@ -129,6 +135,34 @@ export default function TabelaAdmin() {
         setData({})
         setOpenDelete(false);
     };
+
+    const handleAdd = () => {
+        try{
+            if(data.lista) {
+                let nomeError = data.lista.find(i => !i.nome || i.nome.length < 1)
+                if(nomeError) throw new Error("Alguem na lista está sem nome!")
+    
+                let idadeError = data.lista.find(i => !i.idade || i.idade.length < 1)
+                if(idadeError) throw new Error("Alguem na lista está sem idade!")
+            }
+
+            let tmp = []
+            if(data.lista && data.lista.length > 0) tmp = data.lista
+            tmp.push({...contentForm})
+    
+            setContentForm({})
+    
+            setData({
+                ...data,
+                lista: tmp    
+            })
+
+            showNotification({message: "Adicionado com sucesso na lista!", color: 'green', autoClose: true})
+
+        }catch(err) {
+            showNotification({message: err.message, color: 'red', autoClose: true})
+        }
+    }
 
     // get presentes
     const [presentes, setPresentes] = React.useState([]);
@@ -167,7 +201,7 @@ export default function TabelaAdmin() {
         setLoadingButton(true)
         apiRequest("PATCH", `/presentes/edit/${data.id}`, {...data})
         .then((res) => {
-            getPresentes()
+            new Promise(() => getPresentes())
             setLoadingButton(false)
             handleClose()
         })
@@ -249,8 +283,66 @@ export default function TabelaAdmin() {
         });
     }
 
+    // get recados 
+    const [confirmados, setConfirmados] = React.useState([]);
+
+    const getConfirmados = () => {
+        setLoading(true)
+        apiRequest("GET", "/confirmar-presenca/list")
+        .then((res) => {
+            setLoading(false)
+            setConfirmados(res)
+        })
+        .catch((err) => {
+            setLoading(false)
+            showNotification({message: err.message, color: 'red', autoClose: true})
+        });
+    }
+
+    const createConfirmados = () => {
+        setLoadingButton(true)
+        apiRequest("POST", "/confirmar-presenca/create", {...data})
+        .then((res) => {
+            getConfirmados()
+            setLoadingButton(false)
+            handleClose()
+        })
+        .catch((err) => {
+            setLoadingButton(false)
+            showNotification({message: err.message, color: 'red', autoClose: true})
+        });
+    }
+
+    const editConfirmados = () => {
+        setLoadingButton(true)
+        apiRequest("PATCH", `/confirmar-presenca/edit/${data.id}`, {...data})
+        .then((res) => {
+            getConfirmados()
+            setLoadingButton(false)
+            handleClose()
+        })
+        .catch((err) => {
+            setLoadingButton(false)
+            showNotification({message: err.message, color: 'red', autoClose: true})
+        });
+    }
+
+    const deleteConfirmados = () => {
+        setLoadingButton(true)
+        apiRequest("DELETE", `/confirmar-presenca/delete/${data.id}`, {...data})
+        .then((res) => {
+            getConfirmados()
+            setLoadingButton(false)
+            handleCloseDelete()
+        })
+        .catch((err) => {
+            setLoadingButton(false)
+            showNotification({message: err.message, color: 'red', autoClose: true})
+        });
+    }
 
     React.useEffect(() => {
+        getConfirmados()
         getRecados()
         getPresentes()
     }, []);
@@ -262,6 +354,7 @@ export default function TabelaAdmin() {
 
         if(selectTable === "Presentes") list = presentes
         else if(selectTable === "Recados") list = recados
+        else if(selectTable === "Lista de presença") list = confirmados
 
         //filtro por nome
         var rowsFilteredByName = text.length > 1
@@ -278,7 +371,7 @@ export default function TabelaAdmin() {
     React.useEffect(() => {
         getRowsFiltered()
         // eslint-disable-next-line
-    }, [selectTable, recados, presentes, text])
+    }, [recados, presentes, confirmados, selectTable, text])
 
     // parte do return DOM
     
@@ -291,10 +384,15 @@ export default function TabelaAdmin() {
             "ID", "Nome", "Email", "Recado", "Editar", "Deletar"
         ]
 
+        const listHeadConfirmados = [
+            "ID", "Nome", "Email", "Lista", "Editar", "Deletar"
+        ]
+
         let list
 
         if(selectTable === "Presentes") list = listHeadPresentes
         else if(selectTable === "Recados") list = listHeadRecados
+        else if(selectTable === "Lista de presença") list = listHeadConfirmados
 
         return <TableRow>
             {list.map((item, index) => (
@@ -403,8 +501,45 @@ export default function TabelaAdmin() {
             </StyledTableRow>
         )
 
+        const bodyConfirmados = () => (
+            <StyledTableRow
+                key={row.id}
+                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+            >
+                <StyledTableCell align="center"> {row.id} </StyledTableCell>
+                <StyledTableCell align="center"> {row.nome} </StyledTableCell>
+                <StyledTableCell align="center"> {row.email} </StyledTableCell>
+                <StyledTableCell align="center">
+                    {"ver a lista"} 
+                </StyledTableCell>
+                <StyledTableCell align="center">
+                    <Tooltip title="Editar">
+                        <IconButton onClick={() => {
+                                setEdit(true) 
+                                setData({...row})
+                                handleClickOpen()
+                            }}
+                        >
+                            <Edit fontSize="medium" />
+                        </IconButton>
+                    </Tooltip>
+                </StyledTableCell>
+                <StyledTableCell align="center">
+                    <Tooltip title="Deletar">
+                        <IconButton onClick={() => {
+                            setData({...row})
+                            handleOpenDelete()
+                        }}>
+                            <Delete fontSize="medium" />
+                        </IconButton>
+                    </Tooltip>
+                </StyledTableCell>
+            </StyledTableRow>
+        )
+
         if(selectTable === "Presentes") return bodyPresentes()
         else if(selectTable === "Recados") return bodyRecados()
+        else if(selectTable === "Lista de presença") return bodyConfirmados()
     }
 
     const handleTitle = () => {
@@ -418,6 +553,11 @@ export default function TabelaAdmin() {
 
             if(edit) title = "Editar recado" 
             else title = "Cadastro de recado"
+
+        } else if(selectTable === "Lista de presença") {
+
+            if(edit) title = "Editar lista" 
+            else title = "Cadastro de lista"
         }
 
         return title
@@ -525,8 +665,162 @@ export default function TabelaAdmin() {
             </Grid>
         )
 
+        const contetnConfirmados = () => (
+            <Grid 
+                container
+                spacing={1}
+                alignContent="center"
+                flexDirection="column"
+                alignItems="center"
+                className={styles.dialogContent}
+            >
+                <Grid 
+                    container 
+                    spacing={2}
+                >
+                    <Grid item md={12} xs={12}>
+                        <div className={styles.subTitle}>Como confirmar sua presença?</div>
+                    </Grid>
+                    <Grid item md={12} xs={12}>
+                        <div className={styles.bodyContent}>1) Vamos precisar do nome e o e-mail de uma das pessoas para conseguirmos identificar!</div>
+                    </Grid>
+                    <Grid item md={12} xs={12}>
+                        <div className={styles.bodyContent}>2) Esse bloco em baixo em branco com "Lista de confirmados:" é para saber quem já foi adicionado e vai com você para a festa de casamento!</div>
+                    </Grid>
+                    <Grid item md={12} xs={12}>
+                        <div className={styles.bodyContent}>3) Para adicionar as pessoas na lista basta escrever o nome e a sua idade respectiva e clicar no botão "adicionar" para colocar na lista de confirmados!</div>
+                    </Grid>
+                    <Grid item md={12} xs={12}>
+                        <Divider sx={{
+                            color: "#626262",
+                            margin: "2vh 0"
+                        }}/>
+                    </Grid>
+                    <Grid item md={6} xs={12}>
+                        <TextField
+                            fullWidth
+                            type="text"
+                            name="nome"
+                            label="Nome"
+                            value={{...data}.nome ? {...data}.nome : ""}
+                            onChange={(e) => handleChange(e)}
+                        />
+                    </Grid>
+                    <Grid item md={6} xs={12}>
+                        <TextField
+                            fullWidth
+                            type="text"
+                            name="email"
+                            label="Email"
+                            value={{...data}.email ? {...data}.email : ""}
+                            onChange={(e) => handleChange(e)}
+                        />
+                    </Grid>
+                    <Grid item md={3} xs={12}>
+                        <TextField
+                            fullWidth
+                            type="text"
+                            name="nome"
+                            label="Nome"
+                            value={{...contentForm}.nome ? {...contentForm}.nome : ""}
+                            onChange={(e) => handleChangeContent(e)}
+                        />
+                    </Grid>
+                    <Grid item md={3} xs={12}>
+                        <TextField
+                            fullWidth
+                            type="text"
+                            name="idade"
+                            label="Idade"
+                            value={{...contentForm}.idade ? {...contentForm}.idade : ""}
+                            onChange={(e) => handleChangeContent(e)}
+                        />
+                    </Grid>
+                    <Grid item md={3} xs={12}>
+                        <Button
+                            radius="sm"
+                            variant="gradient"
+                            className={styles.addButton}
+                            onClick={() => handleAdd()}
+                            gradient={{ from: '#f16352', to: '#ec8c69', deg: 35 }}
+                        >
+                            Adicionar
+                        </Button>
+                    </Grid>
+                    <Grid item md={3} xs={12}></Grid>
+                    <Grid item md={12} xs={12}></Grid>
+                    <Grid item md={12} xs={12}>
+                        <Card 
+                            variant="outlined"
+                            sx={{
+                                padding: "1vh 0.5vw",
+                                borderRadius: "8px",
+                                minHeight: "16vh",
+                                maxHeight: "16vh",
+    
+                                borderColor: "#c4c4c4",
+                                borderStyle: "solid",
+    
+                                position: "relative",
+                                overflow: "auto",
+                            }}
+                        >
+                            <Grid
+                                container
+                                spacing={1}
+                                direction="row"
+                            >
+                                <Grid item md={12} xs={12}>
+                                    <div className={styles.bodyContent}> Lista dos confirmados: </div>
+                                </Grid>
+                                {(data.lista || [])
+                                .map((item, index) => (
+                                    <Grid 
+                                        item
+                                        key={`${item};;${index}`}
+                                        xs={6} sm={6} md={4}
+                                    >
+                                        <Card 
+                                            variant="elevation"
+                                            className={styles.cardItem}
+                                            >
+                                            <Grid 
+                                                container
+                                                spacing={1}
+                                                direction="row"
+                                            >
+                                                <Grid item>
+                                                    <HighlightOffIcon
+                                                        className={styles.closeIcon}
+                                                        onClick={() => {
+                                                            setData({
+                                                                ...data,
+                                                                lista: data.lista.filter(i => i !== item) 
+                                                            })
+                                                        }}
+                                                    />
+                                                </Grid>
+                                                <Grid item>
+                                                    Nome: {item.nome}
+                                                </Grid>
+                                                <Grid item></Grid>
+                                                <Grid item>
+                                                    Idade: {item.idade}
+                                                </Grid>
+                                            </Grid>
+                                        </Card>
+                                    </Grid>)
+                                )}
+                            </Grid>
+                        </Card>
+                    </Grid>
+                </Grid>
+            </Grid>
+        )
+
         if(selectTable === "Presentes") return contentPresentes()
         else if(selectTable === "Recados") return contentRecados()
+        else if(selectTable === "Lista de presença") return contetnConfirmados()
     }
 
     const handleFunction = () => {
@@ -537,12 +831,17 @@ export default function TabelaAdmin() {
         }  else if(selectTable === "Recados") {
             if(edit) editRecado() 
             else createRecado()
+
+        } else if(selectTable === "Lista de presença") {
+            if(edit) editConfirmados() 
+            else createConfirmados()
         }
     }
 
     const handleDelete = () => {
         if(selectTable === "Presentes") deletePresente()
         else if(selectTable === "Recados") deleteRecado()
+        else if(selectTable === "Lista de presença") deleteConfirmados()
     }
 
     return <section className={styles.container} id="tabela">
