@@ -69,6 +69,16 @@ section.container {
 }
 
 /* dialog */
+.dialogContent {
+    padding: 1vh 0vw 0vh 0vw;
+    /* min-width: 82.5vw; */
+    max-width: 60vw;
+    display: grid;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .dialogTitle {
     font-weight: 600;
     font-size: 3vh;
@@ -104,6 +114,21 @@ section.container {
     cursor: pointer;
     font-size: 20px;
     color: #515A5A;
+}
+
+.dialogActions {
+    padding: 0vh 1.5vw 2vh 2vw
+}
+
+/* stepper */
+.containerStepBody{
+    min-width: 60vw;
+    min-height: 30vh;
+    padding: 0vh 1vw 3vh 0vw;
+    
+    max-height: 31vh;
+    position: relative;
+    overflow: auto;
 }
 
 /* If the screen size is 900px wide or less, set the font-size of <div> to 30px */
@@ -157,13 +182,14 @@ section.container {
 
     /* dialog */
     .dialogContent {
-        padding: 3vh 0vw 4vh;
-        min-width: 82.5vw;
+        margin: 1vh 0 0 0;
+        max-width: 85vw;
+        min-height: 45vh;
+
         display: grid;
         align-items: center;
         flex-direction: column;
         justify-content: center;
-        /* background: radial-gradient(circle at bottom,  #a32e13 45%, #c89e54 5%, #c89e54 50%); */
     }
 
     .cardItem {
@@ -175,5 +201,32 @@ section.container {
     .closeIcon {
         font-size: 20px;
         color: #515A5A;
+    }
+
+    .subTitle {
+        padding: 0 0 0 0.5vw;
+        font-weight: 500;
+        font-size: 2.8vh;
+    }
+    
+    .bodyContent {
+        padding: 0 0 0 1.5vw;
+        font-weight: 400;
+        font-size: 2.5vh;
+    }
+
+    .dialogActions {
+        padding: 1vh 4vw 2vh 4vw
+    }
+
+    /* stepper */
+    .containerStepBody{
+        min-width: 70vw;
+        min-height: 35vh;
+        padding: 0vh 1vw 3vh 0vw;
+        
+        max-height: 36vh;
+        position: relative;
+        overflow: auto;
     }
 }
