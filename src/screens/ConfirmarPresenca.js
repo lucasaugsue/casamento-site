@@ -34,6 +34,7 @@ export default function ConfirmarPresenca(){
     const [contentForm, setContentForm] = React.useState({nome: "", idade: ""});
     const [loading, setLoading] = React.useState(false);
 
+    const [sucesso, setSucesso] = React.useState("");
     const [error, setError] = React.useState({
         nome: false, email: false,
         lista: false, lista_nome: false,
@@ -125,6 +126,7 @@ export default function ConfirmarPresenca(){
         .then((res) => {
             setLoading(false)
             handleClose()
+            setSucesso("Ocorreu tudo certo ao confirmar sua presença!")
             showNotification({message: "Lista criada com sucesso!", color: 'green', autoClose: true})
         })
         .catch((err) => {
@@ -168,12 +170,11 @@ export default function ConfirmarPresenca(){
             (data.nome && data.nome.length > 2) ) handleNext()
     }
 
-    // ainda fazendo
     const validationLista = () => {
         setError({
             nome: false, email: false,
             lista: false, lista_nome: false,
-            lista_idade: false
+            lista_idade: false, msg: ""
         })
 
         if (data.lista.length === 0) { setError(e => ({...e, lista:true, msg: "É necessário colocar pelo menos uma pessa na lista!"})) }
@@ -429,6 +430,7 @@ export default function ConfirmarPresenca(){
                                 onClose={() => setError({...error, msg: ""})}
                             > {error.msg} </Notification> 
                         </Grid> : <Grid item md={8} xs={12}> </Grid>}
+
                         <Grid item md={4} xs={12}>
                             <div className={styles.helpContainerTop}>
                                 <div/>
@@ -541,12 +543,21 @@ export default function ConfirmarPresenca(){
             <div className={styles.containerText}>
                 <div className={styles.textTitle}>Confirme sua presença!</div>
                 <div className={styles.text}>
-                    Para facilitar na contagem, pedimos que você confirme se 
-                    irá comparecer para a nossa festa de casamento ou não!
-                    Assim, vamos conseguir nos organizar melhor para o grande
-                    dia!
+                Para simplificar o processo de contagem, solicitamos a gentileza de 
+                confirmar sua presença em nossa festa de casamento. Sua resposta será 
+                fundamental para a eficiente organização do grande dia, permitindo-nos 
+                planejar todos os detalhes com precisão. Agradecemos antecipadamente 
+                pela sua colaboração.
                 </div>
             </div>
+
+            {(sucesso.length > 2) && <Notification 
+                color="green" 
+                radius="md" 
+                title="Sucesso!"
+                className={styles.notificationCard}
+                onClose={() => setSucesso("")}
+            > {sucesso} </Notification>}
 
             <div className={styles.buttonContainer}>
                 <Button 

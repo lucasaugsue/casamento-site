@@ -88,7 +88,7 @@ export default function EscreverRecado(){
                 color="green" 
                 radius="md" 
                 title="Sucesso!"
-                className={styles.notificationCss}
+                className={styles.notificationCard}
                 onClose={() => setSucesso("")}
             > {sucesso} </Notification>}
 
@@ -96,7 +96,7 @@ export default function EscreverRecado(){
                 color="red" 
                 radius="md" 
                 title="Erro ao enviar o recado!"
-                className={styles.notificationCss}
+                className={styles.notificationCard}
                 onClose={() => setError({...error, msg: ""})}
             > {error.msg} </Notification>}
 

@@ -173,6 +173,12 @@ section.container {
     margin-right: 0.5vw;
 }
 
+.notificationCard {
+    width: 60vw;
+    margin-bottom: 3vh;
+    margin-top: -2vh;
+}
+
 .notificationCss {
     width: 40vw;
 }
@@ -318,6 +324,12 @@ section.container {
         font-size: 2.6vh;
         text-decoration: underline;
         margin-right: 0.5vw;
+    }
+
+    .notificationCard {
+        width: 80vw;
+        margin-bottom: 4vh;
+        margin-top: 0vh;
     }
 
     .notificationCss {
