@@ -1,4 +1,4 @@
-import { Button, Input, Textarea } from '@mantine/core';
+import { Button, Input, Textarea, Notification } from '@mantine/core';
 import { showNotification } from '@mantine/notifications';
 import Email from '@mui/icons-material/Email';
 import { IconAt, IconUser } from '@tabler/icons';
@@ -12,8 +12,16 @@ export default function EscreverRecado(){
 
     const [loading, setLoading] = React.useState(false);
     const [data, setData] = React.useState({
-        nome: "", email: "", recado: ""
+        nome: "", email: "", 
+        recado: ""
     });
+
+    const [sucesso, setSucesso] = React.useState("");
+    const [error, setError] = React.useState({
+        nome: false, email: false, 
+        recado: false, msg: ""
+    });
+
 
     const handleChange = (e) => {
         setData(st => ({
@@ -21,26 +29,44 @@ export default function EscreverRecado(){
         }))
     }
 
+    const validationRecado = () => {
+        setError({
+            nome: false, email: false, 
+            recado: false, msg: ""
+        })
+
+        if(data.recado.length < 5) setError((err) => ({...err, recado: true, msg: "É necessário escrever alguma coisa no recado!"}) )
+        if(data.email.length < 2) setError((err) => ({...err, email: true, msg: "É necessário colocar o seu email!"}) )
+        if(data.nome.length < 2) setError((err) => ({...err, nome: true, msg: "É necessário colocar o seu nome!"}) )
+    }
+
     const sendMessage = () => {
         try{
-            if(data.nome.length < 2) throw new Error("É necessário colocar o seu nome!")
-            if(data.email.length < 10) throw new Error("É necessário colocar o seu email!")
-            if(data.recado.length < 10) throw new Error("É necessário escrever alguma coisa no recado!")
+            validationRecado()
 
-            setLoading(true)
-            apiRequest("POST", "/recados/create", {...data})
-            .then((res) => {
-                setLoading(false)
-                setData({nome: "", email: "", recado: ""})
-                showNotification({message: "Recado enviado com sucesso!", color: 'green', autoClose: true})
-            })
-            .catch((err) => {
-                setLoading(false)
-                showNotification({message: err.message, color: 'red', autoClose: true})
-            });
+            if( data.nome.length < 2 ||
+                data.email.length < 2 ||
+                data.recado.length < 5
+                ) {  throw new Error(error.msg)
+            
+            } else {
+
+                setLoading(true)
+                apiRequest("POST", "/recados/create", {...data})
+                .then((res) => {
+                    setLoading(false)
+                    setData({nome: "", email: "", recado: ""})
+                    setSucesso("Ocorreu tudo certo ao enviar o recado!")
+                    showNotification({message: "Recado enviado com sucesso!", color: 'green', autoClose: true})
+                })
+                .catch((err) => {
+                    setLoading(false)
+                    showNotification({message: err.message, color: 'red', autoClose: true})
+                });
+            }
 
         }catch(err){
-            showNotification({message: err.message, color: 'red', autoClose: true})
+            showNotification({message: "Não foi possível realizar a ação!", color: 'red', autoClose: true})
         }
     }
 
@@ -57,6 +83,23 @@ export default function EscreverRecado(){
                     Todo texto será enviado para o nosso e-mail, apenas coloque seu e-mail e o recado que deseja passar para nós.
                 </div>
             </div>
+
+            {(sucesso.length > 2) && <Notification 
+                color="green" 
+                radius="md" 
+                title="Sucesso!"
+                className={styles.notificationCss}
+                onClose={() => setSucesso("")}
+            > {sucesso} </Notification>}
+
+            {(error.msg.length > 2) && <Notification 
+                color="red" 
+                radius="md" 
+                title="Erro ao enviar o recado!"
+                className={styles.notificationCss}
+                onClose={() => setError({...error, msg: ""})}
+            > {error.msg} </Notification>}
+
             <div className={styles.containerInput}>
                 <Input
                     size="md"
@@ -64,7 +107,11 @@ export default function EscreverRecado(){
                     name="nome"
                     icon={<IconUser />}
                     placeholder="Seu nome"
-                    className={styles.input}
+                    className={
+                        error.nome
+                        ? styles.inputError
+                        : styles.input
+                    }
                     value={{...data}.nome || ""}
                     onChange={(e) => handleChange(e)}
                 />
@@ -75,7 +122,11 @@ export default function EscreverRecado(){
                     name="email"
                     icon={<IconAt />}
                     placeholder="Seu email"
-                    className={styles.input}
+                    className={
+                        error.email
+                        ? styles.inputError
+                        : styles.input
+                    }
                     value={{...data}.email || ""}
                     onChange={(e) => handleChange(e)}
                 />
@@ -88,7 +139,11 @@ export default function EscreverRecado(){
                     maxRows={6}
                     name="recado"
                     placeholder="Escreva o recado"
-                    className={styles.input}
+                    className={
+                        error.recado
+                        ? styles.inputError
+                        : styles.input
+                    }
                     value={{...data}.recado || ""}
                     onChange={(e) => handleChange(e)}
                 />

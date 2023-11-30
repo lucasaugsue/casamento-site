@@ -101,9 +101,23 @@ section.container {
     margin: 1vh 5vw 6vh 5vw;
 }
 
+.notificationCss {
+    width: 60vw;
+}
+
 .input {
     width: 70vw;
     margin-top: 2vh;
+}
+
+.inputError {
+    width: 70vw;
+    margin-top: 2vh;
+
+    border-radius: 20px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #fc5454;
 }
 
 .button {
