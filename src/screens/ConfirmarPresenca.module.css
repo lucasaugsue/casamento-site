@@ -96,6 +96,13 @@ section.container {
     font-size: 2vh;
 }
 
+.bodyContentError {
+    color: #fc5454;
+    padding: 0 0 0 1.5vw;
+    font-weight: 400;
+    font-size: 2vh;
+}
+
 .addButton {
     height: 6vh;
 }
@@ -124,12 +131,52 @@ section.container {
 .containerStepBody{
     min-width: 60vw;
     min-height: 30vh;
-    padding: 0vh 1vw 3vh 0vw;
+    padding: 0vh 2vw 3vh 1vw;
     
     max-height: 31vh;
     position: relative;
     overflow: auto;
 }
+
+.helpContainerTop {
+    display: grid;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    grid-template-columns: 1fr auto;
+}
+
+.helpContainerBottom {
+    padding-top: 3vh;
+    color: black;
+    width: 15vw;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.helpContainerBottom:hover{
+    padding-top: 3vh;
+    color: red;
+    width: 15vw;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.textIcon {
+    font-size: 2vh;
+    text-decoration: underline;
+    margin-right: 0.5vw;
+}
+
+.notificationCss {
+    width: 40vw;
+}
+
 
 /* If the screen size is 900px wide or less, set the font-size of <div> to 30px */
 @media screen and (max-width: 900px) {
@@ -215,6 +262,13 @@ section.container {
         font-size: 2.5vh;
     }
 
+    .bodyContentError {
+        color: #fc5454;
+        padding: 0 0 0 1.5vw;
+        font-weight: 400;
+        font-size: 2.6vh;
+    }
+
     .dialogActions {
         padding: 1vh 4vw 2vh 4vw
     }
@@ -228,5 +282,45 @@ section.container {
         max-height: 36vh;
         position: relative;
         overflow: auto;
+    }
+
+    .helpContainerTop {
+        margin-bottom: 2vh;
+        display: grid;
+        align-items: center;
+        flex-direction: row;
+        justify-content: center;
+        grid-template-columns: auto 1fr;
+    }
+
+    .helpContainerBottom {
+        padding-top: 3vh;
+        color: black;
+        width: 35vw;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .helpContainerBottom:hover{
+        padding-top: 3vh;
+        color: red;
+        width: 35vw;
+        display: flex;
+        cursor: pointer;
+        align-items: center;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .textIcon {
+        font-size: 2.6vh;
+        text-decoration: underline;
+        margin-right: 0.5vw;
+    }
+
+    .notificationCss {
+        width: 65vw;
     }
 }

@@ -16,7 +16,8 @@ export default function InformationDialog({
     textButton,
     loading,
     handleFunction,
-    textFunction
+    textFunction,
+    textBody
 }){
 
     return <div>
@@ -30,7 +31,7 @@ export default function InformationDialog({
                 <div className={styles.dialogTitle}> {title} </div>
             </DialogTitle>
             <DialogContent className={styles.dialogContent}>
-                {textContent}
+                {textBody ? textBody() : textContent}
             </DialogContent>
             <DialogActions>
                 <Grid 
