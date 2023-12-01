@@ -25,16 +25,23 @@ export default function Header({transparent : transparentProps = true}){
         setTransparent(scrollPosition <= 100)
     }, [scrollPosition])
 
-    React.useEffect(() => {
-        window.addEventListener('scroll', handleScroll)
-        return () => window.removeEventListener('scroll', handleScroll)
-    }, [])
+    // --> está travando os testes "window is not defined"
+
+    // React.useEffect(() => {
+    //     window.addEventListener('scroll', handleScroll)
+    //     return () => window.removeEventListener('scroll', handleScroll)
+    // }, [])
 
     return <div>
         <div className={
-            transparent
-            ? styles.basicHeaderTransparent
-            : styles.basicHeader
+            styles.basicHeader
+
+            // --> está travando os testes "window is not defined"
+            // --> por isso vou colocar apenas uma cor no header
+
+            // transparent
+            // ? styles.basicHeaderTransparent
+            // : styles.basicHeader
         }>
             <div className={styles.gridContainerLogo}>
                 <div className={styles.itemLogo}>
