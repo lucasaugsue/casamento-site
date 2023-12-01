@@ -64,8 +64,14 @@ section.container {
 .button {
     height: 7vh;
     font-size: 2vh;
-    padding: 1vh 8vh 1vh 8vh;
     margin: 2vh 5vh 2vh 5vh;
+
+    /* com 2 botoes */
+    /* padding: 1vh 8vh 1vh 8vh; */
+
+    /* apenas 1 botao */
+    padding: 1vh 12vh
+
 }
 
 /* dialog */

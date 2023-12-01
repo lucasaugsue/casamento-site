@@ -1,13 +1,13 @@
 import { Button, Notification } from '@mantine/core';
 import { showNotification } from '@mantine/notifications';
+import HelpCenterIcon from '@mui/icons-material/HelpCenter';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
-import { Card, Dialog, DialogActions, DialogContent, DialogTitle, Divider, Grid, Slide, TextField } from '@mui/material';
+import { Card, Dialog, DialogActions, DialogContent, DialogTitle, Grid, Slide, TextField } from '@mui/material';
 import React from 'react';
+import HorizontalLinearStepper from '../components/HorizontalLinearStepper';
+import InformationDialog from '../components/InformationDialog';
 import ClientContext from '../contexts/ClientContext';
 import styles from './ConfirmarPresenca.module.css';
-import HorizontalLinearStepper from '../components/HorizontalLinearStepper';
-import HelpCenterIcon from '@mui/icons-material/HelpCenter';
-import InformationDialog from '../components/InformationDialog'
 
 const Transition = React.forwardRef(function Transition(props, ref) {
 	return <Slide direction="up" ref={ref} {...props} />;
@@ -30,7 +30,6 @@ export default function ConfirmarPresenca(){
 
     const [open, setOpen] = React.useState(false);
     const [openHelp, setOpenHelp] = React.useState(false);
-    const [edit, setEdit] = React.useState(false);
     const [contentForm, setContentForm] = React.useState({nome: "", idade: ""});
     const [loading, setLoading] = React.useState(false);
 
@@ -82,7 +81,6 @@ export default function ConfirmarPresenca(){
     }
 
     const handleClose = () => {
-        setEdit(false)
         setOpen(false);
         setActiveStep(0)
         setContentForm({nome: "", idade: ""})
@@ -560,15 +558,15 @@ export default function ConfirmarPresenca(){
             > {sucesso} </Notification>}
 
             <div className={styles.buttonContainer}>
-                <Button 
+                {/* <Button 
                     color="red" 
                     radius="xl"
                     variant="outline"
                     className={styles.button} 
                 >
                     Não vou
-                </Button>
-                <Button 
+                </Button> */}
+                {/* <Button 
                     radius="xl"
                     variant="gradient"
                     className={styles.button}
@@ -576,6 +574,15 @@ export default function ConfirmarPresenca(){
                     gradient={{ from: '#f16352', to: '#ec8c69', deg: 35 }}
                 >
                     Eu vou
+                </Button> */}
+                <Button 
+                    radius="lg"
+                    variant="gradient"
+                    className={styles.button}
+                    onClick={() => handleClickOpen()}
+                    gradient={{ from: '#f16352', to: '#ec8c69', deg: 35 }}
+                >
+                    Confirmar presença
                 </Button>
             </div>
         </div>
