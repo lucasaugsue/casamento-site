@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import serverRequest from '../src/service/RestClient'
 import ClientContext from '../src/contexts/ClientContext';
 import { NotificationsProvider } from "@mantine/notifications";
-
+import Render from "../pages/index";
 
 function MyApp({ Component, pageProps }) {
   const [showChild, setShowChild] = useState(false)
@@ -27,7 +27,8 @@ function MyApp({ Component, pageProps }) {
   return (
     <ClientContext.Provider value={clientContext}>
       <NotificationsProvider>
-        <Component {...pageProps}/>
+        <Render />
+        {/* <Component {...pageProps}/> */}
       </NotificationsProvider>
     </ClientContext.Provider>
   )

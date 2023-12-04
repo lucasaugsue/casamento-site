@@ -7,7 +7,7 @@ import ConfirmarPresenca from '../src/screens/ConfirmarPresenca'
 import EscreverRecado from '../src/screens/EscreverRecado'
 import ListaDePresentes from '../src/screens/ListaDePresentes'
 
-export default function Home() {
+export default function Render() {
   return (
     <div>
       <Head>

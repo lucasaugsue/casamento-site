@@ -1,11 +1,21 @@
 import axios from 'axios'
 
-const modifyError = err => {
-	return new Error(
-	  (err.response && err.response.data && err.response.data.error) ||
-		err.message
-	)
-}
+const modifyError = (err) => {
+	try {
+		if (err?.response?.data?.error) {
+			throw new Error(err.response.data.error);
+
+		} else if (err.message) {
+			throw new Error(err.message);
+
+		} else {
+			throw new Error("Error!");
+		}
+
+	} catch (error) {
+	  	return error;
+	}
+};
 
 const extractFileName = (contentDispositionValue) => {
 	var filename = null;
@@ -19,7 +29,7 @@ const extractFileName = (contentDispositionValue) => {
 	return filename;
 }
 
-const serverRequest = ({method, url, params, user, downloadFile, contentType, companyProfileId}) => {
+const serverRequest = ({method, url, params, user, downloadFile, contentType}) => {
 	return new Promise((resolve, reject) => {
 		try{
 			method = (method || "get").toLowerCase()
@@ -33,7 +43,6 @@ const serverRequest = ({method, url, params, user, downloadFile, contentType, co
 					"Content-Type": 'application/json',
 					"Access-Control-Expose-Headers": "*",
 					"Access-Control-Allow-Headers": "*",
-					// CompanyProfileId: companyProfileId ? companyProfileId : null,
 					// Authorization: "Bearer " + (user && (user.oauth || user.oauth_token)),
 				}
 			}
@@ -58,7 +67,6 @@ const serverRequest = ({method, url, params, user, downloadFile, contentType, co
 					'Accept': '*',
 					'Language': "pt",
 					'Authorization': "Bearer " + (user && (user.oauth || user.oauth_token)),
-					'CompanyProfileId': companyProfileId ? companyProfileId : null,
 					"Content-Type": "application/json",
 					"Access-Control-Expose-Headers": "*",
 					"Access-Control-Allow-Headers": "*",
