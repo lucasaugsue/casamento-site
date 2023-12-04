@@ -17,31 +17,28 @@ export default function Header({transparent : transparentProps = true}){
         // {id: 6, title: "Localização", section: "#local"},
     ]
 
-    const handleScroll = e => {
-        setScrollPosition(document.documentElement.scrollTop)
-    }
-
     React.useEffect(() => {
         setTransparent(scrollPosition <= 100)
     }, [scrollPosition])
 
-    // --> está travando os testes "window is not defined"
+    React.useEffect(() => {
+        const handleScroll = e => {
+            setScrollPosition(document.documentElement.scrollTop)
+        }
 
-    // React.useEffect(() => {
-    //     window.addEventListener('scroll', handleScroll)
-    //     return () => window.removeEventListener('scroll', handleScroll)
-    // }, [])
+        if (typeof window !== "undefined") {
+            
+            window.addEventListener('scroll', handleScroll)
+            return () => window.removeEventListener('scroll', handleScroll)
+        }
+        
+    }, []) // empty dependencies array means "run this once on first mount"
 
     return <div>
         <div className={
-            styles.basicHeader
-
-            // --> está travando os testes "window is not defined"
-            // --> por isso vou colocar apenas uma cor no header
-
-            // transparent
-            // ? styles.basicHeaderTransparent
-            // : styles.basicHeader
+            transparent
+            ? styles.basicHeaderTransparent
+            : styles.basicHeader
         }>
             <div className={styles.gridContainerLogo}>
                 <div className={styles.itemLogo}>

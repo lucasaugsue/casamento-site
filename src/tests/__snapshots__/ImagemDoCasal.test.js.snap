@@ -1,0 +1,168 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renderiza corretamente 1`] = `
+<section
+  className="container"
+  id="inicio"
+>
+  <div
+    className="image"
+  />
+  <div
+    className="divText"
+  >
+    <div
+      className="text"
+    >
+      <div
+        className="containerRotateScroling"
+      >
+        <div
+          style={
+            {
+              "transform": "rotate(10deg)",
+            }
+          }
+        >
+          L
+        </div>
+        <div
+          style={
+            {
+              "transform": "rotate(20deg)",
+            }
+          }
+        >
+          u
+        </div>
+        <div
+          style={
+            {
+              "transform": "rotate(30deg)",
+            }
+          }
+        >
+          c
+        </div>
+        <div
+          style={
+            {
+              "transform": "rotate(40deg)",
+            }
+          }
+        >
+          a
+        </div>
+        <div
+          style={
+            {
+              "transform": "rotate(50deg)",
+            }
+          }
+        >
+          s
+        </div>
+        <div
+          style={
+            {
+              "transform": "rotate(60deg)",
+            }
+          }
+        >
+           
+        </div>
+        <div
+          style={
+            {
+              "transform": "rotate(70deg)",
+            }
+          }
+        >
+          &
+        </div>
+        <div
+          style={
+            {
+              "transform": "rotate(80deg)",
+            }
+          }
+        >
+           
+        </div>
+        <div
+          style={
+            {
+              "transform": "rotate(90deg)",
+            }
+          }
+        >
+          V
+        </div>
+        <div
+          style={
+            {
+              "transform": "rotate(100deg)",
+            }
+          }
+        >
+          i
+        </div>
+        <div
+          style={
+            {
+              "transform": "rotate(110deg)",
+            }
+          }
+        >
+          c
+        </div>
+        <div
+          style={
+            {
+              "transform": "rotate(120deg)",
+            }
+          }
+        >
+          t
+        </div>
+        <div
+          style={
+            {
+              "transform": "rotate(130deg)",
+            }
+          }
+        >
+          ó
+        </div>
+        <div
+          style={
+            {
+              "transform": "rotate(140deg)",
+            }
+          }
+        >
+          r
+        </div>
+        <div
+          style={
+            {
+              "transform": "rotate(150deg)",
+            }
+          }
+        >
+          i
+        </div>
+        <div
+          style={
+            {
+              "transform": "rotate(160deg)",
+            }
+          }
+        >
+          a
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+`;

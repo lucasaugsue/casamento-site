@@ -1,0 +1,120 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renderiza corretamente 1`] = `
+<section
+  className="container"
+  id="vamos-casar"
+>
+  <div
+    className="whiteBox"
+  >
+    <div
+      className="imagem"
+    />
+    <div
+      className="containerText"
+    >
+      <div
+        className="gridVamosNosCasar"
+      >
+        <div
+          className="leftIcon"
+        >
+          <style
+            dangerouslySetInnerHTML={
+              {
+                "__html": ".css-i4bv87-MuiSvgIcon-root{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;width:1em;height:1em;display:inline-block;fill:currentColor;-webkit-flex-shrink:0;-ms-flex-negative:0;flex-shrink:0;-webkit-transition:fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;transition:fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;font-size:1.5rem;}",
+              }
+            }
+            data-emotion="css i4bv87-MuiSvgIcon-root"
+          />
+          <svg
+            aria-hidden={true}
+            className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium icons css-i4bv87-MuiSvgIcon-root"
+            data-testid="FavoriteIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="m12 21.35-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+            />
+          </svg>
+        </div>
+        <div
+          className="textTitle"
+        >
+          Vamos nos casar!
+        </div>
+        <div
+          className="rightIcon"
+        >
+           
+          <style
+            dangerouslySetInnerHTML={
+              {
+                "__html": ".css-i4bv87-MuiSvgIcon-root{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;width:1em;height:1em;display:inline-block;fill:currentColor;-webkit-flex-shrink:0;-ms-flex-negative:0;flex-shrink:0;-webkit-transition:fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;transition:fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;font-size:1.5rem;}",
+              }
+            }
+            data-emotion="css i4bv87-MuiSvgIcon-root"
+          />
+          <svg
+            aria-hidden={true}
+            className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium icons css-i4bv87-MuiSvgIcon-root"
+            data-testid="FavoriteIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="m12 21.35-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+            />
+          </svg>
+        </div>
+      </div>
+      <div
+        className="subTitle"
+      >
+        Estamos nas núvens e queremos compartilhar todo nosso amor.
+      </div>
+      <div
+        className="text"
+      >
+        Por isso criamos este site com um monte de coisa legais! Uma coisa importante, na parte Confirmação de Presença você poderá confirmar se vai ou não ao casamento. Confirme sua presença para facilitar nosso planejamento, ficando mais previśivel!
+      </div>
+    </div>
+    <div
+      className="containerTempo"
+    >
+      <div
+        className="timeItem"
+      >
+        <span>
+          256
+        </span>
+        <div>
+          Dias
+        </div>
+      </div>
+      <div
+        className="timeItem"
+      >
+        <span>
+          12
+        </span>
+        <div>
+          Horas
+        </div>
+      </div>
+      <div
+        className="timeItem"
+      >
+        <span>
+          20
+        </span>
+        <div>
+          Minutos
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+`;

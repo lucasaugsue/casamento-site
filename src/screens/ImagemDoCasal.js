@@ -6,18 +6,22 @@ export default function ImagemDoCasal(){
     const [scrollPosition, setScrollPosition] = React.useState(0);
     const [scroll, setScroll] = React.useState(false);
 
-    const handleScroll = e => {
-        setScrollPosition(document.documentElement.scrollTop)
-    }
-
     React.useEffect(() => {
         setScroll(scrollPosition <= 100)
     }, [scrollPosition])
-
+    
     React.useEffect(() => {
-        window.addEventListener('scroll', handleScroll)
-        return () => window.removeEventListener('scroll', handleScroll)
-    }, [])
+        const handleScroll = e => {
+            setScrollPosition(document.documentElement.scrollTop)
+        }
+
+        if (typeof window !== "undefined") {
+            
+            window.addEventListener('scroll', handleScroll)
+            return () => window.removeEventListener('scroll', handleScroll)
+        }
+
+    }, []) // empty dependencies array means "run this once on first mount"
 
     const textRotate = () => {
         let deg = 6;

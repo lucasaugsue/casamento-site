@@ -13,7 +13,7 @@ export default function PixDialog({open, handleClose}){
 
     return <div>
         <Dialog
-            open={open}
+            open={open ? open : false}
             maxWidth="lg"
             onClose={() => handleClose()}
             TransitionComponent={Transition}
