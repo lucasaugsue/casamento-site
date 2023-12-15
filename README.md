@@ -1,4 +1,4 @@
-# site casamento e victória
+# Site casamento Lucas e Victória
 
 For those who are not aware, I am fulfilling my dream of getting married next year, in the middle of the year, with my bride and eternal girlfriend, Victória Sgrancio, the love of my life! This is a project to help with my dream getting married in the middle of 2024, so I decided to make my wedding website myself to put some
 important information that my fiancée and I will need to pass on to the guests, such as the attendance list,
@@ -32,11 +32,15 @@ contribuir através de PIX para nos ajudar a realizar esses sonhos.
 
 ## Technologies used (Tecnologias utilizadas)
 
-The site was developed using [React JS](https://pt-br.reactjs.org/) with [Next JS](https://nextjs.org/docs) and consumes data from the api I created. Some libraries were used, including: [Material UI](https://mui.com) and [Mantine](https://mantine.dev) for some components with css already embedded, [Moment](https:/ /momentjs.com) for dealing with dates and finally [Jest](https://jestjs.io/pt-BR/) for testing.
+The site was developed using [React JS](https://pt-br.reactjs.org/) with [Next JS](https://nextjs.org/docs) and 
+consumes data from the api I created. Some libraries were used, including: [Material UI](https://mui.com) and 
+[Mantine](https://mantine.dev) for some components with css already embedded, [Moment](https:/ /momentjs.com) 
+for dealing with dates and finally [Jest](https://jestjs.io/pt-BR/) for testing.
 
 (Pt-br)
 
-O site foi desenvolvido usando [React JS](https://pt-br.reactjs.org/) com o [Next JS](https://nextjs.org/docs) e consome dados na api que criei. Foram utilizados algumas bibliotecas, incluindo: [Material UI](https://mui.com) e o [Mantine](https://mantine.dev) para alguns componentes com css já embutidos, o [Moment](https://momentjs.com) para a tratativa de datas e por fim o [Jest](https://jestjs.io/pt-BR/) para os testes.
+O site foi desenvolvido usando [React JS](https://pt-br.reactjs.org/) com o [Next JS](https://nextjs.org/docs) 
+e consome dados na api que criei. Foram utilizados algumas bibliotecas, incluindo: [Material UI](https://mui.com) e o [Mantine](https://mantine.dev) para alguns componentes com css já embutidos, o [Moment](https://momentjs.com) para a tratativa de datas e por fim o [Jest](https://jestjs.io/pt-BR/) para os testes.
 
 ## Available Scripts (Scripts Disponíveis)
 
