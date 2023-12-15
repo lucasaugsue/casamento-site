@@ -92,6 +92,10 @@ section.container {
     color: #515A5A;
 }
 
+.dialogActions {
+    padding: 0vh 1.5vw 2vh 2vw
+}
+
 
 /* If the screen size is 1600px wide or less, set the font-size of <div> to 30px */
 @media screen and (max-width: 1600px) {
@@ -114,6 +118,10 @@ section.container {
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+
+    .dialogActions {
+        padding: 1vh 4vw 2vh 4vw
     }
 
     .buttontr {

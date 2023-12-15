@@ -109,20 +109,6 @@ section.container {
     font-size: 2vh;
 }
 
-.addButton {
-    height: 6vh;
-}
-
-.cardItem {
-    margin: 1vh;
-    padding: 1vh 1vw;
-
-    border-style: inset;
-    border-color: #b3a4a0;
-    border-radius: 15px;
-    background-color: #eeeeee;
-}
-
 .closeIcon {
     cursor: pointer;
     font-size: 20px;
@@ -131,52 +117,6 @@ section.container {
 
 .dialogActions {
     padding: 0vh 1.5vw 2vh 2vw
-}
-
-/* stepper */
-.containerStepBody{
-    min-width: 60vw;
-    min-height: 30vh;
-    padding: 0vh 2vw 3vh 1vw;
-    
-    max-height: 31vh;
-    position: relative;
-    overflow: auto;
-}
-
-.helpContainerTop {
-    display: grid;
-    align-items: center;
-    flex-direction: row;
-    justify-content: center;
-    grid-template-columns: 1fr auto;
-}
-
-.helpContainerBottom {
-    padding-top: 3vh;
-    color: black;
-    width: 15vw;
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    justify-content: center;
-}
-
-.helpContainerBottom:hover{
-    padding-top: 3vh;
-    color: red;
-    width: 15vw;
-    display: flex;
-    cursor: pointer;
-    align-items: center;
-    flex-direction: row;
-    justify-content: center;
-}
-
-.textIcon {
-    font-size: 2vh;
-    text-decoration: underline;
-    margin-right: 0.5vw;
 }
 
 .notificationCard {
@@ -283,53 +223,6 @@ section.container {
 
     .dialogActions {
         padding: 1vh 4vw 2vh 4vw
-    }
-
-    /* stepper */
-    .containerStepBody{
-        min-width: 70vw;
-        min-height: 35vh;
-        padding: 0vh 1vw 3vh 0vw;
-        
-        max-height: 36vh;
-        position: relative;
-        overflow: auto;
-    }
-
-    .helpContainerTop {
-        margin-bottom: 2vh;
-        display: grid;
-        align-items: center;
-        flex-direction: row;
-        justify-content: center;
-        grid-template-columns: auto 1fr;
-    }
-
-    .helpContainerBottom {
-        padding-top: 3vh;
-        color: black;
-        width: 35vw;
-        display: flex;
-        align-items: center;
-        flex-direction: row;
-        justify-content: center;
-    }
-
-    .helpContainerBottom:hover{
-        padding-top: 3vh;
-        color: red;
-        width: 35vw;
-        display: flex;
-        cursor: pointer;
-        align-items: center;
-        flex-direction: row;
-        justify-content: center;
-    }
-
-    .textIcon {
-        font-size: 2.6vh;
-        text-decoration: underline;
-        margin-right: 0.5vw;
     }
 
     .notificationCard {

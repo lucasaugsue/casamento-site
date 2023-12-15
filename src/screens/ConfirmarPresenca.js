@@ -117,7 +117,7 @@ export default function ConfirmarPresenca(){
                 <Grid 
                     container 
                     spacing={2}
-                    className={styles.containerStepBody}
+                    className={styles.dialogContent}
                 >
                     {(error.msg.length > 2) && 
                     <Grid item md={12} xs={12}>
@@ -133,7 +133,7 @@ export default function ConfirmarPresenca(){
                         <div className={styles.subTitle}>Dados para identificação!</div>
                     </Grid>
                     <Grid item md={12} xs={12}>
-                        <div className={styles.bodyContent}>1) Digite o nome e o e-mail de uma das pessoas para identificar as pessoas na lista!</div>
+                        <div className={styles.bodyContent}> Digite o nome, a idade e o celular para contato da pessoa para identificar na confirmação!</div>
                     </Grid>
                     
                     <Grid item md={12} xs={12}>
@@ -175,18 +175,21 @@ export default function ConfirmarPresenca(){
                 <Grid 
                     container 
                     spacing={2}
+                    flexDirection="row"
                     className={styles.dialogActions}
                 >
-                    <Grid item md={8} xs={2}></Grid>
-                    <Grid item md={2} xs={4}>
+                    <Grid item md={8} xs={12}></Grid>
+                    <Grid item md={2} xs={12}>
                         <Button
+                            style={{width: "100%"}}
                             color="red" 
                             variant="outline"
                             onClick={handleClose}
                         > cancelar </Button>
                     </Grid>
-                    <Grid item md={2} xs={4}>
+                    <Grid item md={2} xs={12}>
                         <Button 
+                            style={{width: "100%"}}
                             radius="sm"
                             variant="gradient"
                             loading={loading}

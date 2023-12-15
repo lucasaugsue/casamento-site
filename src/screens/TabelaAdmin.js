@@ -656,10 +656,7 @@ export default function TabelaAdmin() {
         const contetnConfirmados = () => (
             <Grid 
                 container
-                spacing={1}
-                alignContent="center"
-                flexDirection="column"
-                alignItems="center"
+                spacing={2}
                 className={styles.dialogContent}
             >
                 {(error.msg.length > 2) && 
@@ -676,7 +673,7 @@ export default function TabelaAdmin() {
                     <div className={styles.subTitle}>Dados para identificação!</div>
                 </Grid>
                 <Grid item md={12} xs={12}>
-                    <div className={styles.bodyContent}>1) Digite o nome e o e-mail de uma das pessoas para identificar as pessoas na lista!</div>
+                    <div className={styles.bodyContent}> Digite o nome, a idade e o celular para contato da pessoa para identificar na confirmação!</div>
                 </Grid>
                 
                 <Grid item md={12} xs={12}>
@@ -872,23 +869,35 @@ export default function TabelaAdmin() {
         >
             <DialogTitle> {handleTitle()} </DialogTitle>
             <DialogContent> {renderDialogContent()} </DialogContent>
-            <DialogActions style={{
-                padding: "0.5vh 1.5vw 2vh 0"
-            }}>
-                <Button
-                    color="red" 
-                    variant="outline"
-                    onClick={handleClose}
-                > Fechar </Button>
-                <Button 
-                    radius="sm"
-                    variant="gradient"
-                    loading={loadingButton}
-                    onClick={() => handleFunction()}
-                    gradient={{ from: '#f16352', to: '#ec8c69', deg: 35 }}
+            <DialogActions>
+                <Grid 
+                    container 
+                    spacing={2}
+                    flexDirection="row"
+                    className={styles.dialogActions}
                 >
-                    {edit ? "Editar" : "Cadastrar"}
-                </Button>
+                    <Grid item md={8} xs={12}></Grid>
+                    <Grid item md={2} xs={12}>
+                        <Button
+                            color="red" 
+                            variant="outline"
+                            onClick={handleClose}
+                            style={{width: "100%"}}
+                        > Fechar </Button>
+                    </Grid>
+                    <Grid item md={2} xs={12}>
+                        <Button 
+                            radius="sm"
+                            variant="gradient"
+                            style={{width: "100%"}}
+                            loading={loadingButton}
+                            onClick={() => handleFunction()}
+                            gradient={{ from: '#f16352', to: '#ec8c69', deg: 35 }}
+                        >
+                            {edit ? "Editar" : "Cadastrar"}
+                        </Button>
+                    </Grid>
+                </Grid>
             </DialogActions>
         </Dialog>
     
