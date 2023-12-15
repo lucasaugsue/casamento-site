@@ -5,6 +5,7 @@ important information that my fiancée and I will need to pass on to the guests,
 a little information about the bride and groom and the list of gifts the bride and groom want.
 
 (Pt-br)
+
 Para quem não está por dentro, estou realizando o sonho de me casar no ano que vem, no meio do ano, com a minha 
 noiva e eterna namorada, Victória Sgrancio, o amor da minha vida! Esse é um projeto para auxiliar no meu sonho 
 em casar no meio do ano de 2024, por isso resolvi eu mesmo fazer o site do meu casamento para colocar algumas 
@@ -20,6 +21,7 @@ um pouco da informação dos noivos e a lista de presentes que os noivos desejam
 contribute through PIX to help us make these dreams come true.
 
 (Pt-br)
+
 💑 Informações dos Noivos: Um espaço dedicado para compartilhar um pouco sobre nós, os noivos, e a jornada que 
 nos trouxe até aqui.
 
@@ -33,6 +35,7 @@ contribuir através de PIX para nos ajudar a realizar esses sonhos.
 The site was developed using [React JS](https://pt-br.reactjs.org/) with [Next JS](https://nextjs.org/docs) and consumes data from the api I created. Some libraries were used, including: [Material UI](https://mui.com) and [Mantine](https://mantine.dev) for some components with css already embedded, [Moment](https:/ /momentjs.com) for dealing with dates and finally [Jest](https://jestjs.io/pt-BR/) for testing.
 
 (Pt-br)
+
 O site foi desenvolvido usando [React JS](https://pt-br.reactjs.org/) com o [Next JS](https://nextjs.org/docs) e consome dados na api que criei. Foram utilizados algumas bibliotecas, incluindo: [Material UI](https://mui.com) e o [Mantine](https://mantine.dev) para alguns componentes com css já embutidos, o [Moment](https://momentjs.com) para a tratativa de datas e por fim o [Jest](https://jestjs.io/pt-BR/) para os testes.
 
 ## Available Scripts (Scripts Disponíveis)
@@ -40,6 +43,7 @@ O site foi desenvolvido usando [React JS](https://pt-br.reactjs.org/) com o [Nex
 In the project directory, you can run:
 
 (Pt-br)
+
 No diretório do projeto, você pode executar:
 ### `npm run dev`
 
@@ -47,6 +51,7 @@ Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 (Pt-br)
+
 Executa o aplicativo no modo de desenvolvimento.\
 Abra [http://localhost:3000](http://localhost:3000) para visualizá-lo em seu navegador.
 
