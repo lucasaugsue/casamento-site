@@ -4,6 +4,7 @@ import { Dialog, DialogActions, DialogContent, DialogTitle, Grid, Slide, TextFie
 import React from 'react';
 import ClientContext from '../contexts/ClientContext';
 import styles from './ConfirmarPresenca.module.css';
+import CloseIcon from '@mui/icons-material/Close';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
 	return <Slide direction="up" ref={ref} {...props} />;
@@ -111,7 +112,13 @@ export default function ConfirmarPresenca(){
             TransitionComponent={Transition}
         >
             <DialogTitle>
-                <div className={styles.dialogTitle}> {"Confirmar preseça"} </div>
+                <div className={styles.containerTitle}>
+                    <div className={styles.dialogTitle}> {"Confirmar preseça"} </div>
+                    <CloseIcon 
+                        fontSize="medium"
+                        onClick={handleClose}
+                    /> 
+                </div>
             </DialogTitle>
             <DialogContent> 
                 <Grid 

@@ -14,7 +14,7 @@ export default function InfosScreen({label}) {
         setLoading(true)
         apiRequest("GET", `/presentes/by/${label}`)
         .then((res) => {
-            setPresente(res)
+            setPresente(res.item)
             setLoading(false)
         })
         .catch((err) => {

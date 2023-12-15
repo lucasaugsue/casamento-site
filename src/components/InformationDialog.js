@@ -1,4 +1,5 @@
 import { Button } from '@mantine/core';
+import CloseIcon from '@mui/icons-material/Close';
 import { Dialog, DialogActions, DialogContent, DialogTitle, Grid, Slide } from '@mui/material';
 import React from 'react';
 import styles from './InformationDialog.module.css';
@@ -28,7 +29,13 @@ export default function InformationDialog({
             TransitionComponent={Transition}
         >
             <DialogTitle>
-                <div className={styles.dialogTitle}> {title} </div>
+                <div className={styles.containerTitle}>
+                    <div className={styles.dialogTitle}> {title} </div>
+                    <CloseIcon 
+                        fontSize="medium"
+                        onClick={handleClose}
+                    /> 
+                </div>
             </DialogTitle>
             <DialogContent className={styles.dialogContent}>
                 {textBody ? textBody() : textContent}

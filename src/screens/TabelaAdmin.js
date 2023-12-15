@@ -11,6 +11,7 @@ import ClientContext from '../../src/contexts/ClientContext';
 import InformationDialog from "../components/InformationDialog";
 import TablePaginationActions from "../components/TablePaginationActionsComponent";
 import styles from './TabelaAdmin.module.css';
+import CloseIcon from '@mui/icons-material/Close';
 
 const StyledTableCellHead = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -867,7 +868,15 @@ export default function TabelaAdmin() {
             open={open}
             onClose={handleClose}
         >
-            <DialogTitle> {handleTitle()} </DialogTitle>
+            <DialogTitle>
+                <div className={styles.containerTitle}>
+                    <div className={styles.dialogTitle}> {handleTitle()} </div> 
+                    <CloseIcon 
+                        fontSize="medium"
+                        onClick={handleClose}
+                    /> 
+                </div> 
+            </DialogTitle>
             <DialogContent> {renderDialogContent()} </DialogContent>
             <DialogActions>
                 <Grid 

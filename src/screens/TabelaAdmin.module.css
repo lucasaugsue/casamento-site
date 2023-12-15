@@ -60,6 +60,14 @@ section.container {
     font-size: 3vh;
 }
 
+.containerTitle {
+    display: grid;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    grid-template-columns: 1fr auto;
+}
+
 .subTitle {
     padding: 0 0 0 0.5vw;
     font-weight: 500;

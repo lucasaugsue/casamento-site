@@ -2,6 +2,14 @@
     margin: 1vh;
 }
 
+.containerTitle {
+    display: grid;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    grid-template-columns: 1fr auto;
+}
+
 .dialogTitle {
     font-weight: 600;
     font-size: 3vh;

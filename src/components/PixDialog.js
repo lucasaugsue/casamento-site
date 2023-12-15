@@ -1,9 +1,9 @@
+import CancelIcon from '@mui/icons-material/Cancel';
 import PixIcon from '@mui/icons-material/Pix';
 import { Dialog, Grid, Slide } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import React from 'react';
 import styles from './PixDialog.module.css';
-
 
 const Transition = React.forwardRef(function Transition(props, ref) {
 	return <Slide direction="up" ref={ref} {...props} />;
@@ -26,6 +26,15 @@ export default function PixDialog({open, handleClose}){
                 alignItems="center"
                 className={styles.dialogContent}
             >
+                <Grid item xs={12} md={12}>
+                    <div className={styles.containerClose}>
+                        <div/>
+                        <CancelIcon 
+                            fontSize="medium"
+                            onClick={handleClose}
+                        /> 
+                    </div>
+                </Grid>
                 <Grid item xs={12} md={12}>
                     <div className={styles.pague}>Pague com</div>
                 </Grid>

@@ -85,6 +85,14 @@ section.container {
     justify-content: center;
 }
 
+.containerTitle {
+    display: grid;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    grid-template-columns: 1fr auto;
+}
+
 .dialogTitle {
     font-weight: 600;
     font-size: 3vh;
@@ -100,19 +108,6 @@ section.container {
     padding: 0 0 0 1.5vw;
     font-weight: 400;
     font-size: 2vh;
-}
-
-.bodyContentError {
-    color: #fc5454;
-    padding: 0 0 0 1.5vw;
-    font-weight: 400;
-    font-size: 2vh;
-}
-
-.closeIcon {
-    cursor: pointer;
-    font-size: 20px;
-    color: #515A5A;
 }
 
 .dialogActions {
