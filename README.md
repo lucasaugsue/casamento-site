@@ -1,70 +1,59 @@
-# Getting Started with Create React App
+# site casamento e victória
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+For those who are not aware, I am fulfilling my dream of getting married next year, in the middle of the year, with my bride and eternal girlfriend, Victória Sgrancio, the love of my life! This is a project to help with my dream getting married in the middle of 2024, so I decided to make my wedding website myself to put some
+important information that my fiancée and I will need to pass on to the guests, such as the attendance list,
+a little information about the bride and groom and the list of gifts the bride and groom want.
 
-## Available Scripts
+(Pt-br)
+Para quem não está por dentro, estou realizando o sonho de me casar no ano que vem, no meio do ano, com a minha 
+noiva e eterna namorada, Victória Sgrancio, o amor da minha vida! Esse é um projeto para auxiliar no meu sonho 
+em casar no meio do ano de 2024, por isso resolvi eu mesmo fazer o site do meu casamento para colocar algumas 
+informações importantes que eu e minha noiva vamos precisar passar para os convidados como a lista de presença, 
+um pouco da informação dos noivos e a lista de presentes que os noivos desejam.
+## Key Features (Principais recursos):
+
+💑 Bride and Groom Information: A dedicated space to share a little about us, the bride and groom, and the journey that brought us here.
+
+📋 Attendance List: Allows guests to confirm their presence in an easy and interactive way.
+
+🎁 Gift List: Presents the gifts we want for our new stage of life. Friends can even
+contribute through PIX to help us make these dreams come true.
+
+(Pt-br)
+💑 Informações dos Noivos: Um espaço dedicado para compartilhar um pouco sobre nós, os noivos, e a jornada que 
+nos trouxe até aqui.
+
+📋 Lista de Presença: Permite aos convidados confirmarem presença de forma fácil e interativa.
+
+🎁 Lista de Presentes: Apresenta os presentes que desejamos para nossa nova etapa de vida. Os amigos podem até 
+contribuir através de PIX para nos ajudar a realizar esses sonhos.
+
+## Technologies used (Tecnologias utilizadas)
+
+The site was developed using [React JS](https://pt-br.reactjs.org/) with [Next JS](https://nextjs.org/docs) and consumes data from the api I created. Some libraries were used, including: [Material UI](https://mui.com) and [Mantine](https://mantine.dev) for some components with css already embedded, [Moment](https:/ /momentjs.com) for dealing with dates and finally [Jest](https://jestjs.io/pt-BR/) for testing.
+
+(Pt-br)
+O site foi desenvolvido usando [React JS](https://pt-br.reactjs.org/) com o [Next JS](https://nextjs.org/docs) e consome dados na api que criei. Foram utilizados algumas bibliotecas, incluindo: [Material UI](https://mui.com) e o [Mantine](https://mantine.dev) para alguns componentes com css já embutidos, o [Moment](https://momentjs.com) para a tratativa de datas e por fim o [Jest](https://jestjs.io/pt-BR/) para os testes.
+
+## Available Scripts (Scripts Disponíveis)
 
 In the project directory, you can run:
 
-### `yarn start` 
+(Pt-br)
+No diretório do projeto, você pode executar:
+### `npm run dev`
 
 Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+(Pt-br)
+Executa o aplicativo no modo de desenvolvimento.\
+Abra [http://localhost:3000](http://localhost:3000) para visualizá-lo em seu navegador.
 
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Documentation (Documentação)
+- [React JS](https://reactnative.dev/docs/environment-setup)
+- [Next JS](https://nextjs.org/docs)
+- [UI](https://mui.com)
+- [Mantine](https://mantine.dev)
+- [Moment](https://momentjs.com) 
+- [Jest](https://jestjs.io/pt-BR/)
