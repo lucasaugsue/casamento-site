@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Antonio:wght@300&display=swap');
+
+.redesSociaisContainer{
+    width: auto;
+    height: 7vh;
+
+    padding: 0vh 5vw;
+
+    display: grid;
+    flex-direction: row;
+    align-items: center;
+    justify-items: center;
+    grid-template-columns: auto 1fr auto;
+
+    background-color: #dd9368;
+}
+
+.redesSociaisText{
+    font-size: 2vh;
+    color: white;
+}
+
+.containerIcons{
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-items: center;
+}
+
+.iconsRedesSociais{
+    cursor: pointer;
+    margin: 0vh 1vw;
+    font-size: 1.8vh;
+    color: white;
+}
+
+/* mais informações */
+.maisInformacoesContainer{
+    padding: 4vh 4vw;
+
+    display: grid;
+    flex-direction: row;
+    align-items: center;
+    justify-items: center;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.gridInformacoes{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+}
+
+.maisInformacoesTitle{
+    margin-bottom: 1vh;
+    text-decoration: underline;
+    font-size: 2vh;
+    color: black;
+}
+
+.maisInformacoesBody{
+    margin-bottom: 1vh;
+    font-size: 1.8vh;
+    color: black;
+}
+
+.textLink{
+    cursor: pointer;
+    margin-bottom: 1vh;
+    font-size: 1.8vh;
+    color: black;
+}
+
+.textLink:hover{
+    cursor: pointer;
+    margin-bottom: 1vh;
+    font-size: 1.8vh;
+
+    color: red;
+    text-decoration: underline;
+}
+
+.boxContato{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-items: center;
+}
+
+/* copyright */
+.copyrightContainer{
+    width: 100%;
+    height: 7vh;
+
+    display: grid;
+    flex-direction: row;
+    align-items: center;
+    justify-items: center;
+    grid-template-columns: auto auto auto;
+
+    background-color: #d69e7d;
+}
+
+.copyrightText{
+    font-size: 1.8vh;
+    color: white;
+}
+
+
+/* If the screen size is 900px wide or less, set the font-size of <div> to 30px */
+@media screen and (max-width: 900px) {
+    .redesSociaisText{
+        font-size: 2.6vh;
+        color: white;
+    }
+
+    /* mais informações */
+    .maisInformacoesContainer{
+        padding: 2vh 4vw;
+    
+        display: grid;
+        flex-direction: row;
+        align-items: center;
+        justify-items: center;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .gridInformacoes{
+        margin: 1vh 1vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-items: center;
+    }
+
+    .maisInformacoesBody{
+        margin-bottom: 1vh;
+        font-size: 2vh;
+        color: black;
+    }
+
+    .boxContato{
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        justify-items: center;
+    }
+
+    .textLink{
+        cursor: pointer;
+        margin-bottom: 1vh;
+        font-size: 2vh;
+        color: black;
+    }
+    
+    .textLink:hover{
+        cursor: pointer;
+        margin-bottom: 1vh;
+        font-size: 2vh;
+    
+        color: red;
+        text-decoration: underline;
+    }
+
+    /* copyright */
+    .copyrightText{
+        font-size: 2.4vh;
+        color: white;
+    }
+}

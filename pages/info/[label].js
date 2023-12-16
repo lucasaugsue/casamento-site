@@ -2,6 +2,7 @@ import React, { Suspense } from 'react';
 import ClientContext from '../../src/contexts/ClientContext';
 import InfoProduto from '../../src/info/InfoProduto'
 import Header from '../../src/screens/Header';
+import Footer from '../../src/screens/Footer'
 
 export default function InfosScreen({label}) {
     const { apiRequest } = React.useContext(ClientContext);
@@ -32,6 +33,7 @@ export default function InfosScreen({label}) {
         {<Suspense fallback={<div>Loading...</div>}>
             {!loading ? <div>
                 <InfoProduto params={presente}/>
+                <Footer />
             </div>
 
             : <div>produto...</div>}

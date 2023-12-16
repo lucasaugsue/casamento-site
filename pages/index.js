@@ -6,6 +6,7 @@ import ConfirmarPresenca from '../src/screens/ConfirmarPresenca'
 // import Local from '../src/screens/Local'
 import EscreverRecado from '../src/screens/EscreverRecado'
 import ListaDePresentes from '../src/screens/ListaDePresentes'
+import Footer from '../src/screens/Footer';
 
 export default function Render() {
   return (
@@ -22,6 +23,7 @@ export default function Render() {
       {/* <Local/> */}
       <EscreverRecado/>
       <ListaDePresentes/>
+      <Footer/>
     </div>
   )
 }
