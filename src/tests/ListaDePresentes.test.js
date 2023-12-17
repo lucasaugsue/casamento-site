@@ -3,7 +3,7 @@ import ClientContext from '../contexts/ClientContext';
 import ListaDePresentes from '../screens/ListaDePresentes';
 
 const mockApiRequest = jest.fn((config) => {
-	// Simule o comportamento da sua API
+	//Simule o comportamento da sua API
 	return Promise.resolve([
         {
             "mais_informacoes": "https://www.amazon.com.br/dp/B001BSX1EM?ref_=cm_sw_r_apan_dp_20ZZWBH7X76K0ENAKVDQ&language=pt-BR",
@@ -43,7 +43,7 @@ const mockApiRequest = jest.fn((config) => {
   
 // 	await act(async () => {
 // 		const clientContext = {
-// 			apiRequest: mockApiRequest, // Substitua pelo mock da sua função apiRequest
+// 			apiRequest: mockApiRequest, //Substitua pelo mock da sua função apiRequest
 // 		};
 
 // 		tree = renderer.create(

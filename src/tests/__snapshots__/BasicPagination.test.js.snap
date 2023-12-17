@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renderiza corretamente 1`] = `
+<div
+  onClick={[MockFunction]}
+>
+  1
+  10
+</div>
+`;
