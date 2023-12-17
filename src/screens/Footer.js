@@ -81,10 +81,8 @@ export default function Footer(){
                     Presentes
                 </div>
 
-                {!loading && presentes
-                .slice(0,3)
-                .map((item, index) => 
-                    <div 
+                {!loading && [...presentes.slice(0,3)]
+                    .map((item, index) => <div 
                         key={`${index};;${item.id}`} 
                         className={styles.textLink}
                         onClick={() => window.location.href = `/info/${item.id}`}

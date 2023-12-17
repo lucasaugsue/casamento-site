@@ -88,7 +88,7 @@ exports[`renderiza corretamente 1`] = `
         className="timeItem"
       >
         <span>
-          256
+          244
         </span>
         <div>
           Dias
@@ -98,7 +98,7 @@ exports[`renderiza corretamente 1`] = `
         className="timeItem"
       >
         <span>
-          7
+          1
         </span>
         <div>
           Horas
@@ -108,7 +108,7 @@ exports[`renderiza corretamente 1`] = `
         className="timeItem"
       >
         <span>
-          48
+          37
         </span>
         <div>
           Minutos

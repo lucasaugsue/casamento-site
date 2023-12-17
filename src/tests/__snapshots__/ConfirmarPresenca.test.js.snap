@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renderiza ConfirmarPresenca corretamente 1`] = `
+<section
+  className="container"
+  id="confirmar-presenca"
+>
+  <div
+    className="whiteBox"
+  >
+    <div
+      className="containerText"
+    >
+      <div
+        className="textTitle"
+      >
+        Confirme sua presença!
+      </div>
+      <div
+        className="text"
+      >
+        Para simplificar o processo de contagem, solicitamos a gentileza de confirmar sua presença em nossa festa de casamento. Sua resposta será fundamental para a eficiente organização do grande dia, permitindo-nos planejar todos os detalhes com precisão. Agradecemos antecipadamente pela sua colaboração.
+      </div>
+    </div>
+    <div
+      className="buttonContainer"
+    >
+      <button
+        className="mantine-UnstyledButton-root mantine-Button-root button mantine-14dldul"
+        data-button={true}
+        onClick={[Function]}
+        type="button"
+      >
+        <div
+          className="mantine-3xbgk5 mantine-Button-inner"
+        >
+          <span
+            className="mantine-qo1k2 mantine-Button-label"
+            style={
+              {
+                "textTransform": undefined,
+              }
+            }
+          >
+            Confirmar presença
+          </span>
+        </div>
+      </button>
+    </div>
+  </div>
+  <style
+    dangerouslySetInnerHTML={
+      {
+        "__html": "@media print{.css-1h8td7x-MuiDialog-root{position:absolute!important;}}",
+      }
+    }
+    data-emotion="css 1h8td7x-MuiDialog-root"
+  />
+</section>
+`;

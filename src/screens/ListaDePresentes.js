@@ -1,14 +1,12 @@
-import { Button, Input, Textarea } from '@mantine/core';
 import { showNotification } from '@mantine/notifications';
 import CardGiftcardIcon from '@mui/icons-material/CardGiftcard';
-import React from 'react';
-import styles from './ListaDePresentes.module.css';
-import ClientContext from '../contexts/ClientContext';
-import { Suspense } from 'react';
-import CardReview from '../components/CardReview'
+import React, { forwardRef } from 'react';
 import BasicPagination from '../components/BasicPagination';
+import CardReview from '../components/CardReview';
+import ClientContext from '../contexts/ClientContext';
+import styles from './ListaDePresentes.module.css';
 
-export default function ListaDePresentes(){
+const ListaDePresentes = forwardRef((props, ref) => {
     const { apiRequest } = React.useContext(ClientContext);
 
     // get presentes
@@ -46,7 +44,11 @@ export default function ListaDePresentes(){
         getPresentes()
     }, []);
 
-    return <section className={styles.container} id="presentes">
+    return <section 
+        ref={ref}
+        id="presentes"
+        className={styles.container} 
+    >
         <div className={styles.whiteBox}>
             <div className={styles.containerText}>
                 <div className={styles.gridRecado}>
@@ -59,41 +61,41 @@ export default function ListaDePresentes(){
                     Todo presente será bem vindo, vamos começar a nossa vida a dois agora e toda ajuda é bem vinda.
                 </div>
             </div>
-                {<Suspense fallback={<div>Loading...</div>}>
-                    {!loading ?
-                        <div>
-                            <div className={styles.containerPresentes}>
-                                {
-                                    ([...presentes])
-                                    .slice((page - 1) * presentPerPage, page * presentPerPage)
-                                    .map((item, index) => <div
-                                        key={`${index};;${item.id}`} 
-                                        className={styles.itemPresente}
-                                    >
-                                        <CardReview 
-                                            key={`cr${index};;${item.id}`}
-                                            params={{
-                                                ...item, 
-                                                color_id: index,
-                                                handleChange: () => window.location.href = `/info/${item.id}`,
-                                                compartilhar: () => copiarTexto()
-                                            }} 
-                                        />
-                                    </div>)
-                                }
-                            </div>
-                            <div className={styles.containerPagination}>
-                                <div/>
-                                <BasicPagination 
-                                    page={page} 
-                                    count={sobra === 0 ? count : count + 1 || 10}
-                                    handleChange={handleChangePagination}
+            {!loading ?
+                <div>
+                    <div className={styles.containerPresentes}>
+                        {
+                            ([...presentes])
+                            .slice((page - 1) * presentPerPage, page * presentPerPage)
+                            .map((item, index) => <div
+                                key={`${index};;${item.id}`} 
+                                className={styles.itemPresente}
+                            >
+                                <CardReview 
+                                    key={`cr${index};;${item.id}`}
+                                    params={{
+                                        ...item, 
+                                        color_id: index,
+                                        handleChange: () => window.location.href = `/info/${item.id}`,
+                                        compartilhar: () => copiarTexto()
+                                    }} 
                                 />
-                                <div/>
-                            </div>
-                        </div>
-                    : <div>lista...</div>}
-                </Suspense>}
+                            </div>)
+                        }
+                    </div>
+                    <div className={styles.containerPagination}>
+                        <div/>
+                        <BasicPagination 
+                            page={page} 
+                            count={sobra === 0 ? count : count + 1 || 10}
+                            handleChange={handleChangePagination}
+                        />
+                        <div/>
+                    </div>
+                </div>
+            : <div>lista...</div>}
         </div>
     </section> 
-}
+});
+
+export default ListaDePresentes;

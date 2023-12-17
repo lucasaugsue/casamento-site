@@ -1,0 +1,207 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renderiza EscreverRecado corretamente 1`] = `
+<section
+  className="container"
+  id="recado"
+>
+  <div
+    className="whiteBox"
+  >
+    <div
+      className="containerText"
+    >
+      <div
+        className="gridRecado"
+      >
+        <div
+          className="leftIcon"
+        >
+          <style
+            dangerouslySetInnerHTML={
+              {
+                "__html": ".css-i4bv87-MuiSvgIcon-root{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;width:1em;height:1em;display:inline-block;fill:currentColor;-webkit-flex-shrink:0;-ms-flex-negative:0;flex-shrink:0;-webkit-transition:fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;transition:fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;font-size:1.5rem;}",
+              }
+            }
+            data-emotion="css i4bv87-MuiSvgIcon-root"
+          />
+          <svg
+            aria-hidden={true}
+            className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium icons css-i4bv87-MuiSvgIcon-root"
+            data-testid="EmailIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"
+            />
+          </svg>
+        </div>
+        <div
+          className="textTitle"
+        >
+          Escreva um recado!
+        </div>
+        <div
+          className="rightIcon"
+        >
+           
+          <style
+            dangerouslySetInnerHTML={
+              {
+                "__html": ".css-i4bv87-MuiSvgIcon-root{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;width:1em;height:1em;display:inline-block;fill:currentColor;-webkit-flex-shrink:0;-ms-flex-negative:0;flex-shrink:0;-webkit-transition:fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;transition:fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;font-size:1.5rem;}",
+              }
+            }
+            data-emotion="css i4bv87-MuiSvgIcon-root"
+          />
+          <svg
+            aria-hidden={true}
+            className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium icons css-i4bv87-MuiSvgIcon-root"
+            data-testid="EmailIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"
+            />
+          </svg>
+        </div>
+      </div>
+      <div
+        className="subTitle"
+      >
+        Esse espaço é reservado para você que deseja escrever um recado para os noivos.
+      </div>
+      <div
+        className="text"
+      >
+        Todo texto será enviado para o nosso e-mail, apenas coloque seu e-mail e o recado que deseja passar para nós.
+      </div>
+    </div>
+    <div
+      className="containerInput"
+    >
+      <div
+        className="mantine-Input-wrapper input mantine-12sbrde"
+      >
+        <div
+          className="mantine-1hseney mantine-Input-icon"
+        >
+          <svg
+            className="icon icon-tabler icon-tabler-user"
+            fill="none"
+            height={24}
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            viewBox="0 0 24 24"
+            width={24}
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0 0h24v24H0z"
+              fill="none"
+              stroke="none"
+            />
+            <circle
+              cx={12}
+              cy={7}
+              r={4}
+            />
+            <path
+              d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"
+            />
+          </svg>
+        </div>
+        <input
+          className="mantine-Input-input mantine-Input-withIcon mantine-1h9hasi"
+          name="nome"
+          onChange={[Function]}
+          placeholder="Seu nome"
+          value=""
+        />
+      </div>
+      <div
+        className="mantine-Input-wrapper input mantine-12sbrde"
+      >
+        <div
+          className="mantine-1hseney mantine-Input-icon"
+        >
+          <svg
+            className="icon icon-tabler icon-tabler-at"
+            fill="none"
+            height={24}
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            viewBox="0 0 24 24"
+            width={24}
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0 0h24v24H0z"
+              fill="none"
+              stroke="none"
+            />
+            <circle
+              cx={12}
+              cy={12}
+              r={4}
+            />
+            <path
+              d="M16 12v1.5a2.5 2.5 0 0 0 5 0v-1.5a9 9 0 1 0 -5.5 8.28"
+            />
+          </svg>
+        </div>
+        <input
+          className="mantine-Input-input mantine-Input-withIcon mantine-1h9hasi"
+          name="email"
+          onChange={[Function]}
+          placeholder="Seu email"
+          value=""
+        />
+      </div>
+      <div
+        className="mantine-InputWrapper-root mantine-Textarea-root input mantine-1m3pqry"
+      >
+        <div
+          className="mantine-Input-wrapper mantine-Textarea-wrapper mantine-12sbrde"
+        >
+          <textarea
+            aria-invalid={false}
+            className="mantine-Input-input mantine-Textarea-input mantine-1jc3cvc"
+            id="mantine-r0"
+            name="recado"
+            onChange={[Function]}
+            placeholder="Escreva o recado"
+            value=""
+          />
+        </div>
+      </div>
+      <button
+        className="mantine-UnstyledButton-root mantine-Button-root button mantine-14dldul"
+        data-button={true}
+        onClick={[Function]}
+        type="button"
+      >
+        <div
+          className="mantine-3xbgk5 mantine-Button-inner"
+        >
+          <span
+            className="mantine-qo1k2 mantine-Button-label"
+            style={
+              {
+                "textTransform": undefined,
+              }
+            }
+          >
+            Enviar
+          </span>
+        </div>
+      </button>
+    </div>
+  </div>
+</section>
+`;

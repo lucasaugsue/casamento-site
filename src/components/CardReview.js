@@ -1,5 +1,4 @@
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import Avatar from '@mui/material/Avatar';
@@ -16,7 +15,7 @@ import { red } from '@mui/material/colors';
 import { styled } from '@mui/material/styles';
 import moment from 'moment';
 import 'moment/locale/pt-br';
-import * as React from 'react';
+import React, { forwardRef } from 'react';
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -29,7 +28,7 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-export default function CardReview({params}) {
+const CardReview = forwardRef(({params}, ref) => {
   const [expanded, setExpanded] = React.useState(false);
 
   const colors = [
@@ -42,7 +41,7 @@ export default function CardReview({params}) {
   };
 
   return (
-    <Card sx={{ maxWidth: 345, borderRadius: 5 }}>
+    <Card ref={ref} sx={{ maxWidth: 345, borderRadius: 5 }}>
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: colors[params.color_id] || red[500] }} aria-label="recipe">
@@ -113,4 +112,6 @@ export default function CardReview({params}) {
       </Collapse>
     </Card>
   );
-}
+})
+
+export default CardReview;
