@@ -37,30 +37,31 @@ const mockApiRequest = jest.fn((config) => {
         },
     ]);
 });
-  
-// test('Renderiza ListaDePresentes corretamente', async () => {
-// 	let tree;
-  
-// 	await act(async () => {
-// 		const clientContext = {
-// 			apiRequest: mockApiRequest, //Substitua pelo mock da sua função apiRequest
-// 		};
 
-// 		tree = renderer.create(
-// 			<ClientContext.Provider value={clientContext}>
-// 				<ListaDePresentes />
-// 			</ClientContext.Provider>
-// 		);
-// 	});
+// Mock do componente BasicPagination para garantir seu comportamento isolado
+jest.mock('../components/BasicPagination', () => {
+    return jest.fn((props) => (
+      <div data-testid="mocked-pagination">
+        {props.page}
+        {props.count}
+      </div>
+    ));
+});   
   
-// 	expect(tree.toJSON()).toMatchSnapshot();
-// });
+test('Renderiza ListaDePresentes corretamente', async () => {
+	let tree;
+  
+	await act(async () => {
+		const clientContext = {
+			apiRequest: mockApiRequest, //Substitua pelo mock da sua função apiRequest
+		};
 
-
-it('para passar o teste', () => {
-    const tree = renderer
-    .create(
-      <div>para passar o teste</div>
-    )
-    .toJSON();
+		tree = renderer.create(
+			<ClientContext.Provider value={clientContext}>
+				<ListaDePresentes />
+			</ClientContext.Provider>
+		);
+	});
+  
+	expect(tree.toJSON()).toMatchSnapshot();
 });
