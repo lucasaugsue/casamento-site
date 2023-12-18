@@ -1,9 +1,9 @@
 import renderer, { act } from 'react-test-renderer';
 import ClientContext from '../contexts/ClientContext';
-import ListaDePresentes from '../screens/ListaDePresentes';
+import Footer from '../screens/Footer';
 
 const mockApiRequest = jest.fn((config) => {
-	//Simule o comportamento da sua API
+	//Simule o comportamento da API
 	return Promise.resolve([
         {
             "mais_informacoes": "https://www.amazon.com.br/dp/B001BSX1EM?ref_=cm_sw_r_apan_dp_20ZZWBH7X76K0ENAKVDQ&language=pt-BR",
@@ -38,27 +38,17 @@ const mockApiRequest = jest.fn((config) => {
     ]);
 });
 
-// Mock do componente BasicPagination para garantir o comportamento isolado
-jest.mock('../components/BasicPagination', () => {
-    return jest.fn((props) => (
-      <div data-testid="mocked-pagination">
-        {props.page}
-        {props.count}
-      </div>
-    ));
-});   
-  
-test('Renderiza ListaDePresentes corretamente', async () => {
+test('Renderiza Footer corretamente', async () => {
 	let tree;
   
 	await act(async () => {
 		const clientContext = {
-			apiRequest: mockApiRequest, //Substitua pelo mock da sua função apiRequest
+			apiRequest: mockApiRequest, //Substitua pelo mock da função apiRequest
 		};
 
 		tree = renderer.create(
 			<ClientContext.Provider value={clientContext}>
-				<ListaDePresentes />
+				<Footer />
 			</ClientContext.Provider>
 		);
 	});

@@ -12,7 +12,7 @@ const item = {
     "id": "27ab93168ffb6730d4a0e62336d184e9"
 }
 
-it('renderiza corretamente', () => {
+test('Renderiza CardReview corretamente', async () => {
     const handleChange = jest.fn();
     const compartilhar = jest.fn();
 

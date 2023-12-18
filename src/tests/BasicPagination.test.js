@@ -10,7 +10,7 @@ jest.mock('@mui/material/Pagination', () => {
     );
 });
 
-it('renderiza corretamente', () => {
+test('Renderiza BasicPagination corretamente', async () => {
     const handleChange = jest.fn();
     const tree = renderer.create(
         <BasicPagination page={1} count={10} handleChange={handleChange} />

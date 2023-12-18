@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renderiza corretamente 1`] = `
+exports[`Renderiza Header corretamente 1`] = `
 <div>
   <div
     className="basicHeader"

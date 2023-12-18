@@ -3,7 +3,7 @@ import ClientContext from '../contexts/ClientContext';
 import EscreverRecado from '../screens/EscreverRecado';
 
 const mockApiRequest = jest.fn((config) => {
-	// Simule o comportamento da sua API
+	// Simule o comportamento da API
 	return Promise.resolve({
         "item": {
             "collection": "recados",
@@ -26,7 +26,7 @@ test('Renderiza EscreverRecado corretamente', async () => {
   
 	await act(async () => {
 		const clientContext = {
-			apiRequest: mockApiRequest, // Substitua pelo mock da sua função apiRequest
+			apiRequest: mockApiRequest, // Substitua pelo mock da função apiRequest
 		};
 
 		tree = renderer.create(

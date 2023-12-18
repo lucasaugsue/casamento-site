@@ -1,8 +1,7 @@
 import renderer from 'react-test-renderer';
 import ImagemDoCasal from '../screens/ImagemDoCasal';
 
-// Caso de teste atualizado com um Link para um endereço diferente
-it('renderiza corretamente', () => {
+test('Renderiza ImagemDoCasal corretamente', async () => {
     const tree = renderer
       .create(<ImagemDoCasal/>)
       .toJSON();
