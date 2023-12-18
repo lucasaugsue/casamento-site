@@ -31,7 +31,17 @@ export default function TablePaginationActions(props) {
     };
   
     return (
-      <Box sx={{ flexShrink: 0, mr: 3 }}>
+      <Box sx={{
+        mr: 3, 
+        width: 'auto', 
+        flexShrink: 0, 
+        padding: '1vh 1vw 0vh 3vh', 
+        
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}>
         <div style={styleIconButton}
           onClick={handleFirstPageButtonClick}
           disabled={page === 0}
