@@ -5,13 +5,13 @@ exports[`Renderiza TablePaginationActions corretamente 1`] = `
   <style
     dangerouslySetInnerHTML={
       {
-        "__html": ".css-ip601n{-webkit-flex-shrink:0;-ms-flex-negative:0;flex-shrink:0;margin-right:24px;}",
+        "__html": ".css-iganph{margin-right:24px;width:auto;-webkit-flex-shrink:0;-ms-flex-negative:0;flex-shrink:0;padding:1vh 1vw 0vh 3vh;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;-webkit-justify-content:center;justify-content:center;}",
       }
     }
-    data-emotion="css ip601n"
+    data-emotion="css iganph"
   />,
   <div
-    className="MuiBox-root css-ip601n"
+    className="MuiBox-root css-iganph"
   >
     <div
       aria-label="first page"
