@@ -1,7 +1,7 @@
 import renderer, { act } from 'react-test-renderer';
 import ClientContext from '../contexts/ClientContext';
 import TabelaAdmin from '../screens/TabelaAdmin';
-import mockApiRequest from './mockApiRequest';
+import mockApiRequest from '../util/mockApiRequest';
 
 // Mock do @mui/material
 jest.mock('@mui/material', () => {
