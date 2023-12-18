@@ -1,0 +1,122 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renderiza TablePaginationActions corretamente 1`] = `
+[
+  <style
+    dangerouslySetInnerHTML={
+      {
+        "__html": ".css-ip601n{-webkit-flex-shrink:0;-ms-flex-negative:0;flex-shrink:0;margin-right:24px;}",
+      }
+    }
+    data-emotion="css ip601n"
+  />,
+  <div
+    className="MuiBox-root css-ip601n"
+  >
+    <div
+      aria-label="first page"
+      disabled={false}
+      onClick={[Function]}
+      style={
+        {
+          "color": "#757575",
+          "cursor": "pointer",
+          "margin": "1vh 0.25vw",
+        }
+      }
+    >
+      <style
+        dangerouslySetInnerHTML={
+          {
+            "__html": ".css-i4bv87-MuiSvgIcon-root{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;width:1em;height:1em;display:inline-block;fill:currentColor;-webkit-flex-shrink:0;-ms-flex-negative:0;flex-shrink:0;-webkit-transition:fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;transition:fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;font-size:1.5rem;}",
+          }
+        }
+        data-emotion="css i4bv87-MuiSvgIcon-root"
+      />
+      <svg
+        aria-hidden={true}
+        className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+        data-testid="FirstPageIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M18.41 16.59 13.82 12l4.59-4.59L17 6l-6 6 6 6zM6 6h2v12H6z"
+        />
+      </svg>
+    </div>
+    <div
+      aria-label="previous page"
+      disabled={false}
+      onClick={[Function]}
+      style={
+        {
+          "color": "#757575",
+          "cursor": "pointer",
+          "margin": "1vh 0.25vw",
+        }
+      }
+    >
+      <svg
+        aria-hidden={true}
+        className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+        data-testid="KeyboardArrowLeftIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M15.41 16.59 10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"
+        />
+      </svg>
+    </div>
+    <div
+      aria-label="next page"
+      disabled={false}
+      onClick={[Function]}
+      style={
+        {
+          "color": "#757575",
+          "cursor": "pointer",
+          "margin": "1vh 0.25vw",
+        }
+      }
+    >
+      <svg
+        aria-hidden={true}
+        className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+        data-testid="KeyboardArrowRightIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M8.59 16.59 13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"
+        />
+      </svg>
+    </div>
+    <div
+      aria-label="last page"
+      disabled={false}
+      onClick={[Function]}
+      style={
+        {
+          "color": "#757575",
+          "cursor": "pointer",
+          "margin": "1vh 0.25vw",
+        }
+      }
+    >
+      <svg
+        aria-hidden={true}
+        className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+        data-testid="LastPageIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M5.59 7.41 10.18 12l-4.59 4.59L7 18l6-6-6-6zM16 6h2v12h-2z"
+        />
+      </svg>
+    </div>
+  </div>,
+]
+`;

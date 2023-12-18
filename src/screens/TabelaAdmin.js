@@ -1,7 +1,7 @@
 import { Button, Input, Notification } from '@mantine/core';
 import { showNotification } from '@mantine/notifications';
 import { Delete, Edit } from '@mui/icons-material';
-import { Dialog, DialogActions, DialogContent, DialogTitle, FormControl, Grid, IconButton, InputLabel, MenuItem, Select, Skeleton, TableBody, TableCell, TableContainer, TableFooter, TableHead, TablePagination, TableRow, TextField, Tooltip, tableCellClasses } from '@mui/material';
+import { Dialog, DialogActions, DialogContent, DialogTitle, FormControl, Grid, InputLabel, MenuItem, Select, Skeleton, TableBody, TableCell, TableContainer, TableFooter, TableHead, TablePagination, TableRow, TextField, Tooltip, tableCellClasses } from '@mui/material';
 import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
 import { styled } from '@mui/material/styles';
@@ -12,6 +12,12 @@ import InformationDialog from "../components/InformationDialog";
 import TablePaginationActions from "../components/TablePaginationActionsComponent";
 import styles from './TabelaAdmin.module.css';
 import CloseIcon from '@mui/icons-material/Close';
+
+const styleIconButton = {
+    color: '#757575', 
+    margin: '1vh 0.25vw', 
+    cursor: 'pointer'
+}
 
 const StyledTableCellHead = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -256,7 +262,7 @@ export default function TabelaAdmin() {
         });
     }
 
-    // get recados 
+    // get confirmados 
     const [confirmados, setConfirmados] = React.useState([]);
 
     const getConfirmados = () => {
@@ -429,24 +435,24 @@ export default function TabelaAdmin() {
                 </StyledTableCell>
                 <StyledTableCell align="center">
                     <Tooltip title="Editar">
-                        <IconButton onClick={() => {
+                        <div style={styleIconButton} onClick={() => {
                                 setEdit(true) 
                                 setData({...row})
                                 handleClickOpen()
                             }}
                         >
                             <Edit fontSize="medium" />
-                        </IconButton>
+                        </div>
                     </Tooltip>
                 </StyledTableCell>
                 <StyledTableCell align="center">
                     <Tooltip title="Deletar">
-                        <IconButton onClick={() => {
+                        <div style={styleIconButton} onClick={() => {
                             setData({...row})
                             handleOpenDelete()
                         }}>
                             <Delete fontSize="medium" />
-                        </IconButton>
+                        </div>
                     </Tooltip>
                 </StyledTableCell>
             </StyledTableRow>
@@ -469,24 +475,24 @@ export default function TabelaAdmin() {
                 </StyledTableCell>
                 <StyledTableCell align="center">
                     <Tooltip title="Editar">
-                        <IconButton onClick={() => {
+                        <div style={styleIconButton} onClick={() => {
                                 setEdit(true) 
                                 setData({...row})
                                 handleClickOpen()
                             }}
                         >
                             <Edit fontSize="medium" />
-                        </IconButton>
+                        </div>
                     </Tooltip>
                 </StyledTableCell>
                 <StyledTableCell align="center">
                     <Tooltip title="Deletar">
-                        <IconButton onClick={() => {
+                        <div style={styleIconButton} onClick={() => {
                             setData({...row})
                             handleOpenDelete()
                         }}>
                             <Delete fontSize="medium" />
-                        </IconButton>
+                        </div>
                     </Tooltip>
                 </StyledTableCell>
             </StyledTableRow>
@@ -503,24 +509,24 @@ export default function TabelaAdmin() {
                 <StyledTableCell align="center"> {row.celular} </StyledTableCell>
                 <StyledTableCell align="center">
                     <Tooltip title="Editar">
-                        <IconButton onClick={() => {
+                        <div style={styleIconButton} onClick={() => {
                                 setEdit(true) 
                                 setData({...row})
                                 handleClickOpen()
                             }}
                         >
                             <Edit fontSize="medium" />
-                        </IconButton>
+                        </div>
                     </Tooltip>
                 </StyledTableCell>
                 <StyledTableCell align="center">
                     <Tooltip title="Deletar">
-                        <IconButton onClick={() => {
+                        <div style={styleIconButton} onClick={() => {
                             setData({...row})
                             handleOpenDelete()
                         }}>
                             <Delete fontSize="medium" />
-                        </IconButton>
+                        </div>
                     </Tooltip>
                 </StyledTableCell>
             </StyledTableRow>
@@ -810,6 +816,7 @@ export default function TabelaAdmin() {
                             </Select>
                         </FormControl>
                     </Grid>
+                    
                 </Grid>
 
                 <TableContainer 
@@ -865,7 +872,7 @@ export default function TabelaAdmin() {
         </Grid>
 
         <Dialog
-            open={open}
+            open={open ? open : false}
             onClose={handleClose}
         >
             <DialogTitle>
