@@ -7,38 +7,24 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardHeader from '@mui/material/CardHeader';
 import CardMedia from '@mui/material/CardMedia';
-import Collapse from '@mui/material/Collapse';
-import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
 import { red } from '@mui/material/colors';
-import { styled } from '@mui/material/styles';
 import moment from 'moment';
 import 'moment/locale/pt-br';
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 
-const ExpandMore = styled((props) => {
-  const { expand, ...other } = props;
-  return <IconButton {...other} />;
-})(({ theme, expand }) => ({
-  transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
-  marginLeft: 'auto',
-  transition: theme.transitions.create('transform', {
-    duration: theme.transitions.duration.shortest,
-  }),
-}));
+const styleIconButton = {
+  color: '#757575', 
+  margin: '1vh 0.25vw', 
+  cursor: 'pointer'
+}
 
 const CardReview = forwardRef(({params}, ref) => {
-  const [expanded, setExpanded] = React.useState(false);
-
   const colors = [
     '#30567e', '#922f23', '#dbc78c', 
     '#ce674f', '#f49cb4', '#5d573a'
   ]
-
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
 
   return (
     <Card ref={ref} sx={{ maxWidth: 345, borderRadius: 5 }}>
@@ -70,46 +56,21 @@ const CardReview = forwardRef(({params}, ref) => {
       </CardContent>
       <CardActions disableSpacing>
         <Tooltip title="Favorito dos noivos">
-          <IconButton>
+          <div style={styleIconButton}>
             <FavoriteIcon sx={params.favorito ? { color: red[500] } : {} } />
-          </IconButton>
+          </div>
         </Tooltip>
         <Tooltip title="Comprar presente">
-          <IconButton onClick={() => {params.handleChange()}}>
+          <div style={styleIconButton} onClick={() => {params.handleChange()}}>
             <AttachMoneyIcon />
-          </IconButton>
+          </div>
         </Tooltip>
         <Tooltip title="Copiar link">
-          <IconButton onClick={() => {params.compartilhar()}}>
+          <div style={styleIconButton} onClick={() => {params.compartilhar()}}>
             <ShareIcon />
-          </IconButton>
+          </div>
         </Tooltip>
-        {/* <ExpandMore
-          expand={expanded}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-        >
-          <ExpandMoreIcon />
-        </ExpandMore> */}
       </CardActions>
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-          <Typography paragraph>Method:</Typography>
-          <Typography paragraph>
-            Heat 1/2 cup of the broth in a pot until simmering, add saffron and set
-            aside for 10 minutes.
-          </Typography>
-          <Typography paragraph>
-            Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet over
-            medium-high heat. Add chicken, shrimp and chorizo, and cook, stirring
-            occasionally until lightly browned, 6 to 8 minutes. Transfer shrimp to a
-            large plate and set aside, leaving chicken and chorizo in the pan. Add
-            pimentón, bay leaves, garlic, tomatoes, onion, salt and pepper, and cook,
-            stirring often until thickened and fragrant, about 10 minutes. Add
-            saffron broth and remaining 4 1/2 cups chicken broth; bring to a boil.
-          </Typography>
-        </CardContent>
-      </Collapse>
     </Card>
   );
 })

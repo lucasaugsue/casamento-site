@@ -1,15 +1,6 @@
 import renderer from 'react-test-renderer';
 import CardReview from '../components/CardReview';
 
-// jest.mock('@mui/material/Pagination', () => {
-//     return (props) => (
-//       <div onClick={props.onChange}>
-//         {props.page}
-//         {props.count}
-//       </div>
-//     );
-// });
-
 const item = {
     "mais_informacoes": "https://www.amazon.com.br/dp/B001BSX1EM?ref_=cm_sw_r_apan_dp_20ZZWBH7X76K0ENAKVDQ&language=pt-BR",
     "descricao": "O núcleo de aço de calibre pesado não deforma e aquece uniformemente sem pontos quentes para que seus biscoitos e bolos saiam do forno perfeitamente e uniformemente dourados.\nO interior de cada peça tem camadas antiaderentes interligadas que são projetadas para proporcionar liberação duradoura e de alto desempenho. Libera até 2 vezes melhor do que as assadeiras clássicas Calphalon.",
@@ -21,7 +12,7 @@ const item = {
     "id": "27ab93168ffb6730d4a0e62336d184e9"
 }
 
-/* it('renderiza corretamente', () => {
+it('renderiza corretamente', () => {
     const handleChange = jest.fn();
     const compartilhar = jest.fn();
 
@@ -38,12 +29,4 @@ const item = {
 
     // Verifica se o snapshot corresponde ao esperado
     expect(tree).toMatchSnapshot();
-}); */
-
-it('para passar o teste', () => {
-    const tree = renderer
-    .create(
-      <div>para passar o teste</div>
-    )
-    .toJSON();
 });
