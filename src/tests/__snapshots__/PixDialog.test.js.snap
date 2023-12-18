@@ -1,14 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Renderiza PixDialog corretamente 1`] = `
-<div>
-  <style
-    dangerouslySetInnerHTML={
-      {
-        "__html": "@media print{.css-1h8td7x-MuiDialog-root{position:absolute!important;}}",
-      }
-    }
-    data-emotion="css 1h8td7x-MuiDialog-root"
-  />
-</div>
-`;
+exports[`Renderiza PixDialog corretamente 1`] = `<div />`;
