@@ -88,7 +88,7 @@ exports[`Renderiza SobreOCasal corretamente 1`] = `
         className="timeItem"
       >
         <span>
-          242
+          246
         </span>
         <div>
           Dias
@@ -98,7 +98,7 @@ exports[`Renderiza SobreOCasal corretamente 1`] = `
         className="timeItem"
       >
         <span>
-          12
+          16
         </span>
         <div>
           Horas
@@ -108,7 +108,7 @@ exports[`Renderiza SobreOCasal corretamente 1`] = `
         className="timeItem"
       >
         <span>
-          56
+          12
         </span>
         <div>
           Minutos

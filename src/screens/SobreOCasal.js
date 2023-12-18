@@ -2,17 +2,9 @@ import React from 'react';
 import moment from "moment-timezone";
 import styles from './SobreOCasal.module.css';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import { extractToTime } from '../util/ExtractToTime'
 
 export default function SobreOCasal(){
-
-    const extractToTime = (seconds) => {
-        const days = `${moment("2024-08-17T00:00:00-03:00").diff(moment(), "days")}`
-        const hour = `${(parseInt((seconds / 60) / 60) % 24)}`
-        const min = `0${parseInt((seconds / 60) % 60)}`.slice(-2)
-        const sec = `0${parseInt(seconds % 60)}`.slice(-2)
-
-        return {days, hour, min, sec} 
-    }
 
     const time = extractToTime(
         moment("2024-08-17T00:00:00-03:00")
