@@ -57,6 +57,7 @@ export default function Header({transparent : transparentProps = true}){
                 <div/>
                 <div 
                     className={styles.itemIcon}
+                    data-testid="menu-icon"  
                     onClick={() => setOpen(!open)} 
                 >
                     <Menu className={styles.icon}/>

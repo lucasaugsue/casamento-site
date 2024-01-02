@@ -48,13 +48,5 @@ exports[`Renderiza ConfirmarPresenca corretamente 1`] = `
       </button>
     </div>
   </div>
-  <style
-    dangerouslySetInnerHTML={
-      {
-        "__html": "@media print{.css-1h8td7x-MuiDialog-root{position:absolute!important;}}",
-      }
-    }
-    data-emotion="css 1h8td7x-MuiDialog-root"
-  />
 </section>
 `;

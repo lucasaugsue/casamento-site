@@ -5,14 +5,6 @@ exports[`Renderiza TabelaAdmin corretamente 1`] = `
   className="container"
   id="tabela"
 >
-  <style
-    dangerouslySetInnerHTML={
-      {
-        "__html": ".css-mhc70k-MuiGrid-root{box-sizing:border-box;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-flex-wrap:wrap;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;width:100%;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;margin-top:-16px;width:calc(100% + 16px);margin-left:-16px;}.css-mhc70k-MuiGrid-root>.MuiGrid-item{padding-top:16px;}.css-mhc70k-MuiGrid-root>.MuiGrid-item{padding-left:16px;}",
-      }
-    }
-    data-emotion="css mhc70k-MuiGrid-root"
-  />
   <div
     className="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 css-mhc70k-MuiGrid-root"
     style={
@@ -24,25 +16,9 @@ exports[`Renderiza TabelaAdmin corretamente 1`] = `
     <div
       className="whiteBox"
     >
-      <style
-        dangerouslySetInnerHTML={
-          {
-            "__html": ".css-445cma-MuiGrid-root{box-sizing:border-box;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-flex-wrap:wrap;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;width:100%;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;margin-top:-16px;width:calc(100% + 16px);margin-left:-16px;-webkit-align-content:center;-ms-flex-line-pack:center;align-content:center;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;}.css-445cma-MuiGrid-root>.MuiGrid-item{padding-top:16px;}.css-445cma-MuiGrid-root>.MuiGrid-item{padding-left:16px;}",
-          }
-        }
-        data-emotion="css 445cma-MuiGrid-root"
-      />
       <div
         className="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 containerActions css-445cma-MuiGrid-root"
       >
-        <style
-          dangerouslySetInnerHTML={
-            {
-              "__html": ".css-1fyyp8j-MuiGrid-root{box-sizing:border-box;margin:0;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;-webkit-flex-basis:100%;-ms-flex-preferred-size:100%;flex-basis:100%;-webkit-box-flex:0;-webkit-flex-grow:0;-ms-flex-positive:0;flex-grow:0;max-width:100%;}@media (min-width:600px){.css-1fyyp8j-MuiGrid-root{-webkit-flex-basis:100%;-ms-flex-preferred-size:100%;flex-basis:100%;-webkit-box-flex:0;-webkit-flex-grow:0;-ms-flex-positive:0;flex-grow:0;max-width:100%;}}@media (min-width:900px){.css-1fyyp8j-MuiGrid-root{-webkit-flex-basis:50%;-ms-flex-preferred-size:50%;flex-basis:50%;-webkit-box-flex:0;-webkit-flex-grow:0;-ms-flex-positive:0;flex-grow:0;max-width:50%;}}@media (min-width:1200px){.css-1fyyp8j-MuiGrid-root{-webkit-flex-basis:50%;-ms-flex-preferred-size:50%;flex-basis:50%;-webkit-box-flex:0;-webkit-flex-grow:0;-ms-flex-positive:0;flex-grow:0;max-width:50%;}}@media (min-width:1536px){.css-1fyyp8j-MuiGrid-root{-webkit-flex-basis:50%;-ms-flex-preferred-size:50%;flex-basis:50%;-webkit-box-flex:0;-webkit-flex-grow:0;-ms-flex-positive:0;flex-grow:0;max-width:50%;}}",
-            }
-          }
-          data-emotion="css 1fyyp8j-MuiGrid-root"
-        />
         <div
           className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-1fyyp8j-MuiGrid-root"
         >
@@ -59,14 +35,6 @@ exports[`Renderiza TabelaAdmin corretamente 1`] = `
             />
           </div>
         </div>
-        <style
-          dangerouslySetInnerHTML={
-            {
-              "__html": ".css-iv7vbz-MuiGrid-root{box-sizing:border-box;margin:0;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;-webkit-flex-basis:100%;-ms-flex-preferred-size:100%;flex-basis:100%;-webkit-box-flex:0;-webkit-flex-grow:0;-ms-flex-positive:0;flex-grow:0;max-width:100%;}@media (min-width:600px){.css-iv7vbz-MuiGrid-root{-webkit-flex-basis:100%;-ms-flex-preferred-size:100%;flex-basis:100%;-webkit-box-flex:0;-webkit-flex-grow:0;-ms-flex-positive:0;flex-grow:0;max-width:100%;}}@media (min-width:900px){.css-iv7vbz-MuiGrid-root{-webkit-flex-basis:25%;-ms-flex-preferred-size:25%;flex-basis:25%;-webkit-box-flex:0;-webkit-flex-grow:0;-ms-flex-positive:0;flex-grow:0;max-width:25%;}}@media (min-width:1200px){.css-iv7vbz-MuiGrid-root{-webkit-flex-basis:25%;-ms-flex-preferred-size:25%;flex-basis:25%;-webkit-box-flex:0;-webkit-flex-grow:0;-ms-flex-positive:0;flex-grow:0;max-width:25%;}}@media (min-width:1536px){.css-iv7vbz-MuiGrid-root{-webkit-flex-basis:25%;-ms-flex-preferred-size:25%;flex-basis:25%;-webkit-box-flex:0;-webkit-flex-grow:0;-ms-flex-positive:0;flex-grow:0;max-width:25%;}}",
-            }
-          }
-          data-emotion="css iv7vbz-MuiGrid-root"
-        />
         <div
           className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 css-iv7vbz-MuiGrid-root"
         >
@@ -95,33 +63,9 @@ exports[`Renderiza TabelaAdmin corretamente 1`] = `
         <div
           className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 css-iv7vbz-MuiGrid-root"
         >
-          <style
-            dangerouslySetInnerHTML={
-              {
-                "__html": ".css-q8hpuo-MuiFormControl-root{display:-webkit-inline-box;display:-webkit-inline-flex;display:-ms-inline-flexbox;display:inline-flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;position:relative;min-width:0;padding:0;margin:0;border:0;vertical-align:top;width:100%;}",
-              }
-            }
-            data-emotion="css q8hpuo-MuiFormControl-root"
-          />
           <div
             className="MuiFormControl-root MuiFormControl-fullWidth css-q8hpuo-MuiFormControl-root"
           >
-            <style
-              dangerouslySetInnerHTML={
-                {
-                  "__html": ".css-1x92c1k-MuiInputLabel-root{display:block;transform-origin:top left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:calc(100% - 24px);position:absolute;left:0;top:0;-webkit-transform:translate(14px, 16px) scale(1);-moz-transform:translate(14px, 16px) scale(1);-ms-transform:translate(14px, 16px) scale(1);transform:translate(14px, 16px) scale(1);-webkit-transition:color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,-webkit-transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,max-width 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;transition:color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,max-width 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;z-index:1;pointer-events:none;}",
-                }
-              }
-              data-emotion="css 1x92c1k-MuiInputLabel-root"
-            />
-            <style
-              dangerouslySetInnerHTML={
-                {
-                  "__html": ".css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root{color:rgba(0, 0, 0, 0.6);font-family:"Roboto","Helvetica","Arial",sans-serif;font-weight:400;font-size:1rem;line-height:1.4375em;letter-spacing:0.00938em;padding:0;position:relative;display:block;transform-origin:top left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:calc(100% - 24px);position:absolute;left:0;top:0;-webkit-transform:translate(14px, 16px) scale(1);-moz-transform:translate(14px, 16px) scale(1);-ms-transform:translate(14px, 16px) scale(1);transform:translate(14px, 16px) scale(1);-webkit-transition:color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,-webkit-transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,max-width 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;transition:color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,max-width 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;z-index:1;pointer-events:none;}.css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root.Mui-focused{color:#1976d2;}.css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root.Mui-disabled{color:rgba(0, 0, 0, 0.38);}.css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root.Mui-error{color:#d32f2f;}",
-                }
-              }
-              data-emotion="css 14s5rfu-MuiFormLabel-root-MuiInputLabel-root"
-            />
             <label
               className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root"
               data-shrink={false}
@@ -159,33 +103,9 @@ exports[`Renderiza TabelaAdmin corretamente 1`] = `
           </div>
         </div>
       </div>
-      <style
-        dangerouslySetInnerHTML={
-          {
-            "__html": ".css-rorn0c-MuiTableContainer-root{width:100%;overflow-x:auto;}",
-          }
-        }
-        data-emotion="css rorn0c-MuiTableContainer-root"
-      />
-      <style
-        dangerouslySetInnerHTML={
-          {
-            "__html": ".css-11xur9t-MuiPaper-root-MuiTableContainer-root{background-color:#fff;color:rgba(0, 0, 0, 0.87);-webkit-transition:box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;transition:box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;border-radius:4px;box-shadow:0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);width:100%;overflow-x:auto;}",
-          }
-        }
-        data-emotion="css 11xur9t-MuiPaper-root-MuiTableContainer-root"
-      />
       <div
         className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiTableContainer-root containerTable css-11xur9t-MuiPaper-root-MuiTableContainer-root"
       >
-        <style
-          dangerouslySetInnerHTML={
-            {
-              "__html": ".css-rqglhn-MuiTable-root{display:table;width:100%;border-collapse:collapse;border-spacing:0;}.css-rqglhn-MuiTable-root caption{font-family:"Roboto","Helvetica","Arial",sans-serif;font-weight:400;font-size:0.875rem;line-height:1.43;letter-spacing:0.01071em;padding:16px;color:rgba(0, 0, 0, 0.6);text-align:left;caption-side:bottom;}",
-            }
-          }
-          data-emotion="css rqglhn-MuiTable-root"
-        />
         <table
           aria-label="custom pagination table"
           className="MuiTable-root css-rqglhn-MuiTable-root"
@@ -196,46 +116,14 @@ exports[`Renderiza TabelaAdmin corretamente 1`] = `
             }
           }
         >
-          <style
-            dangerouslySetInnerHTML={
-              {
-                "__html": ".css-15wwp11-MuiTableHead-root{display:table-header-group;}",
-              }
-            }
-            data-emotion="css 15wwp11-MuiTableHead-root"
-          />
           <thead
             className="MuiTableHead-root css-15wwp11-MuiTableHead-root"
             role={null}
           >
-            <style
-              dangerouslySetInnerHTML={
-                {
-                  "__html": ".css-1q1u3t4-MuiTableRow-root{color:inherit;display:table-row;vertical-align:middle;outline:0;}.css-1q1u3t4-MuiTableRow-root.MuiTableRow-hover:hover{background-color:rgba(0, 0, 0, 0.04);}.css-1q1u3t4-MuiTableRow-root.Mui-selected{background-color:rgba(25, 118, 210, 0.08);}.css-1q1u3t4-MuiTableRow-root.Mui-selected:hover{background-color:rgba(25, 118, 210, 0.12);}",
-                }
-              }
-              data-emotion="css 1q1u3t4-MuiTableRow-root"
-            />
             <tr
               className="MuiTableRow-root MuiTableRow-head css-1q1u3t4-MuiTableRow-root"
               role={null}
             >
-              <style
-                dangerouslySetInnerHTML={
-                  {
-                    "__html": ".css-6n39sz.MuiTableCell-head{background-color:#a9a39e;color:#fff;}.css-6n39sz.MuiTableCell-body{font-size:14px;}",
-                  }
-                }
-                data-emotion="css 6n39sz"
-              />
-              <style
-                dangerouslySetInnerHTML={
-                  {
-                    "__html": ".css-t23sw4-MuiTableCell-root{font-family:"Roboto","Helvetica","Arial",sans-serif;font-weight:500;font-size:0.875rem;line-height:1.5rem;letter-spacing:0.01071em;display:table-cell;vertical-align:inherit;border-bottom:1px solid rgba(224, 224, 224, 1);text-align:center;padding:16px;color:rgba(0, 0, 0, 0.87);}.css-t23sw4-MuiTableCell-root.MuiTableCell-head{background-color:#a9a39e;color:#fff;}.css-t23sw4-MuiTableCell-root.MuiTableCell-body{font-size:14px;}",
-                  }
-                }
-                data-emotion="css t23sw4-MuiTableCell-root"
-              />
               <th
                 aria-sort={null}
                 className="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeMedium css-t23sw4-MuiTableCell-root"
@@ -310,54 +198,14 @@ exports[`Renderiza TabelaAdmin corretamente 1`] = `
               </th>
             </tr>
           </thead>
-          <style
-            dangerouslySetInnerHTML={
-              {
-                "__html": ".css-apqrd9-MuiTableBody-root{display:table-row-group;}",
-              }
-            }
-            data-emotion="css apqrd9-MuiTableBody-root"
-          />
           <tbody
             className="MuiTableBody-root css-apqrd9-MuiTableBody-root"
             role={null}
           >
-            <style
-              dangerouslySetInnerHTML={
-                {
-                  "__html": ".css-1ldq7o8:nth-of-type(odd){background-color:rgba(0, 0, 0, 0.04);}.css-1ldq7o8:last-child td,.css-1ldq7o8:last-child th{border:0;}.css-1ldq7o8:last-child td,.css-1ldq7o8:last-child th{border:0px solid;}",
-                }
-              }
-              data-emotion="css 1ldq7o8"
-            />
-            <style
-              dangerouslySetInnerHTML={
-                {
-                  "__html": ".css-1ffuvkz-MuiTableRow-root{color:inherit;display:table-row;vertical-align:middle;outline:0;}.css-1ffuvkz-MuiTableRow-root.MuiTableRow-hover:hover{background-color:rgba(0, 0, 0, 0.04);}.css-1ffuvkz-MuiTableRow-root.Mui-selected{background-color:rgba(25, 118, 210, 0.08);}.css-1ffuvkz-MuiTableRow-root.Mui-selected:hover{background-color:rgba(25, 118, 210, 0.12);}.css-1ffuvkz-MuiTableRow-root:nth-of-type(odd){background-color:rgba(0, 0, 0, 0.04);}.css-1ffuvkz-MuiTableRow-root:last-child td,.css-1ffuvkz-MuiTableRow-root:last-child th{border:0;}.css-1ffuvkz-MuiTableRow-root:last-child td,.css-1ffuvkz-MuiTableRow-root:last-child th{border:0px solid;}",
-                }
-              }
-              data-emotion="css 1ffuvkz-MuiTableRow-root"
-            />
             <tr
               className="MuiTableRow-root css-1ffuvkz-MuiTableRow-root"
               role={null}
             >
-              <style
-                dangerouslySetInnerHTML={
-                  {
-                    "__html": ".css-13ausoj.MuiTableCell-head{background-color:#000;color:#fff;}.css-13ausoj.MuiTableCell-body{font-size:14px;}",
-                  }
-                }
-                data-emotion="css 13ausoj"
-              />
-              <style
-                dangerouslySetInnerHTML={
-                  {
-                    "__html": ".css-1dydcym-MuiTableCell-root{font-family:"Roboto","Helvetica","Arial",sans-serif;font-weight:400;font-size:0.875rem;line-height:1.43;letter-spacing:0.01071em;display:table-cell;vertical-align:inherit;border-bottom:1px solid rgba(224, 224, 224, 1);text-align:center;padding:16px;color:rgba(0, 0, 0, 0.87);}.css-1dydcym-MuiTableCell-root.MuiTableCell-head{background-color:#000;color:#fff;}.css-1dydcym-MuiTableCell-root.MuiTableCell-body{font-size:14px;}",
-                  }
-                }
-                data-emotion="css 1dydcym-MuiTableCell-root"
-              />
               <td
                 aria-sort={null}
                 className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-1dydcym-MuiTableCell-root"
@@ -433,14 +281,6 @@ exports[`Renderiza TabelaAdmin corretamente 1`] = `
                     }
                   }
                 >
-                  <style
-                    dangerouslySetInnerHTML={
-                      {
-                        "__html": ".css-i4bv87-MuiSvgIcon-root{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;width:1em;height:1em;display:inline-block;fill:currentColor;-webkit-flex-shrink:0;-ms-flex-negative:0;flex-shrink:0;-webkit-transition:fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;transition:fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;font-size:1.5rem;}",
-                      }
-                    }
-                    data-emotion="css i4bv87-MuiSvgIcon-root"
-                  />
                   <svg
                     aria-hidden={true}
                     className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
@@ -623,14 +463,6 @@ exports[`Renderiza TabelaAdmin corretamente 1`] = `
               </td>
             </tr>
           </tbody>
-          <style
-            dangerouslySetInnerHTML={
-              {
-                "__html": ".css-9cgc89-MuiTableFooter-root{display:table-footer-group;}",
-              }
-            }
-            data-emotion="css 9cgc89-MuiTableFooter-root"
-          />
           <tfoot
             className="MuiTableFooter-root css-9cgc89-MuiTableFooter-root"
             role={null}

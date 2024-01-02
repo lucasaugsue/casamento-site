@@ -1,26 +1,22 @@
+import { render } from '@testing-library/react';
 import renderer, { act } from 'react-test-renderer';
 import ClientContext from '../contexts/ClientContext';
 import EscreverRecado from '../screens/EscreverRecado';
 
-const mockApiRequest = jest.fn((config) => {
-	// Simule o comportamento da API
-	return Promise.resolve({
-        "item": {
-            "collection": "recados",
-            "key": "c0a394d2f8be89ec46507751a65a2cce",
-            "props": {
-                "recado": "lorem ipslum texto hehe",
-                "updated": "2023-12-17T00:06:11.783Z",
-                "created": "2023-12-17T00:06:11.783Z",
-                "nome": "lucas augsue",
-                "email": "lucasaugsue7@gmail.com",
-                "id": "c0a394d2f8be89ec46507751a65a2cce"
-            }
+const mockApiRequest = jest.fn(() =>
+    Promise.resolve({
+        item: {
+            id: 3,
+            nome: 'lucas augsue',
+            email: 'lucasaugsue7@gmail.com',
+            recado: 'lorem ipslum texto hehe',
+            created: '2024-01-02T18:50:52.642Z',
+            updated: '2024-01-02T18:50:52.642Z',
         },
-        "message": "Criado com sucesso!"
-    });
-});
-  
+        message: 'Criado com sucesso!',
+    })
+);
+
 test('Renderiza EscreverRecado corretamente', async () => {
 	let tree;
   
@@ -38,3 +34,4 @@ test('Renderiza EscreverRecado corretamente', async () => {
   
 	expect(tree.toJSON()).toMatchSnapshot();
 });
+

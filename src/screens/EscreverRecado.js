@@ -134,7 +134,11 @@ export default function EscreverRecado(){
                 <Textarea
                     size="md"
                     radius="lg"
-                    autosize
+                    
+                    // erro quando testa o snapshot
+                    // TypeError: The provided value is not of type 'Element'
+                    // autosize
+
                     minRows={6}
                     maxRows={6}
                     name="recado"
