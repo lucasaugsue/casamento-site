@@ -1,6 +1,7 @@
 module.exports = {
+  // testEnvironment: "jsdom",
+  
   moduleNameMapper: {
-    testEnvironment: "jsdom",
     
     '@mui/styles': 'identity-obj-proxy',
 
