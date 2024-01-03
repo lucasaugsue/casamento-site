@@ -11,9 +11,13 @@ jest.mock("../util/ExtractToTime", () => ({
 	})),
 }));
 
-test('Renderiza SobreOCasal corretamente', async () => {
-    const tree = renderer
-      .create(<SobreOCasal/>)
-      .toJSON();
-    expect(tree).toMatchSnapshot();
-});
+describe('<SobreOCasal/>', () => {
+	describe('Renderização', () => {
+		test('deve renderizar SobreOCasal corretamente', async () => {
+			const tree = renderer
+			.create(<SobreOCasal/>)
+			.toJSON();
+			expect(tree).toMatchSnapshot();
+		});
+	});
+})

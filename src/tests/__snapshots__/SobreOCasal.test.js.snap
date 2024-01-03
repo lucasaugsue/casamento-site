@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Renderiza SobreOCasal corretamente 1`] = `
+exports[`<SobreOCasal/> Renderização deve renderizar SobreOCasal corretamente 1`] = `
 <section
   className="container"
   id="vamos-casar"

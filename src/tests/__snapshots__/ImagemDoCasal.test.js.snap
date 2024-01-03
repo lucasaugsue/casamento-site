@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Renderiza ImagemDoCasal corretamente 1`] = `
+exports[`<ImagemDoCasal/> Renderização deve renderizar ImagemDoCasal corretamente 1`] = `
 <section
   className="container"
   id="inicio"

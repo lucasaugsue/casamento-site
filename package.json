@@ -4,7 +4,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "snap": "jest -u && jest --verbose"
+    "test": "jest -u --verbose"
   },
   "engines": {
     "node": ">=18.17.0"
