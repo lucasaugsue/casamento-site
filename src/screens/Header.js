@@ -16,6 +16,18 @@ export default function Header({transparent : transparentProps = true}){
         {id: 5, title: "Lista de presentes", section: "#presentes"},
         // {id: 6, title: "Localização", section: "#local"},
     ]
+    
+    const changeOpen = () => setOpen(!open)
+
+    const functionLetra = () => {
+        setOpen(false)
+        window.location.href=`/`
+    }
+
+    const functionSection = (i) => {
+        setOpen(false)
+        window.location.href=`/${i.section}`
+    }
 
     React.useEffect(() => {
         setTransparent(scrollPosition <= 100)
@@ -44,21 +56,20 @@ export default function Header({transparent : transparentProps = true}){
                 <div className={styles.itemLogo}>
                     {"L&V".split("")
                     .map((letra, index) => <div 
+                        data-open={open}
                         className={styles.logo}
                         key={`${letra};;${index}`}
-                        onClick={() => {
-                            setOpen(false)
-                            window.location.href=`/`
-                        }} 
+                        onClick={() => functionLetra()} 
                     >
                         {letra}
                     </div>)}
                 </div>
                 <div/>
                 <div 
-                    className={styles.itemIcon}
+                    data-open={open}
                     data-testid="menu-icon"  
-                    onClick={() => setOpen(!open)} 
+                    className={styles.itemIcon}
+                    onClick={() => changeOpen()} 
                 >
                     <Menu className={styles.icon}/>
                 </div>
@@ -77,11 +88,9 @@ export default function Header({transparent : transparentProps = true}){
                     {listItens.map((i, index) => 
                     <ListItemButton 
                         sx={{ pl: 3 }}
+                        data-open={open}
                         key={`${i.id};;${index}`}
-                        onClick={() => {
-                            setOpen(false)
-                            window.location.href=`/${i.section}`
-                        }}
+                        onClick={() => functionSection(i)}
                     >
                         <ListItemText primary={i.title} />
                     </ListItemButton>)}

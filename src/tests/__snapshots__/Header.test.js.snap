@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Renderiza Header corretamente 1`] = `
+exports[`<Header/> Renderização deve renderizar Header corretamente 1`] = `
 <div>
   <div
     className="basicHeader"
@@ -13,18 +13,21 @@ exports[`Renderiza Header corretamente 1`] = `
       >
         <div
           className="logo"
+          data-open={false}
           onClick={[Function]}
         >
           L
         </div>
         <div
           className="logo"
+          data-open={false}
           onClick={[Function]}
         >
           &
         </div>
         <div
           className="logo"
+          data-open={false}
           onClick={[Function]}
         >
           V
@@ -33,6 +36,7 @@ exports[`Renderiza Header corretamente 1`] = `
       <div />
       <div
         className="itemIcon"
+        data-open={false}
         data-testid="menu-icon"
         onClick={[Function]}
       >
