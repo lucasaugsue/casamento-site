@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Renderiza ConfirmarPresenca corretamente 1`] = `
+exports[`<ConfirmarPresenca/> Renderização deve renderizar ConfirmarPresenca corretamente 1`] = `
 <section
   className="container"
   id="confirmar-presenca"
@@ -28,6 +28,7 @@ exports[`Renderiza ConfirmarPresenca corretamente 1`] = `
       <button
         className="mantine-UnstyledButton-root mantine-Button-root button mantine-14dldul"
         data-button={true}
+        data-testid="button-mantine"
         onClick={[Function]}
         type="button"
       >

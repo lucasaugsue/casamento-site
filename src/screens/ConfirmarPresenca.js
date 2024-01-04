@@ -38,7 +38,7 @@ export default function ConfirmarPresenca(){
         setData({nome: "", idade: "", celular: ""})
     };
 
-    const createLista = () => {
+    const confirmar = () => {
         try{
             setError({
                 nome: false, idade: false,
@@ -96,6 +96,7 @@ export default function ConfirmarPresenca(){
                 <Button 
                     radius="lg"
                     variant="gradient"
+                    data-testid="button-mantine"  
                     className={styles.button}
                     onClick={() => handleClickOpen()}
                     gradient={{ from: '#f16352', to: '#ec8c69', deg: 35 }}
@@ -107,6 +108,8 @@ export default function ConfirmarPresenca(){
 
         <Dialog
             open={open}
+            data-open={open}
+            data-testid="dialog-mui"  
             maxWidth="lg"
             onClose={() => handleClose()}
             TransitionComponent={Transition}
@@ -188,10 +191,11 @@ export default function ConfirmarPresenca(){
                     <Grid item md={8} xs={12}></Grid>
                     <Grid item md={2} xs={12}>
                         <Button
-                            style={{width: "100%"}}
                             color="red" 
                             variant="outline"
                             onClick={handleClose}
+                            style={{width: "100%"}}
+                            data-testid="cancel-button"  
                         > cancelar </Button>
                     </Grid>
                     <Grid item md={2} xs={12}>
@@ -200,7 +204,7 @@ export default function ConfirmarPresenca(){
                             radius="sm"
                             variant="gradient"
                             loading={loading}
-                            onClick={createLista}
+                            onClick={confirmar}
                             gradient={{ from: '#f16352', to: '#ec8c69', deg: 35 }}
                         > finalizar </Button>
                     </Grid>
