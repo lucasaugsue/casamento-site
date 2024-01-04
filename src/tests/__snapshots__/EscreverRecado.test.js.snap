@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Renderiza EscreverRecado corretamente 1`] = `
+exports[`<EscreverRecado/> Renderização deve renderizar EscreverRecado corretamente 1`] = `
 <section
   className="container"
   id="recado"

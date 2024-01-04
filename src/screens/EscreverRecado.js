@@ -137,7 +137,7 @@ export default function EscreverRecado(){
                     
                     // erro quando testa o snapshot
                     // TypeError: The provided value is not of type 'Element'
-                    // autosize
+                    // props --> autosize
 
                     minRows={6}
                     maxRows={6}

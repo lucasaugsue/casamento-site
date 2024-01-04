@@ -68,6 +68,7 @@ const ListaDePresentes = forwardRef((props, ref) => {
                             ([...presentes])
                             .slice((page - 1) * presentPerPage, page * presentPerPage)
                             .map((item, index) => <div
+                                data-testid="item-presente"  
                                 key={`${index};;${item.id}`} 
                                 className={styles.itemPresente}
                             >

@@ -1,6 +1,12 @@
+import '@testing-library/jest-dom';
 import renderer, { act } from 'react-test-renderer';
 import ClientContext from '../contexts/ClientContext';
 import Footer from '../screens/Footer';
+import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+
+/**
+ * @jest-environment jsdom
+ */
 
 const mockApiRequest = jest.fn((config) => {
 	//Simule o comportamento da API
@@ -38,20 +44,44 @@ const mockApiRequest = jest.fn((config) => {
     ]);
 });
 
-test('Renderiza Footer corretamente', async () => {
-	let tree;
-  
-	await act(async () => {
-		const clientContext = {
-			apiRequest: mockApiRequest, //Substitua pelo mock da função apiRequest
-		};
+describe('<Footer/>', () => {
+    describe('Renderização', () => {
+        test('deve renderizar Footer corretamente', async () => {
+            let tree;
+        
+            await act(async () => {
+                const clientContext = { apiRequest: mockApiRequest };
 
-		tree = renderer.create(
-			<ClientContext.Provider value={clientContext}>
-				<Footer />
-			</ClientContext.Provider>
-		);
-	});
-  
-	expect(tree.toJSON()).toMatchSnapshot();
+                tree = renderer.create(
+                    <ClientContext.Provider value={clientContext}>
+                        <Footer />
+                    </ClientContext.Provider>
+                );
+            });
+        
+            expect(tree.toJSON()).toMatchSnapshot();
+        });
+    });
+
+    describe('Interações', () => {
+        const clientContext = { apiRequest: mockApiRequest };
+
+        beforeEach(async () => {
+            await act(async () => {
+                render(<ClientContext.Provider value={clientContext}>
+                    <Footer />
+                </ClientContext.Provider>);
+            });
+        });
+
+        it('deve testar o retorno de getPresentes', async () => {
+            await waitFor(() => {
+                expect(mockApiRequest).toHaveBeenCalledWith("GET", "/presentes/list");
+            });
+    
+            await waitFor(() => {
+                expect(screen.getAllByTestId('item-presente')).toHaveLength(3); 
+            });
+        });
+    });
 });

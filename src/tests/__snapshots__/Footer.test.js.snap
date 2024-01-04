@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Renderiza Footer corretamente 1`] = `
+exports[`<Footer/> Renderização deve renderizar Footer corretamente 1`] = `
 <div>
   <div
     className="redesSociaisContainer"
@@ -107,18 +107,21 @@ exports[`Renderiza Footer corretamente 1`] = `
       </div>
       <div
         className="textLink"
+        data-testid="item-presente"
         onClick={[Function]}
       >
         Calphalon Conjunto de assadeir...
       </div>
       <div
         className="textLink"
+        data-testid="item-presente"
         onClick={[Function]}
       >
         Fritadeira Elétrica sem óleo/A...
       </div>
       <div
         className="textLink"
+        data-testid="item-presente"
         onClick={[Function]}
       >
         Kit Philco PKT75 com Liquidifi...

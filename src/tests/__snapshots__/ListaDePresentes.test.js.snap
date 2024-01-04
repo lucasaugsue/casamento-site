@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Renderiza ListaDePresentes corretamente 1`] = `
+exports[`<ListaDePresentes/> Renderização deve renderizar ListaDePresentes corretamente 1`] = `
 <section
   className="container"
   id="presentes"
@@ -68,6 +68,7 @@ exports[`Renderiza ListaDePresentes corretamente 1`] = `
       >
         <div
           className="itemPresente"
+          data-testid="item-presente"
         >
           <div
             className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-1lq2m3b-MuiPaper-root-MuiCard-root"
@@ -217,6 +218,7 @@ exports[`Renderiza ListaDePresentes corretamente 1`] = `
         </div>
         <div
           className="itemPresente"
+          data-testid="item-presente"
         >
           <div
             className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-1lq2m3b-MuiPaper-root-MuiCard-root"
@@ -366,6 +368,7 @@ exports[`Renderiza ListaDePresentes corretamente 1`] = `
         </div>
         <div
           className="itemPresente"
+          data-testid="item-presente"
         >
           <div
             className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-1lq2m3b-MuiPaper-root-MuiCard-root"
@@ -523,6 +526,10 @@ exports[`Renderiza ListaDePresentes corretamente 1`] = `
         >
           1
           1
+          <button
+            data-testid="pagination-button"
+            onClick={[Function]}
+          />
         </div>
         <div />
       </div>
