@@ -13,8 +13,10 @@ export default function PixDialog({open, handleClose}){
 
     return <div>
         <Dialog
-            open={open ? open : false}
             maxWidth="lg"
+            data-testid="pix-dialog"
+            open={open ? open : false}
+            data-open={open ? open : false}
             onClose={() => handleClose()}
             TransitionComponent={Transition}
         >
@@ -29,14 +31,20 @@ export default function PixDialog({open, handleClose}){
                 <Grid item xs={12} md={12}>
                     <div className={styles.containerClose}>
                         <div/>
-                        <CancelIcon 
+                        <CancelIcon
                             fontSize="medium"
-                            onClick={handleClose}
+                            data-testid="cancel-icon"  
+                            onClick={() => handleClose()}
                         /> 
                     </div>
                 </Grid>
                 <Grid item xs={12} md={12}>
-                    <div className={styles.pague}>Pague com</div>
+                    <div 
+                        data-testid="pague-text"  
+                        className={styles.pague}
+                    >
+                        Pague com
+                    </div>
                 </Grid>
                 <Grid item xs={12} md={12}>
                     <Grid 

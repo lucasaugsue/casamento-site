@@ -1,13 +1,14 @@
 import '@testing-library/jest-dom';
+import Header from '../screens/Header';
 import renderer from 'react-test-renderer';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
-import Header from '../screens/Header';
 
 /**
  * @jest-environment jsdom
  */
 
 describe('<Header/>', () => {
+
 	describe('Renderização', () => {
 		test('deve renderizar Header corretamente', async () => {
 			const tree = renderer.create(<Header />).toJSON();
@@ -52,4 +53,5 @@ describe('<Header/>', () => {
 			});
 		});
 	});
+	
 });

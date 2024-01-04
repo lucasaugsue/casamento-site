@@ -1,3 +1,125 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Renderiza PixDialog corretamente 1`] = `<div />`;
+exports[`<PixDialog/> Renderização deve renderizar PixDialog corretamente 1`] = `
+<div>
+  <div>
+    <div
+      data-open={true}
+      data-testid="pix-dialog"
+      onClose={[Function]}
+    >
+      <div
+        style={
+          {
+            "maxWidth": "lg",
+          }
+        }
+      >
+        <div
+          className="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1 dialogContent css-11sjb32-MuiGrid-root"
+          style={
+            {
+              "visibility": "hidden",
+            }
+          }
+        >
+          <div
+            className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 css-1idn90j-MuiGrid-root"
+          >
+            <div
+              className="containerClose"
+            >
+              <div />
+              <svg
+                aria-hidden={true}
+                className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                data-testid="cancel-icon"
+                focusable="false"
+                onClick={[Function]}
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"
+                />
+              </svg>
+            </div>
+          </div>
+          <div
+            className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 css-1idn90j-MuiGrid-root"
+          >
+            <div
+              className="pague"
+              data-testid="pague-text"
+            >
+              Pague com
+            </div>
+          </div>
+          <div
+            className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 css-1idn90j-MuiGrid-root"
+          >
+            <div
+              className="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1 css-xlwgw4-MuiGrid-root"
+            >
+              <svg
+                aria-hidden={true}
+                className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                data-testid="PixIcon"
+                focusable="false"
+                style={
+                  {
+                    "fontSize": "10vh",
+                  }
+                }
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="m15.45 16.52-3.01-3.01c-.11-.11-.24-.13-.31-.13s-.2.02-.31.13L8.8 16.53c-.34.34-.87.89-2.64.89l3.71 3.7c1.17 1.17 3.07 1.17 4.24 0l3.72-3.71c-.91 0-1.67-.18-2.38-.89zM8.8 7.47l3.02 3.02c.08.08.2.13.31.13s.23-.05.31-.13l2.99-2.99c.71-.74 1.52-.91 2.43-.91l-3.72-3.71c-1.17-1.17-3.07-1.17-4.24 0l-3.71 3.7c1.76 0 2.3.58 2.61.89z"
+                />
+                <path
+                  d="m21.11 9.85-2.25-2.26H17.6c-.54 0-1.08.22-1.45.61l-3 3c-.28.28-.65.42-1.02.42-.36 0-.74-.15-1.02-.42L8.09 8.17c-.38-.38-.9-.6-1.45-.6H5.17l-2.29 2.3c-1.17 1.17-1.17 3.07 0 4.24l2.29 2.3h1.48c.54 0 1.06-.22 1.45-.6l3.02-3.02c.28-.28.65-.42 1.02-.42s.74.14 1.02.42l3.01 3.01c.38.38.9.6 1.45.6h1.26l2.25-2.26c1.17-1.18 1.17-3.1-.02-4.29z"
+                />
+              </svg>
+              <p
+                className="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
+                style={
+                  {
+                    "fontSize": "9vh",
+                    "fontWeight": "600",
+                    "margin": "0 0 0 1vw",
+                  }
+                }
+              >
+                 Pix 
+              </p>
+            </div>
+          </div>
+          <div
+            className="pixImage"
+            loading="lazy"
+          />
+          <div
+            className="sePreferir"
+          >
+            Se preferir
+          </div>
+          <div
+            className="nossaChave"
+          >
+            Nossa chave
+          </div>
+          <div
+            className="chavePix"
+          >
+            079.861.121.90
+          </div>
+          <div
+            className="nome"
+          >
+            No nome de Lucas Augsuê
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

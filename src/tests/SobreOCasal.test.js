@@ -12,6 +12,7 @@ jest.mock("../util/ExtractToTime", () => ({
 }));
 
 describe('<SobreOCasal/>', () => {
+
 	describe('Renderização', () => {
 		test('deve renderizar SobreOCasal corretamente', async () => {
 			const tree = renderer
@@ -20,4 +21,5 @@ describe('<SobreOCasal/>', () => {
 			expect(tree).toMatchSnapshot();
 		});
 	});
+	
 })
