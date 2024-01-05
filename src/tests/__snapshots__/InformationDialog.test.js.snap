@@ -1,3 +1,130 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Renderiza InformationDialog corretamente 1`] = `<div />`;
+exports[`<InformationDialog/> Renderização deve renderizar InformationDialog corretamente 1`] = `
+<div>
+  <div>
+    <div
+      data-open={true}
+      data-testid="dialog-mui"
+      onClose={[Function]}
+      style={
+        {
+          "maxWidth": "lg",
+        }
+      }
+    >
+      <div>
+        <h2
+          className="MuiTypography-root MuiTypography-h6 MuiDialogTitle-root css-bdhsul-MuiTypography-root-MuiDialogTitle-root"
+        >
+          <div
+            className="containerTitle"
+          >
+            <div
+              className="dialogTitle"
+            >
+               
+              algum title
+               
+            </div>
+            <svg
+              aria-hidden={true}
+              className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+              data-testid="CloseIcon"
+              focusable="false"
+              onClick={[Function]}
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+              />
+            </svg>
+          </div>
+        </h2>
+        <div
+          className="MuiDialogContent-root dialogContent css-ypiqx9-MuiDialogContent-root"
+        >
+          algum texto
+        </div>
+        <div
+          className="MuiDialogActions-root MuiDialogActions-spacing css-knqc4i-MuiDialogActions-root"
+        >
+          <div
+            className="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1 gridContainer css-a5rdam-MuiGrid-root"
+          >
+            <div
+              className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 css-1lj5egr-MuiGrid-root"
+            />
+            <div
+              className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 css-1lj5egr-MuiGrid-root"
+            >
+              <button
+                className="mantine-UnstyledButton-root mantine-Button-root mantine-1y8bl28"
+                data-button={true}
+                onClick={[Function]}
+                type="button"
+              >
+                <div
+                  className="mantine-3xbgk5 mantine-Button-inner"
+                >
+                  <span
+                    className="mantine-qo1k2 mantine-Button-label"
+                    style={
+                      {
+                        "textTransform": undefined,
+                      }
+                    }
+                  >
+                     
+                    <div
+                      className="textButton"
+                    >
+                       
+                      cancelar
+                       
+                    </div>
+                     
+                  </span>
+                </div>
+              </button>
+            </div>
+            <div
+              className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 css-1lj5egr-MuiGrid-root"
+            >
+              <button
+                className="mantine-UnstyledButton-root mantine-Button-root mantine-1dp1ht"
+                data-button={true}
+                onClick={[Function]}
+                type="button"
+              >
+                <div
+                  className="mantine-3xbgk5 mantine-Button-inner"
+                >
+                  <span
+                    className="mantine-qo1k2 mantine-Button-label"
+                    style={
+                      {
+                        "textTransform": undefined,
+                      }
+                    }
+                  >
+                     
+                    <div
+                      className="textButton"
+                    >
+                       
+                      confirmar
+                       
+                    </div>
+                     
+                  </span>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Renderiza TablePaginationActions corretamente 1`] = `
+exports[`<TablePaginationActions/> Renderização deve renderizar TablePaginationActions corretamente 1`] = `
 <div
   className="MuiBox-root css-iganph"
 >

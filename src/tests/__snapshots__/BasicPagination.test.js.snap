@@ -1,7 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Renderiza BasicPagination corretamente 1`] = `
+exports[`<BasicPagination/> Renderização deve renderizar BasicPagination corretamente 1`] = `
 <div
+  data-testid="pagination-text"
   onClick={[MockFunction]}
 >
   1

@@ -44,7 +44,7 @@ describe('<PixDialog/>', () => {
         });
     });
 
-    describe('Interações do Usuário', () => {
+    describe('Interações', () => {
         it('deve iniciar com o dialog aberto', async () => {
             const handleClose = jest.fn();
 

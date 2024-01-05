@@ -8,6 +8,7 @@ const BasicPagination = forwardRef(({ page, count, handleChange }, ref) => (
         count={count || 10}
         onChange={handleChange}
         ref={ref}
+        data-testid="pagination-text"
     />
 ));
 

@@ -24,6 +24,8 @@ export default function InformationDialog({
     return <div>
         <Dialog
             open={open}
+            data-open={open}
+            data-testid="dialog-mui" 
             maxWidth="lg"
             onClose={handleClose}
             TransitionComponent={Transition}
