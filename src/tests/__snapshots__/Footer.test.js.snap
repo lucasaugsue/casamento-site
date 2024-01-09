@@ -119,13 +119,6 @@ exports[`<Footer/> Renderização deve renderizar Footer corretamente 1`] = `
       >
         Fritadeira Elétrica sem óleo/A...
       </div>
-      <div
-        className="textLink"
-        data-testid="item-presente"
-        onClick={[Function]}
-      >
-        Kit Philco PKT75 com Liquidifi...
-      </div>
     </div>
     <div
       className="gridInformacoes"

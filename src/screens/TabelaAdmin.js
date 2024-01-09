@@ -406,6 +406,7 @@ export default function TabelaAdmin() {
         const bodyPresentes = () =>  ( 
             <StyledTableRow
                 key={row.id}
+                data-testid="item-presente"  
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
                 <StyledTableCell align="center"> {row.id} </StyledTableCell>
@@ -461,6 +462,7 @@ export default function TabelaAdmin() {
         const bodyRecados = () => (
             <StyledTableRow
                 key={row.id}
+                data-testid="item-recado"  
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
                 <StyledTableCell align="center"> {row.id} </StyledTableCell>
@@ -501,6 +503,7 @@ export default function TabelaAdmin() {
         const bodyConfirmados = () => (
             <StyledTableRow
                 key={row.id}
+                data-testid="item-confirmado"  
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
                 <StyledTableCell align="center"> {row.id} </StyledTableCell>
@@ -778,6 +781,7 @@ export default function TabelaAdmin() {
                             fullWidth
                             radius="sm"
                             variant="gradient"
+                            data-testid="button-cadastro"  
                             gradient={{ from: '#f16352', to: '#ec8c69', deg: 35 }}
                             className={styles.buttontr}
                             onClick={() => {
@@ -790,13 +794,15 @@ export default function TabelaAdmin() {
                     
                     <Grid item md={3} xs={12}>
                         <FormControl
-                            fullWidth
                             variant="outlined"
+                            style={{width: '100%'}}
                         >
                             <InputLabel>A tabela que deseja ver</InputLabel>
                             <Select
-                                fullWidth
                                 value={selectTable}
+                                style={{width: '100%'}}
+                                data-select={selectTable}
+                                data-testid="select-table"
                                 label="A tabela que deseja ver"
                                 onChange={(e) => {
                                     setText("")
@@ -804,13 +810,14 @@ export default function TabelaAdmin() {
                                 }}
                             >
                                 {[
-                                    {id: 1, nome: "Presentes"},
-                                    {id: 2, nome: "Recados"},
-                                    {id: 3, nome: "Lista de presença"}
+                                    {id: 1, nome: "Presentes", testid: "presentes"},
+                                    {id: 2, nome: "Recados", testid: "recados"},
+                                    {id: 3, nome: "Lista de presença", testid: "presenca"}
                                 ].map((item, index) => 
                                     <MenuItem 
-                                        key={`${item.id};;${index}`}
                                         value={item.nome}
+                                        key={`${item.id};;${index}`}
+                                        data-testid={`option-${item.testid}`}
                                     > {item.nome} </MenuItem> 
                                 )}
                             </Select>
@@ -872,6 +879,8 @@ export default function TabelaAdmin() {
         </Grid>
 
         <Dialog
+            data-open={open}
+            data-testid="dialog-mui" 
             open={open ? open : false}
             onClose={handleClose}
         >
@@ -907,6 +916,7 @@ export default function TabelaAdmin() {
                             variant="gradient"
                             style={{width: "100%"}}
                             loading={loadingButton}
+                            data-testid="button-actions"  
                             onClick={() => handleFunction()}
                             gradient={{ from: '#f16352', to: '#ec8c69', deg: 35 }}
                         >

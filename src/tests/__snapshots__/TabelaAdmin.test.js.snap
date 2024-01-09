@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Renderiza TabelaAdmin corretamente 1`] = `
+exports[`<TabelaAdmin/> Renderização deve renderizar TabelaAdmin corretamente 1`] = `
 <section
   className="container"
   id="tabela"
@@ -41,6 +41,7 @@ exports[`Renderiza TabelaAdmin corretamente 1`] = `
           <button
             className="mantine-UnstyledButton-root mantine-Button-root buttontr mantine-1dp1ht"
             data-button={true}
+            data-testid="button-cadastro"
             onClick={[Function]}
             type="button"
           >
@@ -64,7 +65,12 @@ exports[`Renderiza TabelaAdmin corretamente 1`] = `
           className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 css-iv7vbz-MuiGrid-root"
         >
           <div
-            className="MuiFormControl-root MuiFormControl-fullWidth css-q8hpuo-MuiFormControl-root"
+            className="MuiFormControl-root css-1nrlq1o-MuiFormControl-root"
+            style={
+              {
+                "width": "100%",
+              }
+            }
           >
             <label
               className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root"
@@ -72,34 +78,37 @@ exports[`Renderiza TabelaAdmin corretamente 1`] = `
             >
               A tabela que deseja ver
             </label>
-            <div
-              fullWidth={true}
-              label="A tabela que deseja ver"
+            <select
+              data-select="Presentes"
+              data-testid="select-table"
               onChange={[Function]}
               value="Presentes"
             >
-              <div
+              <option
+                data-testid="option-presentes"
                 value="Presentes"
               >
                  
                 Presentes
                  
-              </div>
-              <div
+              </option>
+              <option
+                data-testid="option-recados"
                 value="Recados"
               >
                  
                 Recados
                  
-              </div>
-              <div
+              </option>
+              <option
+                data-testid="option-presenca"
                 value="Lista de presença"
               >
                  
                 Lista de presença
                  
-              </div>
-            </div>
+              </option>
+            </select>
           </div>
         </div>
       </div>
@@ -204,6 +213,7 @@ exports[`Renderiza TabelaAdmin corretamente 1`] = `
           >
             <tr
               className="MuiTableRow-root css-1ffuvkz-MuiTableRow-root"
+              data-testid="item-presente"
               role={null}
             >
               <td
@@ -334,6 +344,7 @@ exports[`Renderiza TabelaAdmin corretamente 1`] = `
             </tr>
             <tr
               className="MuiTableRow-root css-1ffuvkz-MuiTableRow-root"
+              data-testid="item-presente"
               role={null}
             >
               <td
@@ -471,26 +482,172 @@ exports[`Renderiza TabelaAdmin corretamente 1`] = `
               className="MuiTableRow-root MuiTableRow-footer css-1q1u3t4-MuiTableRow-root"
               role={null}
             >
-              <div
-                ActionsComponent={[Function]}
+              <td
+                aria-sort={null}
+                className="MuiTableCell-root MuiTableCell-footer MuiTableCell-sizeMedium MuiTablePagination-root css-fikjyc-MuiTableCell-root-MuiTablePagination-root"
                 colSpan={10}
-                count={2}
-                onPageChange={[Function]}
-                onRowsPerPageChange={[Function]}
-                page={0}
-                rowsPerPage={5}
-                rowsPerPageOptions={
-                  [
-                    5,
-                    10,
-                    25,
-                    {
-                      "label": "All",
-                      "value": -1,
-                    },
-                  ]
-                }
-              />
+              >
+                <div
+                  className="MuiToolbar-root MuiToolbar-gutters MuiToolbar-regular MuiTablePagination-toolbar css-78c6dr-MuiToolbar-root-MuiTablePagination-toolbar"
+                >
+                  <div
+                    className="MuiTablePagination-spacer css-1psng7p-MuiTablePagination-spacer"
+                  />
+                  <p
+                    className="MuiTablePagination-selectLabel css-pdct74-MuiTablePagination-selectLabel"
+                    id=":r4:"
+                  >
+                    Rows per page:
+                  </p>
+                  <div
+                    className="MuiInputBase-root MuiInputBase-colorPrimary MuiTablePagination-input css-16c50h-MuiInputBase-root-MuiTablePagination-select"
+                    onClick={[Function]}
+                  >
+                    <div
+                      aria-controls=":r5:"
+                      aria-expanded="false"
+                      aria-haspopup="listbox"
+                      aria-labelledby=":r4: :r3:"
+                      className="MuiSelect-select MuiTablePagination-select MuiSelect-standard MuiInputBase-input css-194a1fa-MuiSelect-select-MuiInputBase-input"
+                      id=":r3:"
+                      onBlur={[Function]}
+                      onFocus={[Function]}
+                      onKeyDown={[Function]}
+                      onMouseDown={[Function]}
+                      role="combobox"
+                      tabIndex={0}
+                    >
+                      5
+                    </div>
+                    <input
+                      aria-hidden={true}
+                      aria-invalid={false}
+                      className="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+                      disabled={false}
+                      onAnimationStart={[Function]}
+                      onChange={[Function]}
+                      tabIndex={-1}
+                      value={5}
+                    />
+                    <svg
+                      aria-hidden={true}
+                      className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiTablePagination-selectIcon MuiSelect-iconStandard css-pqjvzy-MuiSvgIcon-root-MuiSelect-icon"
+                      data-testid="ArrowDropDownIcon"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M7 10l5 5 5-5z"
+                      />
+                    </svg>
+                  </div>
+                  <p
+                    className="MuiTablePagination-displayedRows css-levciy-MuiTablePagination-displayedRows"
+                  >
+                    1–2 of 2
+                  </p>
+                  <div
+                    className="MuiBox-root css-iganph"
+                  >
+                    <div
+                      aria-label="first page"
+                      disabled={true}
+                      onClick={[Function]}
+                      style={
+                        {
+                          "color": "#757575",
+                          "cursor": "pointer",
+                          "margin": "1vh 0.25vw",
+                        }
+                      }
+                    >
+                      <svg
+                        aria-hidden={true}
+                        className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                        data-testid="FirstPageIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M18.41 16.59 13.82 12l4.59-4.59L17 6l-6 6 6 6zM6 6h2v12H6z"
+                        />
+                      </svg>
+                    </div>
+                    <div
+                      aria-label="previous page"
+                      disabled={true}
+                      onClick={[Function]}
+                      style={
+                        {
+                          "color": "#757575",
+                          "cursor": "pointer",
+                          "margin": "1vh 0.25vw",
+                        }
+                      }
+                    >
+                      <svg
+                        aria-hidden={true}
+                        className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                        data-testid="KeyboardArrowLeftIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M15.41 16.59 10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"
+                        />
+                      </svg>
+                    </div>
+                    <div
+                      aria-label="next page"
+                      disabled={true}
+                      onClick={[Function]}
+                      style={
+                        {
+                          "color": "#757575",
+                          "cursor": "pointer",
+                          "margin": "1vh 0.25vw",
+                        }
+                      }
+                    >
+                      <svg
+                        aria-hidden={true}
+                        className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                        data-testid="KeyboardArrowRightIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M8.59 16.59 13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"
+                        />
+                      </svg>
+                    </div>
+                    <div
+                      aria-label="last page"
+                      disabled={true}
+                      onClick={[Function]}
+                      style={
+                        {
+                          "color": "#757575",
+                          "cursor": "pointer",
+                          "margin": "1vh 0.25vw",
+                        }
+                      }
+                    >
+                      <svg
+                        aria-hidden={true}
+                        className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                        data-testid="LastPageIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M5.59 7.41 10.18 12l-4.59 4.59L7 18l6-6-6-6zM16 6h2v12h-2z"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </td>
             </tr>
           </tfoot>
         </table>
@@ -498,5 +655,8 @@ exports[`Renderiza TabelaAdmin corretamente 1`] = `
     </div>
   </div>
   <div />
+  <div>
+    <div />
+  </div>
 </section>
 `;

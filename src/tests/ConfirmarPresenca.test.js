@@ -81,7 +81,7 @@ describe('<ConfirmarPresenca/>', () => {
 			fireEvent.click(screen.getByTestId('cancel-button'));
 
 			await waitFor(() => {
-				expect(screen.getByTestId('dialog-mui')).toBeEnabled()
+				expect(screen.queryByTestId('dialog-mui')).not.toBeInTheDocument();
 			});
 		});
 

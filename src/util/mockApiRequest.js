@@ -29,14 +29,6 @@ const mockApiRequest = jest.fn((method, endpoint, data) => {
             else if (endpoint === '/recados/list') {
                 return Promise.resolve([
                     {
-                        "recado": "lorem ipslum texto hehe",
-                        "updated": "2023-12-17T00:06:11.783Z",
-                        "created": "2023-12-17T00:06:11.783Z",
-                        "nome": "lucas augsue",
-                        "email": "lucasaugsue7@gmail.com",
-                        "id": "c0a394d2f8be89ec46507751a65a2cce"
-                    },
-                    {
                         "recado": "Site bem poggers, ngl",
                         "updated": "2023-12-13T20:00:34.640Z",
                         "created": "2023-12-13T20:00:34.640Z",
