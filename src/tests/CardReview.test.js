@@ -12,21 +12,25 @@ const item = {
     "id": "27ab93168ffb6730d4a0e62336d184e9"
 }
 
-test('Renderiza CardReview corretamente', async () => {
-    const handleChange = jest.fn();
-    const compartilhar = jest.fn();
 
-    const tree = renderer.create(
-        <CardReview 
-            params={{
-                ...item, 
-                color_id: 1,
-                handleChange: handleChange,
-                compartilhar: compartilhar
-            }} 
-        />
-    ).toJSON();
+describe('<CardReview/>', () => {
+    describe('Renderização', () => {
+        test('deve renderizar CardReview corretamente', async () => {
+            const handleChange = jest.fn();
+            const compartilhar = jest.fn();
 
-    // Verifica se o snapshot corresponde ao esperado
-    expect(tree).toMatchSnapshot();
+            const tree = renderer.create(
+                <CardReview 
+                    params={{
+                        ...item, 
+                        color_id: 1,
+                        handleChange: handleChange,
+                        compartilhar: compartilhar
+                    }} 
+                />
+            ).toJSON();
+
+            expect(tree).toMatchSnapshot();
+        });
+    });
 });

@@ -1,26 +1,9 @@
 import '@testing-library/jest-dom';
+import { fireEvent, render, screen } from '@testing-library/react';
 import renderer, { act } from 'react-test-renderer';
 import ClientContext from '../contexts/ClientContext';
 import EscreverRecado from '../screens/EscreverRecado';
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
-
-/**
- * @jest-environment jsdom
- */
-
-const mockApiRequest = jest.fn(() =>
-    Promise.resolve({
-        item: {
-            id: 3,
-            nome: 'lucas augsue',
-            email: 'lucasaugsue7@gmail.com',
-            recado: 'lorem ipslum texto hehe',
-            created: '2024-01-02T18:50:52.642Z',
-            updated: '2024-01-02T18:50:52.642Z',
-        },
-        message: 'Criado com sucesso!',
-    })
-);
+import mockApiRequest from '../util/mockApiRequest';
 
 describe('<EscreverRecado/>', () => {
 	describe('Renderização', () => {

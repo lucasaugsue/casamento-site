@@ -1,13 +1,9 @@
 import '@testing-library/jest-dom';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import renderer, { act } from 'react-test-renderer';
-import mockApiRequest from '../util/mockApiRequest';
 import ClientContext from '../contexts/ClientContext';
 import ListaDePresentes from '../screens/ListaDePresentes';
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
-
-/**
- * @jest-environment jsdom
- */
+import mockApiRequest from '../util/mockApiRequest';
 
 jest.mock('../components/BasicPagination', () => {
     return jest.fn((props) => (

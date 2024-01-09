@@ -1,11 +1,7 @@
 import '@testing-library/jest-dom';
-import renderer, { act } from 'react-test-renderer';
+import { render, screen, waitFor } from '@testing-library/react';
+import renderer from 'react-test-renderer';
 import InformationDialog from '../components/InformationDialog';
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
-
-/**
- * @jest-environment jsdom
- */
 
 jest.mock('@mui/material/Dialog', () => {
 	return {

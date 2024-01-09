@@ -1,11 +1,7 @@
 import '@testing-library/jest-dom';
+import { render, screen } from '@testing-library/react';
 import renderer from 'react-test-renderer';
 import ImagemDoCasal from '../screens/ImagemDoCasal';
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
-
-/**
- * @jest-environment jsdom
- */
 
 describe('<ImagemDoCasal/>', () => {
 	describe('Renderização', () => {

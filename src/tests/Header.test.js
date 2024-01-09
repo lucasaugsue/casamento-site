@@ -3,10 +3,6 @@ import Header from '../screens/Header';
 import renderer from 'react-test-renderer';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 
-/**
- * @jest-environment jsdom
- */
-
 describe('<Header/>', () => {
 
 	describe('Renderização', () => {

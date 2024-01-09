@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom';
+import { render, screen, waitFor } from '@testing-library/react';
 import renderer from 'react-test-renderer';
 import PixDialog from '../components/PixDialog';
-import { render, fireEvent, screen, waitFor } from '@testing-library/react';
 
 jest.mock('@mui/material/Dialog', () => {
     return {
@@ -22,11 +22,6 @@ jest.mock('@mui/material/Dialog', () => {
         ),
     };
 });
-
-
-/**
- * @jest-environment jsdom
- */
 
 describe('<PixDialog/>', () => {
 

@@ -5,10 +5,6 @@ import ClientContext from '../contexts/ClientContext';
 import mockApiRequest from '../util/mockApiRequest';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 
-/**
- * @jest-environment jsdom
- */
-
 describe('<Footer/>', () => {
     describe('Renderização', () => {
         test('deve renderizar Footer corretamente', async () => {

@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import renderer from 'react-test-renderer';
 import BasicPagination from '../components/BasicPagination';
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 
 jest.mock('@mui/material/Pagination', () => {
     return (props) => (
@@ -23,7 +23,6 @@ describe('<BasicPagination/>', () => {
 				<BasicPagination page={1} count={10} handleChange={handleChange} />
 			).toJSON();
 
-			// Verifica se o snapshot corresponde ao esperado
 			expect(tree).toMatchSnapshot();
 		});
 	});

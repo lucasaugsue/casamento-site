@@ -1,11 +1,7 @@
 import '@testing-library/jest-dom';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import renderer from 'react-test-renderer';
 import TablePaginationActions from '../components/TablePaginationActionsComponent';
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
-
-/**
- * @jest-environment jsdom
- */
 
 describe('<TablePaginationActions/>', () => {
     describe('Renderização', () => {
